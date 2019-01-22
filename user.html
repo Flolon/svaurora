@@ -1,0 +1,152 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Aurora</title>
+    <link rel="apple-touch-icon" href="assets/web.png">
+    <meta name="apple-mobile-web-app-title" content="Aurora">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <script type="text/javascript">
+        if (("standalone" in window.navigator) && window.navigator.standalone) {
+            var noddy, remotes = false;
+            document.addEventListener('click', function (event) {
+                noddy = event.target;
+                while (noddy.nodeName !== "A" && noddy.nodeName !== "HTML") {
+                    noddy = noddy.parentNode;
+                }
+                if ('href' in noddy && noddy.href.indexOf('http') !== -1 && (noddy.href.indexOf(document.location.host) !== -1 || remotes)) {
+                    event.preventDefault();
+                    document.location.href = noddy.href;
+                }
+            }, false);
+        }
+    </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/themes/dark.css" id="themer">
+    <link rel="stylesheet" href="css/themer.css">
+    <link rel="stylesheet" href="css/feed.css">
+    <link rel="stylesheet" href="css/post.css">
+    <link rel="icon" type="image/png" href="assets/fav.png">
+</head>
+<body>
+    <div id="load">
+        <br />
+        <div class="container" id="centerback">
+            <center>
+                <img src="Load.gif" width="75" height="75"><br />
+                NOW LOADING
+            </center>
+        </div>
+    </div>
+    <div id="thepage" style="display:none">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/aurora_nav.png" height="35" alt="Aurora logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="basicExampleNav">
+                <ul class="navbar-nav mr-auto" id="loggedout">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Log In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="settings.html">Settings</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav mr-auto" id="loggedin" style="display:none">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="newpost.html">New Post</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="messenger.html">Messenger</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false"><img id="navpfp" src="Load.gif" style="width:25px;height:25px;border-radius:50%;" /></a>
+                        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="settings.html">Settings</a>
+                            <a class="dropdown-item" href="logout.html">Sign Out</a>
+                        </div>
+                    </li>
+                </ul>
+                <form class="form-inline">
+                    <div class="md-form my-0">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search Posts" aria-label="Search">
+                    </div>
+                </form>
+            </div>
+        </nav>
+        <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="js/popper.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/mdb.min.js"></script>
+        <script src="js/global.js"></script>
+        <script src="js/user.js"></script>
+        <br />
+        <br />
+        <br />
+        <div class="container-fluid text-center text-md-left">
+            <br />
+            <div class="card">
+                <br />
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 mt-md-0 mt-3">
+                            <div id="userstuffs">
+                                <img id="pfp" src="Load.gif" style="width:64px;height:64px;border-radius:50%;" /> <span id="username"><img src="Load.gif" width="50" height="50"></span>
+                                <div id="rank">Could not load rank.</div>
+                                <div id="name">Could not load name.</div>
+                                <div id="email">Could not load email.</div>
+                                <div id="bday">Could not load birthday.></div>
+                                <br>
+                                <div id="bio" style="display:none">
+                                    <div class="card onbio">
+                                        <br />
+                                        <div class="container">
+                                            <div id="biobio"></div>
+                                        </div>
+                                    </div>
+                                    <br />
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+            </div>
+            <br />
+            <div id="posts">
+                <center> Aurora could not load the profile page from the STiBaRC servers. Check your internet connection on your device and the STiBaRC server status <a href="https://status.stibarc.gq/">here</a>.</center>
+            </div>
+        </div>
+        <br />
+        </div>
+</body>
+
+
+
+</html>

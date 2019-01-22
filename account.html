@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>My Account - Aurora</title>
+    <link rel="apple-touch-icon" href="assets/web.png">
+    <meta name="apple-mobile-web-app-title" content="Aurora">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <script type="text/javascript">
+        if (("standalone" in window.navigator) && window.navigator.standalone) {
+            var noddy, remotes = false;
+            document.addEventListener('click', function (event) {
+                noddy = event.target;
+                while (noddy.nodeName !== "A" && noddy.nodeName !== "HTML") {
+                    noddy = noddy.parentNode;
+                }
+                if ('href' in noddy && noddy.href.indexOf('http') !== -1 && (noddy.href.indexOf(document.location.host) !== -1 || remotes)) {
+                    event.preventDefault();
+                    document.location.href = noddy.href;
+                }
+            }, false);
+        }
+    </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/themes/dark.css" id="themer">
+    <link rel="stylesheet" href="css/themer.css">
+    <link rel="stylesheet" href="css/settings.css">
+    <link rel="icon" type="image/png" href="assets/fav.png">
+</head>
+
+
+<body>
+    <div id="load">
+        <br />
+        <div class="container" id="centerback">
+            <center>
+                <img src="Load.gif" width="75" height="75"><br />
+                NOW LOADING
+            </center>
+        </div>
+    </div>
+    <div id="thepage" style="display:none">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" onclick="goBack()">
+                <img src="assets/aurora_nav.png" height="35" alt="Aurora logo">
+                Back | My Account
+                <script>
+                    function goBack() {
+                        window.history.back();
+                    }
+                </script>
+
+            </a>
+        </nav>
+
+        <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="js/popper.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/mdb.min.js"></script>
+        <script src="js/global.js"></script>
+        <script src="js/account.js"></script>
+        <br />
+        <br />
+        <br />
+        <div class="container-fluid text-center text-md-left">
+            <br />
+            <div class="card">
+                <br />
+                <div class="container">
+                    <div id="loggedout">
+                        To edit a profile, you must log in.
+                    </div>
+                    <div id="loggedin" style="display:none">
+                        <div id="settopic">
+                            Profile Preview
+                        </div>
+                        <br />
+                        <center>
+                            When a user views your profile on Aurora and other STiBaRC clients, the following information will be displayed as shown below. You can edit this information or choose to not display it.
+                        </center>
+                        <div id="userstuffs">
+                            <img id="prepfp" src="Load.gif" style="width:64px;height:64px;border-radius:50%;" /> <span id="preusername"><img src="Load.gif" width="50" height="50"></span>
+                            <div id="prerank">Could not load rank.</div>
+                            <div id="prename">Could not load name.</div>
+                            <div id="preemail">Could not load email.</div>
+                            <div id="prebday">Could not load birthday.</div>
+                            <br>
+                            <div class="card onbio">
+                                <br />
+                                <div class="container">
+                                    <div id="prebio" style="display:none"><div id="prebiobio"></div></div>
+                                </div>
+                                <br />
+                            </div>
+                            <br>
+                        </div>
+                        <hr />
+                        <div id="settopic">
+                            Profile Options
+                        </div>
+                        <br />
+                        <div class="row">
+                            <a href="editprofile.html" class="col-md-6 mt-md-0 mt-3 setting">
+                                <br />
+                                Edit Profile
+                                <hr />
+                            </a>
+                        </div>
+                    </div>
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+</body>
+</html>

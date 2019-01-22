@@ -1,0 +1,17 @@
+:root {
+    --textcolor: black;
+    --backing: #594bd7;
+    --header-backing: #3b7cffff;
+    --header-textcolor: white;
+    --card-backing: white;
+    --button-backing: #3b7cffff;
+    --footer-textcolor: white;
+    --footer-backing: #3b7cffff;
+    --bioback: #F0F0F0;
+    --hrback: #2f2f2f;
+    --topiccolor: #6211e6ff;
+    --settinghover: #6211e6ff;
+    --setdesc: #acacac;
+    --link: #acadfe;
+    --touchlink: #6c17e8;
+}

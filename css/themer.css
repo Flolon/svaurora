@@ -1,0 +1,86 @@
+body {
+    color: var(--textcolor);
+    background-color: var(--backing);
+}
+
+nav {
+    background-color: var(--header-backing);
+    color: var(--header-textcolor);
+}
+
+.card {
+    background-color: var(--card-backing);
+}
+
+.btn {
+    background-color: var(--button-backing);
+}
+
+footer {
+    color: var(--footer-textcolor);
+    background-color: var(--footer-backing);
+}
+
+.transparent {
+    background-color: transparent;
+    color: var(--textcolor);
+}
+
+.navpfp {
+    float: left
+}
+
+.on-back {
+    background-color: var(--header-backing)
+}
+
+#username {
+    font-size: 150%;
+}
+
+.onbio {
+    background-color: var(--bioback);
+    color: var(--textcolor);
+}
+
+hr {
+    background-color: var(--hrback)
+}
+
+textarea {
+    color: var(--textcolor);
+    background-color: var(--card-backing);
+}
+
+input {
+    color: var(--textcolor);
+    background-color: var(--card-backing);
+}
+
+#settopic {
+    color: var(--topiccolor)
+}
+
+#centerback {
+    height: 200px;
+    width: 400px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -200px;
+}
+
+.centerback2 {
+    height: 200px;
+    width: 400px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -200px;
+}
+
+#setdesc {
+    color: var(--setdesc);
+}
