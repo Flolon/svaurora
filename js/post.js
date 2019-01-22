@@ -151,6 +151,18 @@ function delpost() {
     }
 }
 
+function greenify() {
+	var content = document.getElementById("content").innerHTML;
+	var tmp = content.split("<br>");
+	for (var i = 0; i < tmp.length; i++) {
+		if (tmp[i].split("")[0] == "&" && tmp[i].split("")[1] == "g" && tmp[i].split("")[2] == "t" && tmp[i].split("")[3] == ";" && tmp[i].split("")[4] != " ") {
+			console.log(i);
+			tmp[i] = '<span style="color:green;">'+tmp[i]+"</span>"
+		}
+	}
+	document.getElementById("content").innerHTML = tmp.join("<br>");
+}
+
 window.onload = function () {
     pushed = false;
     var sess = window.localStorage.getItem("sess");
@@ -169,13 +181,15 @@ window.onload = function () {
     document.title = stuff.title + " - Aurora";
     document.getElementById("dateandstuff").innerHTML = 'Posted by <a href="user.html?id=' + stuff.poster + '">' + stuff.poster + '</a><span id="verified" title="Verified user" style="display:none">' + ' <img src="assets/verify.png" alt="Verified user"></span> at ' + stuff.postdate;
     checkVerified(stuff.poster);
-    if (stuff.poster == "herronjo" || stuff.poster == "DomHupp" || stuff.poster == "Aldeenyo" || stuff.poster == "savaka" || stuff.poster == "-Verso-") {
-        document.getElementById("content").innerHTML = stuff.content.replace(/\r\n/g, "<br/>");
-    } else {
-        document.getElementById("content").innerHTML = stuff.content.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\r\n/g, "<br/>");
-    } if (stuff['edited'] == true) {
-        document.getElementById("edited").style.display = "";
-    }
+if (stuff.poster == "herronjo" || stuff.poster == "DomHupp" || stuff.poster == "Aldeenyo" || stuff.poster == "savaka" || stuff.poster == "-Verso-") {
+		document.getElementById("content").innerHTML = stuff.content.replace(/\r\n/g, "<br/>");
+	} else {
+		document.getElementById("content").innerHTML = stuff.content.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\r\n/g, "<br/>");
+	}
+	greenify();
+	if (stuff['edited'] == true) {
+		document.getElementById("edited").style.display = "";
+	}
     if (stuff.poster == window.localStorage.getItem("username") && getRank() != "User") {
         document.getElementById("editlink").style.display = "";
     }
