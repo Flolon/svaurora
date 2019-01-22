@@ -1,7 +1,7 @@
 ﻿function toLink(id, item) {
     try {
         if (item['deleted']) { item['title'] = "Post removed" }
-        document.getElementById("list").innerHTML = document.getElementById("list").innerHTML.concat('<div class="container-fluid text-center text-md-left"><div class="card"><br><div class="container"><a href="post.html?id=').concat(id).concat('"><b>').concat(item['title'].replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")).concat('</b></a><br/>Posted by <a href="user.html?id=').concat(item['poster']).concat('">').concat(item['poster']).concat('</a><br/><img src="assets/up.png" height="18" alt="Up Votes"> ' + item['upvotes'] + ' <img src="assets/Down.png" height="18" alt="Down Votes"> ' + item['downvotes'] + "</div><br></div></div><br>");
+        document.getElementById("list").innerHTML = document.getElementById("list").innerHTML.concat('<div class="container-fluid text-center text-md-left"><div class="card"><br><div class="container"><a href="post.html?id=').concat(id).concat('"><b>').concat(item['title'].replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")).concat('</b></a><br/>Posted by <a href="user.html?id=').concat(item['poster']).concat('">').concat(item['poster']).concat('</a><br/><img src="assets/up.png" height="18" alt="Up Votes"> ' + item['upvotes'] + ' <img src="assets/down.png" height="18" alt="Down Votes"> ' + item['downvotes'] + "</div><br></div></div><br>");
         lastid = id;
     } catch (err) {
         console.log(err);
