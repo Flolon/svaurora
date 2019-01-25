@@ -84,3 +84,7 @@ input {
 #setdesc {
     color: var(--setdesc);
 }
+
+.hoverbutton:hover {
+    color:var(--textcolor)
+}
