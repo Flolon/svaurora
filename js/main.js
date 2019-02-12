@@ -1,6 +1,6 @@
 ﻿function toLink(id, item) {
     try {
-        if (item['deleted']) { item['title'] = "Post removed" }
+        if (item['deleted']) { item['title'] = "Post Removed By Admin" }
         document.getElementById("list").innerHTML = document.getElementById("list").innerHTML.concat('<div class="container-fluid text-center text-md-left"><div class="card"><br><div class="container"><a href="post.html?id=').concat(id).concat('"><b>').concat(item['title'].replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")).concat('</b></a><br/>Posted by <a href="user.html?id=').concat(item['poster']).concat('">').concat(item['poster']).concat('</a><br/><img src="assets/up.png" height="18" alt="Up Votes"> ' + item['upvotes'] + ' <img src="assets/down.png" height="18" alt="Down Votes"> ' + item['downvotes'] + "</div><br></div></div><br>");
         lastid = id;
     } catch (err) {
@@ -45,6 +45,39 @@ function loadMore() {
     }
 }
 
+function getSVAnnounce() {
+    var sess = window.localStorage.getItem("sess");
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "https://raw.githubusercontent.com/VersoCre/svaurora/master/announce.json", true);
+    xhr.send(null);
+    xhr.onload = function (e) {
+        if (xhr.responseText != "\n") {
+            var tmp = JSON.parse(xhr.responseText);
+            document.getElementsByTagName("body")[0].innerHTML = '<br><br><br><div id="announce2" style="text-align:center;background-color:#ffae00;word-wrap:break-word;padding:15px;<h2>' + tmp['title'] + '</h2>' + tmp['content'] + '</div>' + document.getElementsByTagName("body")[0].innerHTML;
+        }
+        document.getElementById("welcomeintro").style.display = "none";
+        document.getElementById("announce2").style.display = "none";
+
+    }
+}
+
+function getAnnounce() {
+    var sess = window.localStorage.getItem("sess");
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "https://api.stibarc.gq/getannounce.sjs?sess=" + sess, true);
+    xhr.send(null);
+    xhr.onload = function (e) {
+        if (xhr.responseText != "\n") {
+            var tmp = JSON.parse(xhr.responseText);
+            document.getElementById("welcomeintro").style.display = "none";
+            document.getElementsByTagName("body")[0].innerHTML = '<br><br><br><div id="announce" style="text-align:center;background-color:#ffae00;word-wrap:break-word;padding:15px;"><h2>STIBARC SERVICE ANNOUNCEMENT</h2>' + tmp['content'] + '</div>' + document.getElementsByTagName("body")[0].innerHTML;
+        }
+        document.getElementById("loadmore").onclick = function (evt) {
+            loadMore();
+        }
+    }
+}
+
 window.onload = function () {
     document.getElementById("load").style.display = "none";
     document.getElementById("thepage").style.display = "";
@@ -59,9 +92,6 @@ window.onload = function () {
         document.getElementById("loggedout-").style.display = "none";
         document.getElementById("loggedin-").style.display = "";
     }
-    document.getElementById("loadmore").onclick = function (evt) {
-        loadMore();
-    }
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", "https://api.stibarc.gq/v2/getposts.sjs", false);
     try {
@@ -72,6 +102,8 @@ window.onload = function () {
     document.getElementById("user").innerHTML = ' Welcome back to Aurora,  '.concat(user) + '.';
     document.getElementById("loadmorecontainer").style.display = "";
     if (!offline) {
+        getAnnounce();
+        getSVAnnounce();
         if (window.localStorage.getItem("username") == "" || window.localStorage.getItem("username") == undefined) {
             if (sess != undefined && sess != null && sess != "") {
                 getUsername();
