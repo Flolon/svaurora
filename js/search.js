@@ -45,6 +45,7 @@ window.onload = function () {
         document.getElementById("loggedin").style.display = "";
     }
     q = getAllUrlParams().q;
+    search();
     var thing = new XMLHttpRequest();
     var name = window.localStorage.getItem("username");
     thing.open("GET", "https://api.stibarc.gq/v2/getuser.sjs?id=" + name, false);
@@ -52,5 +53,4 @@ window.onload = function () {
     var tmp = JSON.parse(thing.responseText);
     var navpfp = tmp['pfp'];
     document.getElementById("navpfp").src = navpfp + ' ';
-    search();
 }

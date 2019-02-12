@@ -34,10 +34,6 @@ footer {
     background-color: var(--header-backing)
 }
 
-#username {
-    font-size: 150%;
-}
-
 .onbio {
     background-color: var(--bioback);
     color: var(--textcolor);
