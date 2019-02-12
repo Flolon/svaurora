@@ -179,7 +179,14 @@ window.onload = function () {
     var stuff = JSON.parse(xmlHttp.responseText);
     document.getElementById("title").innerHTML = stuff.title.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
     document.title = stuff.title + " - Aurora";
-    document.getElementById("dateandstuff").innerHTML = 'Posted by <a href="user.html?id=' + stuff.poster + '">' + stuff.poster + '</a><span id="verified" title="Verified user" style="display:none">' + ' <img src="assets/verify.png" alt="Verified user"></span> at ' + stuff.postdate;
+    var thing2 = new XMLHttpRequest();
+    thing2.open("GET", "https://api.stibarc.gq/v2/getuser.sjs?id=" + stuff.poster, false);
+    thing2.send(null);
+    var tmp2 = JSON.parse(thing2.responseText);
+    var posterpfp = tmp2['pfp'];
+    document.getElementById("postpfp").src = posterpfp + ' ';
+    document.getElementById("theposter").innerHTML = ' <a href="user.html?id=' + stuff.poster + '">' + stuff.poster + '</a><span id="verified" title="Verified user" style="display:none"> <img src="assets/verify.png" alt="Verified user"></span>';
+    document.getElementById("dateandstuff").innerHTML = stuff.postdate;
     checkVerified(stuff.poster);
 if (stuff.poster == "herronjo" || stuff.poster == "DomHupp" || stuff.poster == "Aldeenyo" || stuff.poster == "savaka" || stuff.poster == "-Verso-") {
 		document.getElementById("content").innerHTML = stuff.content.replace(/\r\n/g, "<br/>");
@@ -203,7 +210,12 @@ if (stuff.poster == "herronjo" || stuff.poster == "DomHupp" || stuff.poster == "
     if (xmlHttp.responseText != "undefined\n") {
         var comments = JSON.parse(xmlHttp.responseText);
         for (var key in comments) {
-            document.getElementById("comments").innerHTML = document.getElementById("comments").innerHTML + '<div class="card" id="comment"><div class="container"><br><a href="user.html?id=' + comments[key]['poster'].replace(/&/g, "&amp;") + '">' + comments[key]['poster'] + '</a><br/>' + comments[key]['content'].replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/\r\n/g, "<br/>") + '<br/><a class="replyto" href="javascript:replyto(' + "'" + comments[key]['poster'] + "'" + ')"><i>Reply</i></a></div><br></div><br></div>';
+            var thing3 = new XMLHttpRequest();
+            thing3.open("GET", "https://api.stibarc.gq/v2/getuser.sjs?id=" + comments[key]['poster'].replace(/&/g, "&amp;"), false);
+            thing3.send(null);
+            var tmp3 = JSON.parse(thing3.responseText);
+            var commentpfp = tmp3['pfp'];
+            document.getElementById("comments").innerHTML = document.getElementById("comments").innerHTML + '<div class="card" id="comment"><div class="container"><br><a href="user.html?id=' + comments[key]['poster'].replace(/&/g, "&amp;") + '"><img src="' + commentpfp + '"style="width:54px;height:54px;border-radius:50%;" /> ' + comments[key]['poster'] + '</a><br/>' + comments[key]['content'].replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/\r\n/g, "<br/>") + '<br/><a class="replyto" href="javascript:replyto(' + "'" + comments[key]['poster'] + "'" + ')"><i>Reply</i></a></div><br></div><br></div>';
         }
     } else {
         document.getElementById("comments").innerHTML = document.getElementById("comments").innerHTML + '<div class="card" id="comment"><div class="container"><br>Be the first to comment on this post.</div><br></div><br></div>';

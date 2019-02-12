@@ -53,7 +53,8 @@ function getSVAnnounce() {
     xhr.onload = function (e) {
         if (xhr.responseText != "\n") {
             var tmp = JSON.parse(xhr.responseText);
-            document.getElementsByTagName("body")[0].innerHTML = '<br><br><br><div id="announce" style="text-align:center;background-color:#ffae00;word-wrap:break-word;padding:15px;"><h2>' + tmp['title'] + '</h2>' + tmp['content'] + '</div>' + document.getElementsByTagName("body")[0].innerHTML;
+            document.getElementById("welcomeintro").style.display = "none";
+            document.getElementsByTagName("body")[0].innerHTML = '<br><br><br><div id="announce" style="text-align:center;background-color:#0083ff;word-wrap:break-word;padding:15px;color:white"><h2>' + tmp['title'] + '</h2>' + tmp['content'] + '</div>' + document.getElementsByTagName("body")[0].innerHTML;
         }
     }
 }
