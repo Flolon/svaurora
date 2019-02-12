@@ -1,5 +1,4 @@
 {
   "title": "STIBARC SERVICE ANNOUNCEMENT",
-  "content": "STiBaRC has switched to a more secure password hashing algorithm, SHA-512, for your protection. There has not been a problem or a breach of the password hash storage, it's just a preventative measure.",
-  "learnmore": "<a href='post.html?id=2164'> Learn More</a>"
+  "content": "STiBaRC has switched to a more secure password hashing algorithm, SHA-512, for your protection. There has not been a problem or a breach of the password hash storage, it's just a preventative measure. <a href\"post.html?id=2164\">Learn More</a>",
 }
