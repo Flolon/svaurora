@@ -56,7 +56,6 @@ function getSVAnnounce() {
             document.getElementsByTagName("body")[0].innerHTML = '<br><br><br><div id="announce2" style="text-align:center;background-color:#ffae00;word-wrap:break-word;padding:15px;<h2>' + tmp['title'] + '</h2>' + tmp['content'] + '</div>' + document.getElementsByTagName("body")[0].innerHTML;
         }
         document.getElementById("welcomeintro").style.display = "none";
-        document.getElementById("announce2").style.display = "none";
 
     }
 }
