@@ -53,27 +53,10 @@ function getSVAnnounce() {
     xhr.onload = function (e) {
         if (xhr.responseText != "\n") {
             var tmp = JSON.parse(xhr.responseText);
-            document.getElementsByTagName("body")[0].innerHTML = '<br><br><br><div id="announce2" style="text-align:center;background-color:#ffae00;word-wrap:break-word;padding:15px;<h2>' + tmp['title'] + '</h2>' + tmp['content'] + '</div>' + document.getElementsByTagName("body")[0].innerHTML;
+            document.getElementsByTagName("body")[0].innerHTML = '<br><br><br><div id="announce" style="text-align:center;background-color:#ffae00;word-wrap:break-word;padding:15px;<h2>' + tmp['title'] + '</h2>' + tmp['content'] + '</div>' + document.getElementsByTagName("body")[0].innerHTML;
         }
         document.getElementById("welcomeintro").style.display = "none";
 
-    }
-}
-
-function getAnnounce() {
-    var sess = window.localStorage.getItem("sess");
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", "https://api.stibarc.gq/getannounce.sjs?sess=" + sess, true);
-    xhr.send(null);
-    xhr.onload = function (e) {
-        if (xhr.responseText != "\n") {
-            var tmp = JSON.parse(xhr.responseText);
-            document.getElementById("welcomeintro").style.display = "none";
-            document.getElementsByTagName("body")[0].innerHTML = '<br><br><br><div id="announce" style="text-align:center;background-color:#ffae00;word-wrap:break-word;padding:15px;"><h2>STIBARC SERVICE ANNOUNCEMENT</h2>' + tmp['content'] + '</div>' + document.getElementsByTagName("body")[0].innerHTML;
-        }
-        document.getElementById("loadmore").onclick = function (evt) {
-            loadMore();
-        }
     }
 }
 
@@ -101,7 +84,6 @@ window.onload = function () {
     document.getElementById("user").innerHTML = ' Welcome back to Aurora,  '.concat(user) + '.';
     document.getElementById("loadmorecontainer").style.display = "";
     if (!offline) {
-        getAnnounce();
         getSVAnnounce();
         if (window.localStorage.getItem("username") == "" || window.localStorage.getItem("username") == undefined) {
             if (sess != undefined && sess != null && sess != "") {
