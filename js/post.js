@@ -211,11 +211,11 @@ if (stuff.poster == "herronjo" || stuff.poster == "DomHupp" || stuff.poster == "
         var comments = JSON.parse(xmlHttp.responseText);
         for (var key in comments) {
             var thing3 = new XMLHttpRequest();
-            thing3.open("GET", "https://api.stibarc.gq/v2/getuser.sjs?id=" + comments[key]['poster'].replace(/&/g, "&amp;"), false);
+            thing3.open("GET", "https://api.stibarc.gq/v2/getuser.sjs?id=" + comments[key]['poster'], false);
             thing3.send(null);
             var tmp3 = JSON.parse(thing3.responseText);
             var commentpfp = tmp3['pfp'];
-            document.getElementById("comments").innerHTML = document.getElementById("comments").innerHTML + '<div class="card" id="comment"><div class="container"><br><a href="user.html?id=' + comments[key]['poster'].replace(/&/g, "&amp;") + '"><img src="' + commentpfp + '"style="width:54px;height:54px;border-radius:50%;" /> ' + comments[key]['poster'] + '</a><br/>' + comments[key]['content'].replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/\r\n/g, "<br/>") + '<br/><a class="replyto" href="javascript:replyto(' + "'" + comments[key]['poster'] + "'" + ')"><i>Reply</i></a></div><br></div><br></div>';
+            document.getElementById("comments").innerHTML = document.getElementById("comments").innerHTML + '<div class="card" id="comment"><div class="container"><br><a href="user.html?id=' + comments[key]['poster'] + '"><img src="' + commentpfp + '"style="width:54px;height:54px;border-radius:50%;" /> ' + comments[key]['poster'].replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + '</a><br/>' + comments[key]['content'].replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\r\n/g, "<br/>") + '<br/><a class="replyto" href="javascript:replyto(' + "'" + comments[key]['poster'] + "'" + ')"><i>Reply</i></a></div><br></div><br></div>';
         }
     } else {
         document.getElementById("comments").innerHTML = document.getElementById("comments").innerHTML + '<div class="card" id="comment"><div class="container"><br>Be the first to comment on this post.</div><br></div><br></div>';
