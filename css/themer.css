@@ -84,3 +84,11 @@ input {
 .hoverbutton:hover {
     color:var(--textcolor)
 }
+
+#auroratv {
+    width: 100%;
+}
+
+.the-i {
+    background-color: transparent;
+}

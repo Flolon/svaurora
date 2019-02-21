@@ -3,11 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Attatchment Formats - Aurora</title>
-    <link rel="apple-touch-icon" href="assets/web.png">
-    <meta name="apple-mobile-web-app-title" content="Aurora">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Aurora TV</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <script type="text/javascript">
@@ -30,6 +26,7 @@
     <link href="css/mdb.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/themes/dark.css" id="themer">
     <link rel="stylesheet" href="css/themer.css">
+    <link rel="stylesheet" href="css/tv.css">
     <link rel="icon" type="image/png" href="assets/fav.png">
 </head>
 
@@ -58,33 +55,30 @@
         <br>
         <div class="card">
             <br>
-            <div class="container">
-                <h2>Attatchment Formats</h2>
+            <div class="container the-i">
+                <h2>Aurora TV</h2>
                 <hr />
-                When creating a new post, you can attatch one image, video or audio file. Before uploading, make sure the attatchment format is compatible with Aurora and other clients of STiBaRC.
+                View streams from -Verso- with Mixer.
                 <br>
-                <br>
-                <h3>Images</h3>
-                <br>
-                It is recommended that image files are "PNG" or a "JPG (JPEG)".
-                <br>
-                <br>
-                <h3>Video</h3>
-                <br>
-                It is recommended that video files are "mp4". If you are uploading a video from an iOS device, please note that others <b>WILL NOT</b> be able to view your video because the "mov" format is not supported on other devices.
-                <br>
-                <br>
-                <h3>Audio</h3>
-                <br>
-                It is recommended that audio files are "mp3". You can use an online audio converter on your PC or compatible Android OS device to convert audio files to "mp3" by clicking / tapping the "Convert Audio" button below. Please note this site  is not part of Aurora and is governed by seperate policies.
-                <br>
-                <br>
-                <a href="https://online-audio-converter.com/" class="btn lighten-1 waves-effect waves-light hoverbutton">Convert Audio</a>
-            </div>
-                <br>
+                <iframe allowfullscreen="true" src="https://mixer.com/embed/player/VersoCre?disableLowLatency=1" width="620" height="349" id="auroratv"> </iframe>
             </div>
             <br>
         </div>
+        <br>
+        <div class="card">
+            <br>
+            <div class="container">
+                <h2>STiBaRC TV</h2>
+                <hr />
+                View streams from the STiBaRC TV here on Aurora.
+                <br />
+                    <video controls autoplay>
+                        <source src="https://joshiepoo.gq:8443/stream" type="video/webm">
+                    </video>
+            </div>
+            <br>
+        </div>
+    </div>
     <br>
 </body>
 </html>
