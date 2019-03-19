@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Aurora Messenger</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <script type="text/javascript">
+        if (("standalone" in window.navigator) && window.navigator.standalone) {
+            var noddy, remotes = false;
+            document.addEventListener('click', function (event) {
+                noddy = event.target;
+                while (noddy.nodeName !== "A" && noddy.nodeName !== "HTML") {
+                    noddy = noddy.parentNode;
+                }
+                if ('href' in noddy && noddy.href.indexOf('http') !== -1 && (noddy.href.indexOf(document.location.host) !== -1 || remotes)) {
+                    event.preventDefault();
+                    document.location.href = noddy.href;
+                }
+            }, false);
+        }
+    </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/themes/dark.css" id="themer">
+    <link rel="stylesheet" href="css/themer.css">
+    <link rel="stylesheet" href="css/messenger/messenger.css">
+    <link rel="icon" type="image/png" href="assets/messenger/aurora_messenger.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <div id="load">
+        <br>
+        <div class="container" id="centerback">
+            <center>
+                <img src="load.gif" width="75" height="75"><br>
+                NOW LOADING
+            </center>
+        </div>
+    </div>
+    <div id="thepage" style="display:none">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/messenger/aurora_messenger.png" height="35" alt="Aurora Messenger logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+                aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="basicExampleNav">
+                <ul class="navbar-nav mr-auto" id="loggedout">
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="goBack()">
+                            Back
+                        </a>
+                        <script>
+                            function goBack() {
+                                window.history.back();
+                            }
+                        </script>
+                </ul>
+                <ul class="navbar-nav mr-auto" id="loggedin" style="display:none">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="newpost.html">New Post</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="messenger.html">Messenger</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false"><img id="navpfp" src="load.gif"
+                                style="width:25px;height:25px;border-radius:50%;" /></a>
+                        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="settings.html">Settings</a>
+                            <a class="dropdown-item" href="logout.html">Sign Out</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <br>
+        <br>
+        <br>
+        <div id="loggedout-">
+            <div class="container-fluid text-center text-md-left">
+                <br>
+                <div class="card">
+                    <br />
+                    <div class="container">
+                        <img src="assets/messenger/aurora_messenger.png" class="image" alt="Aurora Messenger logo">
+                        <span class="main-text">
+                            Message others in an instant
+                        </span>
+                        <br>
+                        <br>
+                        With Aurora Messenger, messaging other STiBaRC users has gotten much easier!
+                        <br>
+                        <br>
+                        Message any STiBaRC user regardless of the messaging client they are using.
+                        <br>
+                        <br>
+                        <img src="assets/messenger/sync.png" class="image-2" alt="Client Sync">
+                        <br>
+                        <font size="2">
+                            <i>All rights reserved to the respective owners.</i>
+                        </font>
+                        <hr>
+                        <div class="main-text">
+                            Simple and Easy To Understand Design
+                        </div>
+                        Aurora Messenger features the similar design used in Aurora (formerly BaSTPC), making it easier
+                        to use, but also giving a clean look.
+                        <hr>
+                        <div class="main-text">
+                            Message On The Go or On Any Mobile Device
+                        </div>
+                        Aurora Messenger can be used on desktop on any web browser and on mobile with the Aurora
+                        Messenger app or a mobile web browser.
+                        <hr>
+                        <div class="main-text">
+                            Lots of Exciting Features
+                        </div>
+                        From profile pictures to themes and Quick Profile View, Aurora Messenger utilizes the STiBaRC
+                        Messenger services to a whole new level.
+                        <hr>
+                        <div class="main-text">
+                            Ready To Start?
+                        </div>
+                        To Use Aurora Messenger, you must log in first using your STiBaRC account.
+                        <br>
+                        <a href="login.html" class="btn waves-effect waves-light">Login</a>
+                        <br>
+                        <font size="2">
+                            <i>You can also register an account by selecting "login".</i>
+                        </font>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div id="loggedin-">
+            <div class="container-fluid text-center text-md-left">
+                    <div class="card">
+                            <br>
+                            <div class="container text-center">
+                                    <a href="newchat.html" class="btn waves-effect waves-light">New Conversation</a>
+                                    <a href="messenger.html" class="btn waves-effect waves-light">Refresh</a>
+                            </div>
+                            <br>
+                    </div>
+                    <br>
+                <div class="card">
+                    <br>
+                    <div class="container">
+                        <div id="recentcon">
+                            xd
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+            <br>
+            <footer class="page-footer font-small green darken-3">
+                <br>
+                <div class="container-fluid text-center">
+                    <a href="index.html">
+                        <img src="assets/v_logo.png" alt="Studio Verso" width="100" height="100">
+                    </a>
+                </div>
+                <div class="col-md-12 text-center py-5">
+                    <div class="mb-5 flex-left">
+                        <a class="fb-ic" href="https://www.facebook.com/StuVerso/" target="_blank">
+                            <i class="fa fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                        </a>
+                        <a class="tw-ic" href="https://twitter.com/SVerso_Official/" target="_blank">
+                            <i class="fa fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                        </a>
+                        <a class="gplus-ic" href="https://plus.google.com/u/1/101742450894325935951" target="_blank">
+                            <i class="fa fa-google-plus fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                        </a>
+                        <a class="ins-ic" href="https://www.instagram.com/sverso_official/" target="_blank">
+                            <i class="fa fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-copyright text-center py-3">
+                    &copy; 2019 Studio Verso
+                </div>
+            </footer>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <script src="js/global.js"></script>
+    <script src="js/messenger/conversations.js"></script>
+</body>
+
+</html>

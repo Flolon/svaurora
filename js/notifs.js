@@ -66,7 +66,7 @@ function setupNotifs() {
 			Notification.requestPermission(function (permission) {
 				if (permission == "granted") {
 					window.localStorage.setItem("notifs", "granted");
-                    var notification = new Notification("Aurora", { body: "Notifications for Aurora have been enabled. To disable notifications, check your browser settings.", requireInteraction: true, icon:'assets/notifenabled.png'});
+                    var notification = new Notification("Notifications enabled! - Aurora", { body: "Notifications for Aurora have been enabled. To disable notifications, check your browser settings.", requireInteraction: true, icon:'assets/notifenabled.png'});
 					notification.onclick = function(evt) {
 						window.parent.parent.focus();
 					}

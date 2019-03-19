@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Aurora Messenger</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <script type="text/javascript">
+        if (("standalone" in window.navigator) && window.navigator.standalone) {
+            var noddy, remotes = false;
+            document.addEventListener('click', function (event) {
+                noddy = event.target;
+                while (noddy.nodeName !== "A" && noddy.nodeName !== "HTML") {
+                    noddy = noddy.parentNode;
+                }
+                if ('href' in noddy && noddy.href.indexOf('http') !== -1 && (noddy.href.indexOf(document.location.host) !== -1 || remotes)) {
+                    event.preventDefault();
+                    document.location.href = noddy.href;
+                }
+            }, false);
+        }
+    </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/themes/dark.css" id="themer">
+    <link rel="stylesheet" href="css/themer.css">
+    <link rel="stylesheet" href="css/messenger/messenger.css">
+    <link rel="icon" type="image/png" href="assets/messenger/aurora_messenger.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="index.html">
+            <img src="assets/messenger/aurora_messenger.png" height="35" id="backbutton" alt="Aurora Messenger logo">
+        </a>
+        <a class="nav-link" onclick="goBack()">
+            Back | <span id="user"></span>
+        </a>
+        <script>
+            function goBack() {
+                window.history.back();
+            }
+        </script>
+    </nav>
+    <br>
+    <br>
+    <br>
+        <div class="container-fluid text-center text-md-left">
+            <div class="card">
+                <br>
+                <div class="container">
+                    <div id="chatstuff">
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+        <br>
+        <textarea id="input"></textarea><button id="send">Send</button>
+
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <script src="js/global.js"></script>
+    <script src="js/messenger/chat.js"></script>
+</body>
+
+</html>

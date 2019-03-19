@@ -16,6 +16,10 @@ nav {
     background-color: var(--button-backing);
 }
 
+.btn:hover {
+    color: var(--textcolor)
+}
+
 footer {
     color: var(--footer-textcolor);
     background-color: var(--footer-backing);

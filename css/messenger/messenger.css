@@ -1,0 +1,32 @@
+.main-text {
+    font-size: 175% ;
+}
+
+.image {
+    width: 10%;
+}
+
+@media only screen and (max-width: 700px) {
+    .image {
+        width: 23%;
+    }
+}
+
+.image-2 {
+    width: 55%;
+}
+
+@media only screen and (max-width: 700px) {
+    .image-2 {
+        width: 75%;
+    }
+}
+
+#messages:hover {
+    color: var(--textcolor);
+    text-decoration: underline;    
+}
+
+#messages {
+    color: var(--textcolor);
+}
