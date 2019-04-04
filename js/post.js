@@ -188,7 +188,7 @@ window.onload = function () {
     document.getElementById("theposter").innerHTML = ' <a href="user.html?id=' + stuff.poster + '">' + stuff.poster + '</a><span id="verified" title="Verified user" style="display:none"> <img src="assets/verify.png" alt="Verified user"></span>';
     document.getElementById("dateandstuff").innerHTML = stuff.postdate;
     checkVerified(stuff.poster);
-if (stuff.poster == "herronjo" || stuff.poster == "DomHupp" || stuff.poster == "Aldeenyo" || stuff.poster == "savaka" || stuff.poster == "-Verso-") {
+if (stuff.poster == "herronjo" || stuff.poster == "DomHupp" || stuff.poster == "Aldeenyo" || stuff.poster == "savaka" || stuff.poster == "-Verso-" || stuff.poster == "Bunnbuns") {
 		document.getElementById("content").innerHTML = stuff.content.replace(/\r\n/g, "<br/>");
 	} else {
 		document.getElementById("content").innerHTML = stuff.content.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\r\n/g, "<br/>");
