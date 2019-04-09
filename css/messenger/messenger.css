@@ -30,3 +30,12 @@
 #messages {
     color: var(--textcolor);
 }
+
+#input {
+    height: 100%;
+    width: 100%;
+}
+
+#username {
+    font-size: 150%;
+}

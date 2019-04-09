@@ -3,11 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>About - Aurora</title>
-    <link rel="apple-touch-icon" href="assets/web.png">
-    <meta name="apple-mobile-web-app-title" content="Aurora">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>New Message - Aurora Messenger</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <script type="text/javascript">
@@ -30,55 +26,45 @@
     <link href="css/mdb.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/themes/dark.css" id="themer">
     <link rel="stylesheet" href="css/themer.css">
-    <link rel="stylesheet" href="css/settings.css">
-    <link rel="icon" type="image/png" href="assets/fav.png">
+    <link rel="icon" type="image/png" href="assets/messenger/aurora_messenger.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-
 
 <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
         <a class="navbar-brand" onclick="goBack()">
-            <img src="assets/aurora_nav.png" height="35" alt="Aurora logo">
-            Back | About
+            <img src="assets/messenger/aurora_messenger.png" height="35" alt="Aurora Messenger logo">
+            Back | New Conversation
             <script>
                 function goBack() {
                     window.history.back();
                 }
             </script>
-
         </a>
     </nav>
-
+    <br>
+    <br>
+    <br>
+    <div class="container-fluid text-center text-md-left">
+        <div class="card">
+            <br>
+            <div class="container">
+                <h4>New Message</h4>
+                <div id="none" style="display:none">We couldn't find a user with that name. Usernames are case sensitive. Be sure to double check your recipient's username.</div>
+                Username:<br /> <input type="text" id="username"><br />
+                <button id="go" class="btn waves-effect waves-light">Create new message</button>
+                <br />
+                <b>TIP:</b> Usernames are case sensitive. Be sure to double check your recipient's username.
+            </div>
+            <br />
+        </div>
+    </div>
+    <br>
     <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="js/popper.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/mdb.min.js"></script>
     <script src="js/global.js"></script>
-    <br>
-    <br>
-    <br>
-    <div class="container-fluid text-center text-md-left">
-        <br>
-        <div class="card">
-            <br>
-            <div class="container">
-                <div id="settopic">
-                    About
-                </div>
-                Developed by Studio Verso
-                <br>
-                Web Version: 0.5_STUDIO-VERSO-BETA-201904082254
-                <br>
-                <img src="assets/V_logo_.png" alt="Studio Verso" width="50" height="50">
-                <img src="assets/STI_LOGO.png" alt="STiBaRC" width="50" height="50">
-                <br>
-                &copy 2019 Studio Verso
-                <br>
-                &copy 2019 STiBaRC. Used with permission.
-            </div>
-            <br>
-        </div>
-        </div>
-    <br>
+    <script src="js/messenger/newchat.js"></script>
 </body>
 </html>

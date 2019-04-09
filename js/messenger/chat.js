@@ -40,7 +40,7 @@ var toBox = function(oof,i) {
 		var div = document.createElement('div');
 		div.className = 'chatbox'
 		div.setAttribute("name", i);
-		div.innerHTML = '<a href="quick-view.html?id='+oof['sender']+'">'+oof['sender']+'</a><br/>'+oof['message'].replace(/\n/g, "<br/>");
+        div.innerHTML = '<b><a id="messages" href="quick-view.html?id='+oof['sender']+'">'+oof['sender']+'</a></b><br/>'+oof['message'].replace(/\n/g, "<br/>");
 		document.getElementById("chatstuffs").appendChild(div);
 		document.getElementById("chatstuffs").innerHTML = document.getElementById("chatstuffs").innerHTML.concat("<hr>");
 	} catch(err) {console.log(err);}
@@ -69,7 +69,7 @@ var toBoxMore = function(oof, i) {
 		div.className = 'chatbox'
 		div.setAttribute("name", i);
         div.innerHTML = '<a href="quick-view.html?id='+oof['sender']+'">'+oof['sender']+'</a><br/>'+oof['message'];
-        document.getElementById("chatstuffs").innerHTML = '<hr><div class="chatbox" name="' + (i) + '">' +'<a href="quick-view.html?id='+oof['sender']+'">'+oof['sender']+'</a><br/>'+oof['message'].replace(/\n/g, "<br/>")+'</div>'+document.getElementById("chatstuffs").innerHTML;
+        document.getElementById("chatstuffs").innerHTML = '<hr><div class="chatbox" name="' + (i) + '">' +'<b><a id="messages" href="quick-view.html?id='+oof['sender']+'">'+oof['sender']+'</a></b><br/>'+oof['message'].replace(/\n/g, "<br/>")+'</div>'+document.getElementById("chatstuffs").innerHTML;
 	} catch(err) {console.log(err);}
 }
 
@@ -107,7 +107,9 @@ var getchats = function(id, sess) {
 			} catch(err) {console.log(err);}
 		}
 		setTimeout(function(){getchats(id, sess);}, 500);
-	}
+    }
+    document.getElementById("load").style.display = "none";
+    document.getElementById("thepage").style.display = "";
 }
 
 var sendtext = function(sess,username,id) {
@@ -153,7 +155,7 @@ window.onload = function() {
 				shifted = false;
 			}
 		});
-		getchats(id, sess);
+        getchats(id, sess);
 	}
 }
 
