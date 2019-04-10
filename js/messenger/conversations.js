@@ -50,7 +50,8 @@ function getUsername() {
 
 window.onload = function () {
     var user = window.localStorage.getItem("username");
-    var pfp = ("GET", "https://api.stibarc.gq/v2/getuserpfp.sjs?id=" + user, false);
+    document.getElementById("load").style.display = "none";
+    document.getElementById("thepage").style.display = "";
     var sess = window.localStorage.getItem("sess");
     if (sess != undefined && sess != null && sess != "") {
         checkSess();
@@ -62,10 +63,12 @@ window.onload = function () {
     }
     var thing = new XMLHttpRequest();
     var id = window.localStorage.getItem("username");
-    thing.open("GET", "https://api.stibarc.gq/v2/getuser.sjs?id=" + id, false);
-    thing.send(null);
-    var tmp = JSON.parse(thing.responseText);
-    var pfp = tmp['pfp'];
-    var navpfp = tmp['pfp'];
-    document.getElementById("navpfp").src = navpfp + ' ';
+    if (id != undefined) {
+        thing.open("GET", "https://api.stibarc.gq/v2/getuser.sjs?id=" + id, false);
+        thing.send(null);
+        var tmp = JSON.parse(thing.responseText);
+        var pfp = tmp['pfp'];
+        var navpfp = tmp['pfp'];
+        document.getElementById("navpfp").src = navpfp + ' ';
+    }
 }
