@@ -33,11 +33,11 @@ var getChats = function() {
 			if (tmp[key]['lastmessage'] == undefined) {tmp[key]['lastmessage'] = {sender: tmp[key]['user'], message: " You haven't sent a message to this user yet!"}}
 			div.innerHTML = div.innerHTML.concat("<br/><i>"+tmp[key]['lastmessage']['sender']+": "+tmp[key]['lastmessage']['message'])+"</i>";
 			document.getElementById("recentcon").appendChild(div);
-            document.getElementById("recentcon").innerHTML = document.getElementById("recentcon").innerHTML.concat("<hr>");
-            document.getElementById("load").style.display = "none";
-            document.getElementById("thepage").style.display = "";
+            document.getElementById("recentcon").innerHTML = document.getElementById("recentcon").innerHTML.concat("<hr>"); 
 		}
-	}
+    }
+    document.getElementById("load").style.display = "none";
+    document.getElementById("thepage").style.display = "";
 }
 
 function getUsername() {
