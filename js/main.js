@@ -46,18 +46,21 @@ function loadMore() {
 }
 
 function getSVAnnounce() {
-    var sess = window.localStorage.getItem("sess");
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", "https://raw.githubusercontent.com/VersoCre/svaurora/master/announce.json", true);
-    xhr.send(null);
-    xhr.onload = function (e) {
-        if (xhr.responseText != "\n") {
-            var tmp = JSON.parse(xhr.responseText);
-            document.getElementById("welcomeintro").style.display = "none";
-            document.getElementsByTagName("body")[0].innerHTML = '<br><br><br><div id="announce" style="text-align:center;background-color:#0083ff;word-wrap:break-word;padding:15px;color:white"><h2>' + tmp['title'] + '</h2>' + tmp['content'] + '</div>' + document.getElementsByTagName("body")[0].innerHTML;
-        }
-        document.getElementById("loadmore").onclick = function (evt) {
-            loadMore();
+    var announce = false;
+    if (announce == true) {
+        var sess = window.localStorage.getItem("sess");
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://raw.githubusercontent.com/VersoCre/svaurora/master/announce.json", true);
+        xhr.send(null);
+        xhr.onload = function (e) {
+            if (xhr.responseText != "\n") {
+                var tmp = JSON.parse(xhr.responseText);
+                document.getElementById("welcomeintro").style.display = "none";
+                document.getElementsByTagName("body")[0].innerHTML = '<br><br><br><div id="announce" style="text-align:center;background-color:#0083ff;word-wrap:break-word;padding:15px;color:white"><h2>' + tmp['title'] + '</h2>' + tmp['content'] + '</div>' + document.getElementsByTagName("body")[0].innerHTML;
+            }
+            document.getElementById("loadmore").onclick = function (evt) {
+                loadMore();
+            }
         }
     }
 }
