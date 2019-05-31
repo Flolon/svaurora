@@ -32,9 +32,9 @@
 
 <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
-        <a class="navbar-brand" onclick="goBack()">
+        <a class="navbar-brand waves-effect waves-light" onclick="goBack()">
             <img src="assets/messenger/aurora_messenger.png" height="35" alt="Aurora Messenger logo">
-            Back | New Conversation
+            Back | New Message
             <script>
                 function goBack() {
                     window.history.back();
@@ -50,8 +50,11 @@
             <br>
             <div class="container">
                 <h4>New Message</h4>
-                <div id="none" style="display:none">We couldn't find a user with that name. Usernames are case sensitive. Be sure to double check your recipient's username.</div>
-                Username:<br /> <input type="text" id="username"><br />
+                <div id="none" style="display:none; color:red">We couldn't find a user with that name. Usernames are case sensitive. Be sure to double check your recipient's username.</div>
+                <div class="md-form">
+                    <input type="text" id="username" class="form-control" autocomplete="off">
+                    <label for="username">Username of recipient</label>
+                </div>
                 <button id="go" class="btn waves-effect waves-light">Create new message</button>
                 <br />
                 <b>TIP:</b> Usernames are case sensitive. Be sure to double check your recipient's username.

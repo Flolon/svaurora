@@ -1,10 +1,30 @@
+function updatePhoto(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#thepfp')
+                .attr('src', e.target.result)
+                .width(100)
+                .height(100);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
 window.onload = function () {
     var sess = window.localStorage.getItem("sess");
+    var id = window.localStorage.getItem("username");
     if (sess != undefined && sess != "") {
         var xhr = new XMLHttpRequest();
         xhr.open("POST", "https://api.stibarc.gq/userinfo.sjs", true);
         xhr.send("sess=" + sess);
         xhr.onload = function (e) {
+            var thing = new XMLHttpRequest();
+            thing.open("GET", "https://api.stibarc.gq/v2/getuser.sjs?id=" + id, false);
+            thing.send(null);
+            var tmp2 = JSON.parse(thing.responseText);
             var tmp = JSON.parse(xhr.responseText);
             document.getElementById("name").value = tmp['name'];
             document.getElementById("showname").checked = tmp['displayname'];
@@ -14,6 +34,7 @@ window.onload = function () {
             document.getElementById("showbday").checked = tmp['displaybirthday'];
             document.getElementById("bio").value = tmp['bio'];
             document.getElementById("showbio").checked = tmp['displaybio'];
+            document.getElementById("thepfp").src = tmp2['pfp'];
             document.getElementById("load").style.display = "none";
             document.getElementById("thepage").style.display = "";
         }

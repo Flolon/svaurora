@@ -96,3 +96,7 @@ input {
 .the-i {
     background-color: transparent;
 }
+
+#preusername {
+    font-size: 150%;
+}

@@ -49,15 +49,9 @@
     </div>
     <div id="thepage" style="display:none">
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" onclick="goBack()">
+            <a class="navbar-brand waves-effect waves-light" onclick="goBack()">
                 <img src="assets/aurora_nav.png" height="35" alt="Aurora logo">
                 Back
-                <script>
-                    function goBack() {
-                        window.history.back();
-                    }
-                </script>
-
             </a>
         </nav>
         <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
@@ -77,13 +71,20 @@
                     <div id="wait" style="display: none">Please wait x more seconds before posting again<br><br></div>
                     <br>
                     <h2>New post</h2>
-                    <h4>Title</h4> <input type="text" id="title"><br><br>
+                    <div class="md-form">
+                        <input type="text" id="title" class="form-control" autocomplete="off">
+                        <label for="title">Title of Post</label>
+                    </div>
+                    <br />
                     <div id="post">
-                        <h4>Content</h4> <textarea name="content" id="content" rows="20" cols="70"></textarea><br><br>
+                        <div class="md-form">
+                            <textarea id="content" class="md-textarea form-control" rows="10" cols="70"></textarea>
+                            <label for="content">What's New Today?</label>
+                        </div>
                     </div>
                     <div id="error" style="display:none">Error uploading file!</div>
                     <div id="imageadd">
-                        <h5>Add an attachment. <a href="attatchment-formats.html">Learn more</a> about what can be uploaded.</h5>
+                        <h5>Add an attachment. <a href="attachment-formats.html">Learn more</a> about what can be uploaded.</h5>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>

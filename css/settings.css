@@ -13,3 +13,11 @@ a {
     a:hover {
         color: var(--textcolor)
     }
+
+.settingurl {
+    color: var(--link)
+}
+
+    .settingurl:hover {
+        color: var(--touchlink);
+    }

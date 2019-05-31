@@ -47,7 +47,7 @@
     </div>
     <div id="thepage" style="display:none">
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" onclick="goBack()">
+            <a class="navbar-brand waves-effect waves-light" onclick="goBack()">
                 <img src="assets/aurora_nav.png" height="35" alt="Aurora logo">
                 Back | Edit Profile
                 <script>
@@ -77,16 +77,19 @@
                         Edit Profile
                     </div>
                     <br>
-                    <h4>Profile Picture</h4>
-                    <input type="file" id="pfp" accept="image/*"><br>
+                    <img id="thepfp" src="load.gif" style="width:100px;height:100px;border-radius:50%;" /><br /><br />
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="pfp" name="file" onchange="updatePhoto(this);" aria-describedby="inputGroupFileAddon01" accept="image/*" />
+                        <label class="custom-file-label" for="inputGroupFile01">Choose profile photo</label>
+                    </div>
                     <i>Photos must be 100kb or less in size to properly upload.</i>
                     <br />
                     <br>
-                    <h4>Name</h4> <input type="text" id="name"> <input type="checkbox" id="showname"><i style="font-size:70%">Show?</i><br><br>
-                    <h4>Email</h4> <input type="email" id="email"> <input type="checkbox" id="showemail"><i style="font-size:70%">Show?</i><br><br>
-                    <h4>Birthday</h4> <input type="text" id="birthday"> <input type="checkbox" id="showbday"><i style="font-size:70%">Show?</i><br>
+                    <h4>Name</h4> <input type="text" id="name" placeholder="Name"> <input type="checkbox" id="showname"><i style="font-size:70%">Show?</i><br><br>
+                    <h4>Email</h4> <input type="email" id="email" placeholder="Email"> <input type="checkbox" id="showemail"><i style="font-size:70%">Show?</i><br><br>
+                    <h4>Birthday</h4> <input type="text" id="birthday" placeholder="Birthday"> <input type="checkbox" id="showbday"><i style="font-size:70%">Show?</i><br>
                     <br><h4>Bio</h4>
-<textarea id="bio" rows="5" cols="35"></textarea>
+                    <textarea id="bio" rows="5" cols="35" placeholder="Introducte yourself to other members of the community with a bio"></textarea>
                     <i style="font-size:70%"><input type="checkbox" id="showbio">Show?</i><br>
                     <button type="button" id="submit" class="btn waves-effect waves-light">Update</button>
                     <br>
@@ -96,7 +99,7 @@
                     </div>
                     <br>
                     <div class="row">
-                        <a href="mailto:herronjo110@gmail.com?subject=STiBaRC%20User%20Verification%20Request" class="col-md-6 mt-md-0 mt-3 setting">
+                        <a href="mailto:herronjo110@gmail.com?subject=STiBaRC%20User%20Verification%20Request" class="col-md-6 mt-md-0 mt-3 setting waves-effect waves-light">
                             <br>
                             Request Account Verification
                             <div id="setdesc">

@@ -21,6 +21,10 @@
             }, false);
         }
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/enc-utf8.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/aes.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/mdb.min.css" rel="stylesheet">
@@ -42,8 +46,8 @@
         </div>
     </div>
     <div id="thepage" style="display:none">
-        <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" onclick="goBack()">
+        <nav class="navbar fixed-top navbar-dark">
+            <a class="navbar-brand waves-effect waves-light" onclick="goBack()">
                 <img src="assets/messenger/aurora_messenger.png" height="35" alt="Aurora Messenger logo">
                 Back | <span id="user"></span>
                 <script>
@@ -51,7 +55,11 @@
                         window.history.back();
                     }
                 </script>
-
+            </a>
+            <a id="chatsett">
+                <i class="quick material-icons green-">
+                    settings
+                </i>
             </a>
         </nav>
         <br>
@@ -67,15 +75,36 @@
                 <br>
             </div>
             <br>
-            <div class="card">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="card fixed-bottom">
                 <br>
                 <div class="container">
-                    <textarea id="input"></textarea>
+                    <div class="md-form">
+                        <input type="text" id="input" class="form-control" autocomplete="off">
+                        <label for="input">Aurora Messenger</label>
+                    </div>
                     <button id="send" class="btn waves-effect waves-light">
                         <i class="material-icons green-">
                             message
                         </i>
                     </button>
+                    <button id="attach" class="btn waves-effect waves-light">
+                        <i class="material-icons green-">
+                            attachment
+                        </i>
+                    </button>
+                    <button id="setenc" class="btn waves-effect waves-light">
+                        <i class="material-icons green-">
+                            enhanced_encryption
+                        </i>
+                    </button>
+                    <input type="file" id="secretfileupload" style="display:none;">
                 </div>
                 <br />
             </div>
