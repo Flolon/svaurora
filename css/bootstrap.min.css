@@ -3571,11 +3571,13 @@ a.btn.disabled, fieldset:disabled a.btn {
 }
 
 .nav-link {
-    display: block
+    display: block;
+    color: var(--textcolor);
 }
 
     .nav-link:focus, .nav-link:hover {
-        text-decoration: none
+        text-decoration: none; 
+        color: var(--textcolor);
     }
 
     .nav-link.disabled {

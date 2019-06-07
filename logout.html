@@ -1,29 +1,43 @@
-﻿<!DOCTYPE html>	
-<html>	
-<head>	
-    <meta charset="utf-8" />	
-    <title>Logging Out...</title>	
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />	
-<script type="text/javascript">	
-if(("standalone" in window.navigator) && window.navigator.standalone){	
-var noddy, remotes = false;	
-document.addEventListener('click', function(event) {	
-noddy = event.target;	
-while(noddy.nodeName !== "A" && noddy.nodeName !== "HTML") {	
-noddy = noddy.parentNode;	
-}	
-if('href' in noddy && noddy.href.indexOf('http') !== -1 && (noddy.href.indexOf(document.location.host) !== -1 || remotes))	
-{	
-event.preventDefault();	
-document.location.href = noddy.href;	
-}	
-},false);	
-}	
-</script>	
-	<script src="js/global.js"></script>	
-    <script src="js/logout.js"></script>	
-</head>	
-<body>	
-    	
-</body>	
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Logging Out...</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
+    <script type="text/javascript">
+        if (("standalone" in window.navigator) && window.navigator.standalone) {
+            var noddy, remotes = false;
+            document.addEventListener('click', function (event) {
+                noddy = event.target;
+                while (noddy.nodeName !== "A" && noddy.nodeName !== "HTML") {
+                    noddy = noddy.parentNode;
+                }
+                if ('href' in noddy && noddy.href.indexOf('http') !== -1 && (noddy.href.indexOf(document.location.host) !== -1 || remotes)) {
+                    event.preventDefault();
+                    document.location.href = noddy.href;
+                }
+            }, false);
+        }
+    </script>
+    <script src="js/global.js"></script>
+    <script src="js/logout.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/themes/dark.css" id="themer">
+    <link rel="stylesheet" href="css/themer.css">
+    <link rel="stylesheet" href="css/feed.css">
+    <link rel="icon" type="image/png" href="assets/fav.png">
+</head>
+<body>
+    <br>
+    <div class="container" id="centerback">
+        <br />
+        <center>
+            <div class="loader"></div>
+            <br />
+            NOW LOADING
+        </center>
+    </div>
+</body>
 </html>

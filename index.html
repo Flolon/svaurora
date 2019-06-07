@@ -10,6 +10,11 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta property="og:type" content="article">
+    <meta name="author" content="Studio Verso">
+    <meta property="og:site_name" content="Aurora">
+    <meta property="og:description" content="From the creator of BaSTPC and Life: The Game, Aurora is an alternative client of STiBaRC, a social media service where users can create and comment on posts. Aurora features a simple design anyone can understand and easily use. Aurora is free to use on any computer or mobile device. Join today!">
+    <meta property="og:image:secure_url" content="https://svaurora.gq/assets/aurora_sverso_banner.png" />
     <meta name="keywords" content="aurora,bastpc,verso,studio verso,stibarc,so this is basically a reddit clone" />
     <meta name="description" content="From the creator of BaSTPC and Life: The Game, Aurora is an alternative client of STiBaRC, a social media service where users can create and comment on posts. Aurora features a simple design anyone can understand and easily use. Aurora is free to use on any computer or mobile device. Join today!">
     <script type="text/javascript">
@@ -40,8 +45,10 @@
     <div id="load">
         <br>
         <div class="container" id="centerback">
+            <br />
             <center>
-                <img src="load.gif" width="75" height="75"><br>
+                <div class="loader"></div>
+                <br />
                 NOW LOADING
             </center>
         </div>
@@ -125,7 +132,19 @@
                             <img src="assets/aurora_nav.png" id="weblogo" alt="Aurora logo" style="width:100px;height:100px;border-radius:50%;" /> Welcome to Aurora
                         </div>
                         <div id="loggedin-" style="display:none">
-                            <img id="pfp" src="load.gif" style="width:100px;height:100px;border-radius:50%;" /><h10 id="user"></h10>
+                            <img id="pfp" src="load.gif" style="width:100px;height:100px;border-radius:50%;" /><br />
+                            <h10 id="user"></h10>
+                            <br />
+                            <ul class="nav nav-tabs" id="myTabAttr" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="feed-tab-attr" data-toggle="tab" href="#feed" role="tab" aria-controls="feed"
+                                       aria-selected="true">Main Feed</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="following-tab-attr" data-toggle="tab" href="#following" role="tab" aria-controls="following"
+                                       aria-selected="true">Following</a>
+                                </li>
+                            </ul>
                         </div>
                         <br>
                     </div>
@@ -133,13 +152,27 @@
                 <br>
             </div>
         </div>
-        <div id="list">
-            Aurora could not load the feed from the STiBaRC servers. Check your internet connection on your device and the STiBaRC server status <a href="https://status.stibarc.gq/">here</a>.
-        </div>
-        <br>
-        <div class="container">
-            <div id="loadmorecontainer">
-                <button href="javascript:;" id="loadmore" type="button" class="btn on-back waves-effect waves-light">View Older Posts</button>
+        <div class="tab-content">
+            <div class="tab-pane active" id="feed" role="tabpanel" aria-labelledby="feed-tab-attr">
+                <div class="animated slideInUp" id="list">
+                    Aurora could not load the feed from the STiBaRC servers. Check your Internet connection on your device and the STiBaRC server status <a href="https://status.stibarc.gq/">here</a>.
+                </div>
+                <br>
+                <div class="container">
+                    <div id="loadmorecontainer">
+                        <button href="javascript:;" id="loadmore" type="button" class="btn on-back waves-effect waves-light">View Older Posts</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="following" role="tabpanel" aria-labelledby="following-tab-attr">
+                <div class="animated slideInUp" id="followlist">
+                    Aurora could not load your following feed from the STiBaRC servers. Check your Internet connection on your device and the STiBaRC server status <a href="https://status.stibarc.gq/">here</a>.
+                </div>
+                <div class="container">
+                    <div id="followloadmorecontainer">
+                        <button href="javascript:;" id="followloadmore" type="button" class="btn on-back waves-effect waves-light">View Older Posts</button>
+                    </div>
+                </div>
             </div>
         </div>
         <br />

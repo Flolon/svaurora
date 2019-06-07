@@ -39,9 +39,11 @@
     <div id="load">
         <br>
         <div class="container" id="centerback">
+            <br />
             <center>
-                <img src="load.gif" width="75" height="75"><br>
-                NOW LOADING
+                <div class="loader"></div>
+                <br />
+                    NOW LOADING
             </center>
         </div>
     </div>
@@ -137,16 +139,50 @@
                         <div id="email">Could not load email.</div>
                         <div id="bday">Could not load birthday.></div>
                         <div id="rank">Could not load rank.</div>
+                        <br />
+                        <h10 id="following">Could not following users.</h10> |
+                        <h10 id="followers">Could not followers.</h10>
+                        <br />
+                        <a href="javascript:;" id="follow" class="btn waves-effect waves-light">Follow</a>
+                        <br />
+                        <ul class="nav nav-tabs" id="myTabAttr" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="pro-tab-attr" data-toggle="tab" href="#pro" role="tab" aria-controls="pro"
+                                   aria-selected="true">Posts</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="fo-tab-attr" data-toggle="tab" href="#fo" role="tab" aria-controls="fo"
+                                   aria-selected="true">Following</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="follower-tab-attr" data-toggle="tab" href="#follower" role="tab" aria-controls="follower"
+                                   aria-selected="true">Followers</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <br>
             </div>
             <br>
-            <div id="posts">
-                <center> Aurora could not load the profile page from the STiBaRC servers. Check your internet connection on your device and the STiBaRC server status <a href="https://status.stibarc.gq/">here</a>.</center>
+            <div class="tab-content">
+                <div class="tab-pane active" id="pro" role="tabpanel" aria-labelledby="pro-tab-attr">
+                    <div id="posts" class="animated slideInUp">
+                        <center> Aurora could not load the profile page from the STiBaRC servers. Check your internet connection on your device and the STiBaRC server status <a href="https://status.stibarc.gq/">here</a>.</center>
+                    </div>
+                </div>
+                <div class="tab-pane" id="fo" role="tabpanel" aria-labelledby="fo">
+                    <div class="animated slideInUp">
+                        Coming Soon
+                    </div>
+                </div>
+                <div class="tab-pane" id="follower" role="tabpanel" aria-labelledby="follower-tab-attr">
+                    <div class="animated slideInUp">
+                        Coming Soon
+                    </div>
+                </div>
             </div>
         </div>
-        <br>
+            <br>
         </div>
 </body>
 
