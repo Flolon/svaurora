@@ -102,7 +102,7 @@ input {
 }
 
 .loader {
-    border: 5px solid var(--backing);
+    border: 5px solid rgba(0, 0, 0, 0.00);
     border-radius: 50%;
     border-top: 5px solid var(--topiccolor);
     border-right: 5px solid var(--topiccolor);

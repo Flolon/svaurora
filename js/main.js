@@ -119,7 +119,7 @@ window.onload = function () {
     } catch (err) {
         offline = true;
     }
-    document.getElementById("user").innerHTML = ' Welcome back to Aurora,  '.concat(user) + '.';
+    document.getElementById("user").innerHTML = "What's new today, ".concat(user) + "?";
     document.getElementById("loadmorecontainer").style.display = "";
     if (sess != undefined && sess != null && sess != "") {
         var xhr = new XMLHttpRequest();
