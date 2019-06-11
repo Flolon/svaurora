@@ -1,3 +1,7 @@
+.setting {
+    border-radius: 10px;
+}
+
 .setting:hover {
     background-color: var(--settinghover);
 }
@@ -8,4 +12,12 @@ a {
 
     a:hover {
         color: var(--textcolor)
+    }
+
+.settingurl {
+    color: var(--link)
+}
+
+    .settingurl:hover {
+        color: var(--touchlink);
     }

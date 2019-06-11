@@ -14,6 +14,7 @@ function toLink(item) {
     try {
         var i = item.indexOf(':');
         var splits = [item.slice(0, i), item.slice(i + 1)];
+        if (splits[1].length > 60) { splits[1] = splits[1].substring(0, 60).concat("..."); }
         document.getElementById("posts").innerHTML = document.getElementById("posts").innerHTML.concat('<div class="card"><br><div class="container"><a href="post.html?id=').concat(splits[0]).concat('">').concat(splits[1].replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")).concat("</a></div><br></div><br>");
     } catch (err) {
         console.log("Whoops");
@@ -32,7 +33,7 @@ function getPosts(id) {
 
 function getStuff(id) {
     var thing = new XMLHttpRequest();
-    thing.open("GET", "https://api.stibarc.gq/v2/getuser.sjs?id=" + id, false);
+    thing.open("GET", "https://api.stibarc.gq/v3/getuser.sjs?id=" + id, false);
     thing.send(null);
     var tmp = JSON.parse(thing.responseText);
     var rank = tmp['rank'];
@@ -49,6 +50,49 @@ function getStuff(id) {
         document.getElementById("email").innerHTML = "Email: ".concat(email.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"));
     }
     document.getElementById("bday").innerHTML = "Birthday: ".concat(birthday.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"));
+    if (tmp.followers.length == 1) {
+        document.getElementById("followers").innerText = tmp.followers.length + " Follower";
+    } else {
+        document.getElementById("followers").innerText = tmp.followers.length + " Followers";
+    }
+    if (tmp.following.length == 1) {
+        document.getElementById("following").innerText = tmp.following.length + " Following";
+    } else {
+        document.getElementById("following").innerText = tmp.following.length + " Followings";
+    }
+    if (localStorage.username != undefined && localStorage.sess != undefined) {
+        if (tmp.followers.indexOf(localStorage.username) != -1) {
+            document.getElementById("follow").innerText = "Following";
+            document.getElementById("follow").onclick = function (e) {
+                var confirmUn = confirm("Are you sure you want to unfollow " + id + "? You will no longer be able to see their posts on your following feed.");
+                if (confirumUn == true) {
+                    var xhrf = new XMLHttpRequest();
+                    xhrf.open("POST", "https://api.stibarc.gq/v3/unfollow.sjs", false);
+                    xhrf.send("sess=" + localStorage.sess + "&id=" + encodeURIComponent(id));
+                    location.reload();
+                }
+            }
+        } else {
+            var usern = window.localStorage.getItem("username");
+            document.getElementById("follow").onclick = function (e) {
+                if (usern != id) {
+                    var xhrf = new XMLHttpRequest();
+                    xhrf.open("POST", "https://api.stibarc.gq/v3/follow.sjs", false);
+                    xhrf.send("sess=" + localStorage.sess + "&id=" + encodeURIComponent(id));
+                    location.reload();
+                } else {
+                    alert("You cannot follow yourself.");
+                }         
+            }
+        }
+    } else {
+        document.getElementById("follow").onclick = function (e) {
+            alert("To follow " + id + ", you must be logged in.");
+        }
+    }
+    if (usern == id) {
+        document.getElementById("follow").style.display = "none";
+    }
     //posts = posts.split(",");
     document.getElementById("pfp").src = tmp['pfp'];
     var pfp = tmp['pfp'];
@@ -80,7 +124,7 @@ window.onload = function () {
     if (sess != undefined && sess != "" && sess != null) {
         var thing = new XMLHttpRequest();
         var name = window.localStorage.getItem("username");
-        thing.open("GET", "https://api.stibarc.gq/v2/getuser.sjs?id=" + name, false);
+        thing.open("GET", "https://api.stibarc.gq/v3/getuser.sjs?id=" + name, false);
         thing.send(null);
         var tmp = JSON.parse(thing.responseText);
         var navpfp = tmp['pfp'];

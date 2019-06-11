@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="css/themer.css">
     <link rel="stylesheet" href="css/feed.css">
     <link rel="stylesheet" href="css/post.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="icon" type="image/png" href="assets/fav.png">
 </head>
 
@@ -40,8 +41,10 @@
     <div id="load">
         <br>
         <div class="container" id="centerback">
+            <br />
             <center>
-                <img src="load.gif" width="75" height="75"><br>
+                <div class="loader"></div>
+                <br />
                 NOW LOADING
             </center>
         </div>
@@ -129,8 +132,8 @@
                         <button type="button" id="viewattachment" class="btn waves-effect waves-light">View attachment</button>
                     </div>
                     <button type="button" id="editlink" style="display:none" class="btn waves-effect waves-light">Edit post<br></button>
-                    <a href="javascript:upvote()" class="btn waves-effect waves-light hoverbutton"><img src="assets/up.png" height="18" alt="Up Votes"> <span id="upvotes">0</span></a>
-                    <a href="javascript:downvote()" class="btn waves-effect waves-light hoverbutton"><img src="assets/down.png" height="18" alt="Down Votes"> <span id="downvotes">0</span></a>
+                    <a href="javascript:upvote()" class="btn waves-effect waves-light"><img src="assets/up.png" height="18" alt="Up Votes"> <span id="upvotes">0</span></a>
+                    <a href="javascript:downvote()" class="btn waves-effect waves-light"><img src="assets/down.png" height="18" alt="Down Votes"> <span id="downvotes">0</span></a>
                     <span id="client" style="display:none"></span>
                 </div>
                 <br>
@@ -151,12 +154,17 @@
                 <div class="card" id="comment">
                     <div class="container">
                         <br>
-                        <h4>New comment:</h4>
                         <div id="wait" style="display: none">You are commenting too fast! Please wait x more seconds before commenting again<br><br></div>
                         <div id="post">
-                            <textarea id="comtent" name="comtent" rows="5" cols="15"></textarea><br>
-                            <br>
-                            <button type="button" id="commentbutton" class="btn waves-effect waves-light">Submit</button>
+                            <div class="md-form">
+                                <textarea id="comtent" class="md-textarea form-control" rows="5" cols="15"></textarea>
+                                <label for="comtent">Write a comment...</label>
+                            </div>
+                            <button type="button" id="commentbutton" class="btn waves-effect waves-light">
+                                <i class="material-icons green-">
+                                    add_comment
+                                </i>
+                            </button>
                         </div>
                     </div>
                     <br>

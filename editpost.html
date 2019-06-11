@@ -41,15 +41,17 @@
     <div id="load">
         <br>
         <div class="container" id="centerback">
+            <br />
             <center>
-                <img src="load.gif" width="75" height="75"><br>
+                <div class="loader"></div>
+                <br />
                 NOW LOADING
             </center>
         </div>
     </div>
     <div id="thepage" style="display:none">
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" onclick="goBack()">
+            <a class="navbar-brand waves-effect waves-light" onclick="goBack()">
                 <img src="assets/aurora_nav.png" height="35" alt="Aurora logo">
                 Back
                 <script>
@@ -76,10 +78,10 @@
                 <div class="container">
                     <div id="wait" style="display: none">Please wait x more seconds before posting again<br><br></div>
                     <br>
-                    <h2>Edit post:</h2>
-                    <h4>Title</h4> <input type="text" id="title"><br><br>
+                    <h2>Edit post</h2>
+                    <input type="text" id="title" placeholder="Title"><br><br>
                     <div id="post">
-                        <h4>Content</h4> <textarea name="content" id="content" rows="20" cols="70"></textarea><br><br>
+                        <textarea name="content" id="content" placeholder="What's new today?" rows="20" cols="70"></textarea><br><br>
                     </div>
                     <div id="error" style="display:none">Error uploading file!</div>
                     <button type="button" id="send" class="btn waves-effect waves-light">Update Post</button>

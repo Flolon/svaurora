@@ -1849,7 +1849,7 @@ pre {
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
-    color: #495057;
+    color: var(--textcolor);
     background-color: #fff;
     border: 1px solid #ced4da;
     border-radius: .25rem;
@@ -1868,7 +1868,7 @@ pre {
 }
 
 .form-control:focus {
-    color: #495057;
+    color: var(--textcolor);
     background-color: #fff;
     border-color: #80bdff;
     outline: 0;
@@ -3571,11 +3571,13 @@ a.btn.disabled, fieldset:disabled a.btn {
 }
 
 .nav-link {
-    display: block
+    display: block;
+    color: var(--textcolor);
 }
 
     .nav-link:focus, .nav-link:hover {
-        text-decoration: none
+        text-decoration: none; 
+        color: var(--textcolor);
     }
 
     .nav-link.disabled {

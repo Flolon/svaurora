@@ -37,7 +37,7 @@
 
 <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
-        <a class="navbar-brand" onclick="goBack()">
+        <a class="navbar-brand waves-effect waves-light" onclick="goBack()">
             <img src="assets/aurora_nav.png" height="35" alt="Aurora logo">
             Back | About
             <script>
@@ -54,6 +54,7 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/mdb.min.js"></script>
     <script src="js/global.js"></script>
+    <script src="js/about.js"></script>
     <br>
     <br>
     <br>
@@ -67,7 +68,15 @@
                 </div>
                 Developed by Studio Verso
                 <br>
-                Web Version: 0.5_STUDIO-VERSO-BETA-201904082254
+                <div id="version">
+                    Web Version:
+                </div>
+                <div id="browser">
+                    Browser Version:
+                </div>
+                <div id="os">
+                    Operating System:
+                </div>
                 <br>
                 <img src="assets/V_logo_.png" alt="Studio Verso" width="50" height="50">
                 <img src="assets/STI_LOGO.png" alt="STiBaRC" width="50" height="50">
@@ -75,10 +84,27 @@
                 &copy 2019 Studio Verso
                 <br>
                 &copy 2019 STiBaRC. Used with permission.
+                <br />
+                <br />
+                <div id="settopic">
+                    Advanced
+                </div>
+                <div class="row">
+                    <a href="logs.html" class="col-md-6 mt-md-0 mt-3 setting waves-effect waves-light">
+                        <br />
+                        Update Logs
+                        <hr />
+                    </a>
+                    <a href="credits.html" class="col-md-6 mt-md-0 mt-3 setting waves-effect waves-light">
+                        <br />
+                        Credits
+                        <hr />
+                    </a>
+                </div>
             </div>
             <br>
         </div>
-        </div>
+    </div>
     <br>
 </body>
 </html>

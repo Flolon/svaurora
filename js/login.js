@@ -13,7 +13,7 @@ function login() {
 		if (sess != "Invalid username or password\n") {
 			//document.cookie = "sess=" + sess;
 			window.localStorage.setItem("sess", sess.split("\n")[0]);
-			window.localStorage.setItem("username", username);
+            window.localStorage.setItem("username", username);
 			location.href = "index.html"
 		} else {
 			document.getElementById("badnamepass").style.display = "";

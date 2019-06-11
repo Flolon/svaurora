@@ -30,13 +30,14 @@
     <link href="css/mdb.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/themes/dark.css" id="themer">
     <link rel="stylesheet" href="css/themer.css">
+    <link rel="stylesheet" href="css/settings.css">
     <link rel="icon" type="image/png" href="assets/fav.png">
 </head>
 
 
 <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
-        <a class="navbar-brand" onclick="goBack()">
+        <a class="navbar-brand waves-effect waves-light" onclick="goBack()">
             <img src="assets/aurora_nav.png" height="35" alt="Aurora logo">
             Back | Help
             <script>
@@ -61,54 +62,140 @@
         <div class="card">
             <br>
             <div class="container">
+                <div id="settopic">
+                    Help
+                </div>
                 <br>
-                <font size="5">
-                    <b>INTRODUCTION</b><br><br>
-                </font>
-                Aurora (formerly BaSTPC) is an alternative STiBaRC client created by Studio Verso. STiBaRC and Aurora are very similar in features, but the design of Aurora is drastically different than STiBaRC. If you are lost or confused on how to use Aurora, Studio Verso has provided some help topics for you below.<br>
-                <br><font size="5"><b>REGISTER AND SIGN IN</b></font><br><br>
-                LOGIN
-                <br>
-                <br>
-                To use Aurora, you must sign in with your STiBaRC account. Click/tap the "Log in" button on the top of the screen. A new window will open prompting if you accept Aurora to access your STiBaRC account. Click/tap "Login" on the STiBaRC window. If you are not logged in, the window will redirect you to the login page. Once you are logged in with your STiBaRC account, you can try to log in to Aurora again with your logged in STiBaRC account.
-                <br><br>
-                REGISTER
-                <br>
-                <br>
-                To register, go to <a href="https://stibarc.gq/register.html">STiBaRC</a>.
-                <br>
-                <br>
-                <font size="5">
-                    <b>CREATE A NEW POST</b><br><br>
-                </font>
-                To create a new post, go to the top of the screen and then click/tap "New Post". To create a new post, you must give it a title and content. Blank titles and HTML code are not accepted. Optionally, you can attach one image, video or audio file on your post. Larger files will take longer to upload. If your browser says that Aurora has froze while uploading an image, click/tap "wait" until it is done uploading. Once you are done creating your post, click/tap "CREATE POST".
-                <br>
-                <br>
-                <font size="5">
-                    <b>COMMENTING AND POLLS ON A POST</b><br><br>
-                </font>
-
-                COMMENTS<br>
-                <br>
-                All registered users can comment on posts shared on Aurora and other clients. To view comments on a post, click/tap your desired post. Scroll down to the "Comments" section to view comments. Under a comment is a "reply" button which can be used to reply to the user who commented. If you wish to not use this feature, continue to scroll until you see the "New comment" section. Type out your comment in the box and click/tap "SUBMIT" to share your comment.<br>
-                <br>POLLS<br>
-                <br>
-                Registered users can use the poll system on a post. On each post, there are two arrows (⇧⇩). The up arrow (⇧) means someone likes this post. The down arrow (⇩) means that someone dislikes your post. To use the poll system, go to any post and click/tap the arrows of your choice. You can always change your poll vote on any post.
-                <br>
-                <br>
-                <font size="5"><b>EDITING A POST</b></font><br><br>
-                <br>
-                To edit a post, you most have the "donor" role on your profile. The donor role is given to a user when they donate to STiBaRC. If you have the donor role, you can edit any post you have shared. On your post, the "EDIT POST" button will be under the "VIEW ATTACHMENT" button. Note that you can only edit the title and content of the post. You cannot edit the attachment. When your edited post is shared, your post will have an "edited" tag under the title.
-                <br>
-                <br>
-                <font size="5"><b>EDITING YOUR PROFILE</b></font><br><br>
-                <br>
-                To edit your profile, go to the top of the screen and then click/tap  your profile picture icon > Settings > My Account > Edit Profile. You can change your profile picture, name, email, birthday, and bio. Other profile options include requesting user verification. To change your STiBaRC account password, go to Settings > Securtiy & Privacy.
-                <br>
-                <br>
-                    <font size="5"><b>USER VERIFICATION</b></font><br><br>
-                <br>
-                Verifed account users will have a checkmark (✔️ or ✔) next to their username on their profile and posts. Verified accounts help in seeing if the user is an official account of a person and not a fake one. To request verifcation for your account, go to Menu > Settings > My Account > Edit Profile > Request Account Verification.
+                <ul class="nav nav-tabs" id="myTabAttr" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="intro-tab-attr" data-toggle="tab" href="#intro" role="tab" aria-controls="intro"
+                           aria-selected="true">Introduction</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="reg-tab-attr" data-toggle="tab" href="#reg" role="tab" aria-controls="reg"
+                           aria-selected="false">Registering & Logging in</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="feed-tab-attr" data-toggle="tab" href="#feed" role="tab" aria-controls="feed"
+                           aria-selected="false">Feed & Following Feed</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="post-tab-attr" data-toggle="tab" href="#post" role="tab" aria-controls="post"
+                           aria-selected="false">Creating a Post</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="edit-tab-attr" data-toggle="tab" href="#edit" role="tab" aria-controls="edit"
+                           aria-selected="false">Editing a Post</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="setting-tab-attr" data-toggle="tab" href="#setting" role="tab" aria-controls="setting"
+                           aria-selected="false">Settings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="msg-tab-attr" data-toggle="tab" href="#msg" role="tab" aria-controls="msg"
+                           aria-selected="false">Messenger</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="profile-tab-attr" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+                           aria-selected="false">Profile Pages & QuickView</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="intro" role="tabpanel" aria-labelledby="intro-tab-attr">
+                        Aurora (formerly BaSTPC) is a third party client of STiBaRC, a service where users can create and share posts with other members of the community. BaSTPC began development on 01 September 2018 and was later released on 20 September 2018. BaSTPC was praised for it's use of Material Design and providing an easier user experience compared to other clients. On 29 December, a new third party client began development to replace BaSTPC with better user experience and design. The Aurora BETA was released on 21 January 2019 and ran until the BETA phase ended that same year on 29 April. Aurora has been praised for it's dark theme by STiBaRC president <a href="user.html?id=Aldeenyo" class="settingurl">Aldeenyo</a> and usage of material design features and looks.
+                    </div>
+                    <div class="tab-pane" id="reg" role="tabpanel" aria-labelledby="reg">
+                        To use Aurora, you must log in with your STiBaRC account. If you do not have a STiBaRC account, you can create one <a href="https://stibarc.gq/register.html" target="_blank" class="settingurl">here at STiBaRC</a>.
+                        <br />
+                        <br />
+                        Once your account is created, head over to the <a href="login.html" target="_blank" class="settingurl">login page</a>. You will need to allow Aurora access to your STiBaRC account.
+                    </div>
+                    <div class="tab-pane" id="feed" role="tabpanel" aria-labelledby="feed-tab-attr">
+                        The feed (or the homepage) is where you can view the 20 recent posts from the community of STiBaRC. These posts are shown by their date and time of creation. You can view older posts by scrolling down and pressing the "View Older Posts" button. For each post you can view:
+                        <ul>
+                            <li>The post title</li>
+                            <li>The creator of the post</li>
+                            <li>The up-votes and down-votes of the post</li>
+                        </ul>
+                        If there is an important announcement, a blue banner will appear above on the feed and alert you of upcoming changes and announcements.
+                        <br />
+                        <br />
+                        NOTE: As of update 1.7.1, the feed now has two categories. The main feed allows you to view all recent posts on Aurora while the "Following" feed allows you to view only recent posts from users you follow.
+                    </div>
+                    <div class="tab-pane" id="post" role="tabpanel" aria-labelledby="settings-tab-attr">
+                        To create a post, go to the top of the screen on the navigation bar and select "New Post". Enter the title of your post and then enter your post content below the title box. Optionally, you can attach one image, video or audio file to your post for others to view. You can learn more on attachments <a href="attachment-formats.html" target="_blank" class="settingurl">here</a>. Please note that if your post violates the STiBaRC Privacy Policy and STiBaRC Terms of Service, it will be deleted. Please be sure to stay up-to-date on Privacy Policy changes and Terms of Service updates as the STiBaRC Team alerts the community if there are changes made. Please note posts cannot be blank and will not upload if any of the fields are blank!
+                    </div>
+                    <div class="tab-pane" id="edit" role="tabpanel" aria-labelledby="edit-tab-attr">
+                        Editing your post on Aurora is quite simple! Editing posts is a special perk given to users who donated to STiBaRC. Donors get a special donor role on their user page as well. To edit one of your posts, find the post you wish to edit. On the post page, the "edit post" button is next to the voting buttons. When you successfully edit your post, the post will now display a "<i>Post Edited</i> " tag. Please note that when editing posts, your edited post will not update if the title and / or content text areas are blank.
+                    </div>
+                    <div class="tab-pane" id="setting" role="tabpanel" aria-labelledby="setting-tab-attr">
+                        Aurora features a settings page where you can easily change and review settings of your STiBaRC account as well as your settings here on Aurora. Settings can be accessed from Navigation Bar > Profile Photo Dropdown > Settings. The following settings are on Aurora:
+                        <ul>
+                            <li>My Account</li>
+                            <li>Security & Privacy</li>
+                            <li>Themes</li>
+                            <li>Help</li>
+                            <li>Legal & Terms</li>
+                            <li>Feedback</li>
+                            <li>Report Bug</li>
+                            <li>About Aurora</li>
+                        </ul>
+                        To change browser notification settings, go to your browser settings and disable notifications for "https://svaurora.gq/".
+                    </div>
+                    <div class="tab-pane" id="msg" role="tabpanel" aria-labelledby="msg-tab-attr">
+                        Aurora Messenger is a third party client of STiBaRC Messenger. Aurora Messenger works with the main client and other third party clients just as Aurora does with other clients. You can send and receive messages from any user of STiBaRC. Please note that currently, Aurora Messenger does not feature a block user feature. You may report the user from the chat by selecting the settings cogwheel on the navigation bar and scroll down Quick View to "Report User".
+                        <br />
+                        <br />
+                        You can send and recieve encrypted messages on Aurora Messenger thanks to ASTiW and STiBaRC's encrypted messaging feature. To enable encrypted messaging, be sure to discuss with the recipient of an encryption key password beforehand. You must either create the key or recieve the key from the recipient to use encrpyted messaging. Select the "encrypted messaging" button below of the screen. Enter your encryption password. If the key was correct, your messages should now be disabled. If the messages are still encrypted, disable encrypted messaging and try again.
+                        <br />
+                        <br />
+                        You can send and recieve files on Aurora Messenger thanks to ASTiW and STiBaRC's file upload feature. Simply select the file upload button and upload any file of your choice. Please note that sometimes, the file may not download correctly. Currently, some files will fail to upload or take a long time. It is recommended to upload files that are small in size and / or compressed.
+                    </div>
+                    <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab-attr">
+                        On select pages, you can view your STiBaRC profile page as well as other user's profile pages. The following information you gave when creating or editing your account is displayed:
+                        <ul>
+                            <li>Your username</li>
+                            <li>Your real name</li>
+                            <li>Your bio</li>
+                            <li>Your email</li>
+                            <li>Your birthday</li>
+                            <li>Your rank</li>
+                            <li>The amount of users that follow you and the amount of users you follow</li>
+                            <li>Your posts on STiBaRC</li>
+                            <li>The users you follow</li>
+                            <li>Your followers</li>
+                        </ul>
+                        The following information can be changed or hidden on your profile page:
+                        <ul>
+                            <li>Your real name</li>
+                            <li>Your birthday</li>
+                            <li>Your email</li>
+                        </ul>
+                        These settings can be changed in Settings > My Account > Edit Profile.
+                        <br />
+                        <br />
+                        <div id="settopic">
+                            QuickView
+                        </div>
+                        <br />
+                        QuickView allows users to quickly view a users profile page by loading:
+                        <ul>
+                            <li>Your username</li>
+                            <li>Your real name</li>
+                            <li>Your bio</li>
+                            <li>Your email</li>
+                            <li>Your birthday</li>
+                            <li>Your rank</li>
+                        </ul>
+                        QuickView is currently available on Aurora Messenger and will be added in other places in Aurora in the future.
+                    </div>
+                </div>
+                <br />
+                <div id="settopic">
+                    Additional Help
+                </div>
+                <br />
+                If you need additional help, you can email @-Verso- (Studio Verso) at <a href="mailto:versocreations@gmail.com?subject=Aurora%20Additional%20Help%20" class="settingurl">versocreations@gmail.com</a>
             </div>
             <br>
         </div>

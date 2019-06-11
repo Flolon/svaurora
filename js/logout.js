@@ -5,7 +5,7 @@ function logout() {
 	xmlHttp.open("GET", "https://api.stibarc.gq/logout.sjs?sess=" + sess, false);
 	xmlHttp.send(null);
 	window.localStorage.removeItem("sess");
-	window.localStorage.removeItem("username");
+    window.localStorage.removeItem("username");
 	location.href = "index.html";
 }
 

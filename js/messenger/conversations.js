@@ -23,17 +23,19 @@ var getChats = function() {
 	var sess = window.localStorage.getItem("sess");
 	var xmlHttp = new XMLHttpRequest();
 	xmlHttp.open("POST", "https://messenger.stibarc.gq/api/v2/getuserchats.sjs", true);
-	xmlHttp.send("sess="+sess);
+    xmlHttp.send("sess=" + sess);
 	xmlHttp.onload = function(e) {
 		var tmp = JSON.parse(xmlHttp.responseText);
 		for (key in tmp) {
 			var div = document.createElement('div');
-			div.className = 'conversations';
-			div.innerHTML = '<b><a href="chat.html?id='+key+'" id="messages">'+tmp[key]['user']+"</b></a>:";
-			if (tmp[key]['lastmessage'] == undefined) {tmp[key]['lastmessage'] = {sender: tmp[key]['user'], message: " You haven't sent a message to this user yet!"}}
-			div.innerHTML = div.innerHTML.concat("<br/><i>"+tmp[key]['lastmessage']['sender']+": "+tmp[key]['lastmessage']['message'])+"</i>";
-			document.getElementById("recentcon").appendChild(div);
-            document.getElementById("recentcon").innerHTML = document.getElementById("recentcon").innerHTML.concat("<hr>"); 
+            div.className = 'conversations';
+            div.innerHTML = '<a href="chat.html?id=' + key + '" id="messages">' + tmp[key]['user'] + "</a>:";
+            if (tmp[key]['lastmessage'] == undefined) { tmp[key]['lastmessage'] = { sender: tmp[key]['user'], message: " You haven't sent a message to this user yet!" } }
+            if (tmp[key]['lastmessage']['message'].length > 50) { tmp[key]['lastmessage']['message'] = tmp[key]['lastmessage']['message'].substring(0, 50).concat("..."); }
+            if (tmp[key]['lastmessage']['message'].startsWith("[Encrypted] ")) { tmp[key]['lastmessage'] = { sender: tmp[key]['user'], message: " <b style=\"color:green;\"><i>[Encrypted Message.]</i></b>" } }
+            div.innerHTML = div.innerHTML.concat("<br/><i>" + tmp[key]['lastmessage']['sender'] + ": " + tmp[key]['lastmessage']['message'] + "</i>");
+            document.getElementById("recentcon").appendChild(div);
+            document.getElementById("recentcon").innerHTML = document.getElementById("recentcon").innerHTML.concat("<hr>");
 		}
     }
     document.getElementById("load").style.display = "none";
@@ -64,7 +66,7 @@ window.onload = function () {
     var thing = new XMLHttpRequest();
     var id = window.localStorage.getItem("username");
     if (id != undefined) {
-        thing.open("GET", "https://api.stibarc.gq/v2/getuser.sjs?id=" + id, false);
+        thing.open("GET", "https://api.stibarc.gq/v3/getuser.sjs?id=" + id, false);
         thing.send(null);
         var tmp = JSON.parse(thing.responseText);
         var pfp = tmp['pfp'];

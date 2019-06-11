@@ -218,7 +218,7 @@ if (stuff.poster == "herronjo" || stuff.poster == "DomHupp" || stuff.poster == "
             document.getElementById("comments").innerHTML = document.getElementById("comments").innerHTML + '<div class="card" id="comment"><div class="container"><br><a href="user.html?id=' + comments[key]['poster'] + '"><img src="' + commentpfp + '"style="width:54px;height:54px;border-radius:50%;" /> ' + comments[key]['poster'].replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + '</a><br/>' + comments[key]['content'].replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\r\n/g, "<br/>") + '<br/><a class="replyto" href="javascript:replyto(' + "'" + comments[key]['poster'] + "'" + ')"><i>Reply</i></a></div><br></div><br></div>';
         }
     } else {
-        document.getElementById("comments").innerHTML = document.getElementById("comments").innerHTML + '<div class="card" id="comment"><div class="container"><br>Be the first to comment on this post.</div><br></div><br></div>';
+        document.getElementById("comments").style.display = "none";
     }
     document.getElementById("commentbutton").onclick = function (evt) {
         if (!pushed) {

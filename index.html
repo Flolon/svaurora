@@ -10,8 +10,21 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Feed - Aurora by Studio Verso">
+    <meta property="og:description" content="From the creator of BaSTPC and Life: The Game, Aurora is an alternative client of STiBaRC, a social media service where users can create and comment on posts. Aurora features a simple design anyone can understand and easily use. Aurora is free to use on any computer or mobile device. Join today!">
+    <meta property="og:url" content="https://svaurora.gq/">
+    <meta property="og:site_name" content="Aurora by Studio Verso">
+    <meta property="og:image:url" content="https://svaurora.gq/assets/aurora_sverso_banner.jpg" />
     <meta name="keywords" content="aurora,bastpc,verso,studio verso,stibarc,so this is basically a reddit clone" />
+    <meta name="author" content="Studio Verso">
     <meta name="description" content="From the creator of BaSTPC and Life: The Game, Aurora is an alternative client of STiBaRC, a social media service where users can create and comment on posts. Aurora features a simple design anyone can understand and easily use. Aurora is free to use on any computer or mobile device. Join today!">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@SVerso_">
+    <meta name="twitter:title" content="Feed - Aurora by Studio Verso">
+    <meta name="twitter:description" content="From the creator of BaSTPC and Life: The Game, Aurora is an alternative client of STiBaRC, a social media service where users can create and comment on posts. Aurora features a simple design anyone can understand and easily use. Aurora is free to use on any computer or mobile device. Join today!">
+    <meta name="twitter:creator" content="@SVerso_">
+    <meta name="twitter:image" content="https://svaurora.gq/assets/aurora_sverso_banner.jpg">
     <script type="text/javascript">
         if (("standalone" in window.navigator) && window.navigator.standalone) {
             var noddy, remotes = false;
@@ -40,8 +53,10 @@
     <div id="load">
         <br>
         <div class="container" id="centerback">
+            <br />
             <center>
-                <img src="load.gif" width="75" height="75"><br>
+                <div class="loader"></div>
+                <br />
                 NOW LOADING
             </center>
         </div>
@@ -103,6 +118,18 @@
         <br>
         <br>
         <br>
+        <div id="feedupload">
+            <div class="container-fluid text-center text-md-left" style="display:none">
+                <br>
+                <div class="card waves-effect waves-light" onclick="window.location.reload();">
+                    <br>
+                    <div class="container ">
+                        The feed has new posts! Click / tap here to refresh.
+                    </div>
+                    <br />
+                </div>
+            </div>
+        </div>
         <div id="welcomeintro">
             <div class="container-fluid text-center text-md-left">
                 <br>
@@ -113,7 +140,19 @@
                             <img src="assets/aurora_nav.png" id="weblogo" alt="Aurora logo" style="width:100px;height:100px;border-radius:50%;" /> Welcome to Aurora
                         </div>
                         <div id="loggedin-" style="display:none">
-                            <img id="pfp" src="load.gif" style="width:100px;height:100px;border-radius:50%;" /><h10 id="user"></h10>
+                            <img id="pfp" src="load.gif" style="width:100px;height:100px;border-radius:50%;" /><br />
+                            <h10 id="user"></h10>
+                            <br />
+                            <ul class="nav nav-tabs" id="myTabAttr" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="feed-tab-attr" data-toggle="tab" href="#feed" role="tab" aria-controls="feed"
+                                       aria-selected="true">Main Feed</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="following-tab-attr" data-toggle="tab" href="#following" role="tab" aria-controls="following"
+                                       aria-selected="true">Following</a>
+                                </li>
+                            </ul>
                         </div>
                         <br>
                     </div>
@@ -121,13 +160,27 @@
                 <br>
             </div>
         </div>
-        <div id="list">
-            Aurora could not load the feed from the STiBaRC servers. Check your internet connection on your device and the STiBaRC server status <a href="https://status.stibarc.gq/">here</a>.
-        </div>
-        <br>
-        <div class="container">
-            <div id="loadmorecontainer">
-                <button href="javascript:;" id="loadmore" type="button" class="btn on-back waves-effect waves-light">View Older Posts</button>
+        <div class="tab-content">
+            <div class="tab-pane active" id="feed" role="tabpanel" aria-labelledby="feed-tab-attr">
+                <div class="animated slideInUp" id="list">
+                    Aurora could not load the feed from the STiBaRC servers. Check your Internet connection on your device and the STiBaRC server status <a href="https://status.stibarc.gq/">here</a>.
+                </div>
+                <br>
+                <div class="container">
+                    <div id="loadmorecontainer">
+                        <button href="javascript:;" id="loadmore" type="button" class="btn on-back waves-effect waves-light">View Older Posts</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="following" role="tabpanel" aria-labelledby="following-tab-attr">
+                <div class="animated slideInUp" id="followlist">
+                    Aurora could not load your following feed from the STiBaRC servers. Check your Internet connection on your device and the STiBaRC server status <a href="https://status.stibarc.gq/">here</a>.
+                </div>
+                <div class="container">
+                    <div id="followloadmorecontainer">
+                        <button href="javascript:;" id="followloadmore" type="button" class="btn on-back waves-effect waves-light">View Older Posts</button>
+                    </div>
+                </div>
             </div>
         </div>
         <br />
@@ -143,11 +196,8 @@
                     <a class="fb-ic" href="https://www.facebook.com/StuVerso/" target="_blank">
                         <i class="fa fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
                     </a>
-                    <a class="tw-ic" href="https://twitter.com/SVerso_Official/" target="_blank">
+                    <a class="tw-ic" href="https://twitter.com/SVerso_/" target="_blank">
                         <i class="fa fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-                    </a>
-                    <a class="gplus-ic" href="https://plus.google.com/u/1/101742450894325935951" target="_blank">
-                        <i class="fa fa-google-plus fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
                     </a>
                     <a class="ins-ic" href="https://www.instagram.com/sverso_official/" target="_blank">
                         <i class="fa fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>

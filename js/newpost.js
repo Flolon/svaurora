@@ -19,24 +19,26 @@ function post() {
 	var sess = window.localStorage.getItem("sess");
 	var again = window.localStorage.getItem("canpostagain");
 	if (again == null || again == "" || again == undefined) again = 0;
-	if (content.trim() != "" && content != undefined && title.trim() != "" && title != undefined) {
-		if (new Date().getTime() >= again) {
-			var n = new Date().getTime() + 15000;
-			window.localStorage.setItem("canpostagain", n);
-			var thing = new XMLHttpRequest();
-			thing.open("POST", "https://api.stibarc.gq/postpost.sjs", false);
-			thing.send("sess="+sess+"&title="+encodeURIComponent(title)+"&image="+attachedfile+"&content="+encodeURIComponent(content).replace(/%0A/g, "%0D%0A"));
-			location.href = "post.html?id=" + thing.responseText;
-			document.getElementById("content").value = "";
-			document.getElementById("title").value = "";
-			attachedfile = "";
-		} else {
-			var left = again - new Date().getTime();
-			left = Math.round(left/1000);
-			document.getElementById("wait").innerHTML = "Please wait " + left + " more seconds before posting again";
-			document.getElementById("wait").style.display = "";
-		}
-	}
+    if (content.trim() != "" && content != undefined && title.trim() != "" && title != undefined) {
+        if (new Date().getTime() >= again) {
+            var n = new Date().getTime() + 15000;
+            window.localStorage.setItem("canpostagain", n);
+            var thing = new XMLHttpRequest();
+            thing.open("POST", "https://api.stibarc.gq/postpost.sjs", false);
+            thing.send("sess=" + sess + "&title=" + encodeURIComponent(title) + "&image=" + attachedfile + "&content=" + encodeURIComponent(content).replace(/%0A/g, "%0D%0A"));
+            location.href = "post.html?id=" + thing.responseText;
+            document.getElementById("content").value = "";
+            document.getElementById("title").value = "";
+            attachedfile = "";
+        } else {
+            var left = again - new Date().getTime();
+            left = Math.round(left / 1000);
+            document.getElementById("wait").innerHTML = "Please wait " + left + " more seconds before posting again";
+            document.getElementById("wait").style.display = "";
+        }
+    } else {
+        alert("Title and / or content inputs cannot be blank. Please try again.");
+    }
 }
 
 function uploadPart(file,part,callback) {
@@ -145,11 +147,23 @@ function readFile(evt) {
 	}
 	document.getElementById("send").disabled = false;
 }
+function goBack() {
+    var content = document.getElementById("content").value;
+    var title = document.getElementById("title").value;
+    if (content.trim() != "" && content != undefined && title.trim() != "" && title != undefined || title.trim() != "" && title != undefined || content.trim() != "" && content != undefined) {
+        var leave = confirm("Are you sure you want to exit? Your draft will not be saved!")
+        if (leave == true) {
+            window.history.back();
+        }
+    } else {
+        window.history.back();
+    }
+}
 
 window.onload = function () {
     document.getElementById("load").style.display = "none";
     document.getElementById("thepage").style.display = "";
-	document.getElementById("file").addEventListener('change',readFile,false);
+    document.getElementById("file").addEventListener('change',readFile,false);
 	document.getElementById("removeimage").onclick = function (evt) {
 			attachedfile = "none";
 			document.getElementById("imageadded").style.display = 'none';

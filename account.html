@@ -24,7 +24,7 @@
                 }
             }, false);
         }
-    </script>
+</script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/mdb.min.css" rel="stylesheet">
@@ -33,21 +33,21 @@
     <link rel="stylesheet" href="css/settings.css">
     <link rel="icon" type="image/png" href="assets/fav.png">
 </head>
-
-
 <body>
     <div id="load">
         <br>
         <div class="container" id="centerback">
+            <br />
             <center>
-                <img src="load.gif" width="75" height="75"><br>
+                <div class="loader"></div>
+                <br />
                 NOW LOADING
             </center>
         </div>
     </div>
     <div id="thepage" style="display:none">
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" onclick="goBack()">
+            <a class="navbar-brand waves-effect waves-light" onclick="goBack()">
                 <img src="assets/aurora_nav.png" height="35" alt="Aurora logo">
                 Back | My Account
                 <script>
@@ -58,7 +58,6 @@
 
             </a>
         </nav>
-
         <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="js/popper.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -81,24 +80,32 @@
                             Profile Preview
                         </div>
                         <br>
-                        <center>
-                            When a user views your profile on Aurora and other STiBaRC clients, the following information will be displayed as shown below. You can edit this information or choose to not display it.
-                        </center>
                         <div id="userstuffs">
-                            <img id="prepfp" src="load.gif" style="width:64px;height:64px;border-radius:50%;" /> <span id="preusername"><img src="load.gif" width="50" height="50"></span>
-                            <div id="prerank">Could not load rank.</div>
-                            <div id="prename">Could not load name.</div>
-                            <div id="preemail">Could not load email.</div>
-                            <div id="prebday">Could not load birthday.</div>
-                            <br>
-                            <div class="card onbio">
-                                <br>
-                                <div class="container">
-                                    <div id="prebio" style="display:none"><div id="prebiobio"></div></div>
+                            <center>
+                                <img id="prepfp" src="load.gif" style="width:100px;height:100px;border-radius:50%;" />
+                                <br />
+                                <div id="preusername">
+                                    <img src="load.gif" width="50" height="50">
                                 </div>
-                                <br>
+                                <div id="prename">Could not load name.</div>
+                            </center>
+                            <br />
+                            <div id="prebio" style="display:none">
+                                <div class="card onbio">
+                                    <br>
+                                    <div class="container">
+                                        <div id="prebiobio"></div>
+                                    </div>
+                                    <br>
+                                </div>
                             </div>
-                            <br>
+                            <br />
+                            <div id="preemail">Could not load email.</div>
+                            <div id="prebday">Could not load birthday.></div>
+                            <div id="prerank">Could not load rank.</div>
+                            <br />
+                            <h10 id="prefollowing">Could not following users.</h10> |
+                            <h10 id="prefollowers">Could not followers.</h10>
                         </div>
                         <hr />
                         <div id="settopic">
@@ -106,12 +113,20 @@
                         </div>
                         <br>
                         <div class="row">
-                            <a href="editprofile.html" class="col-md-6 mt-md-0 mt-3 setting">
+                            <a href="editprofile.html" class="col-md-6 mt-md-0 mt-3 setting waves-effect waves-light">
                                 <br>
                                 Edit Profile
                                 <hr />
                             </a>
                         </div>
+                        <br />
+                        <div id="settopic">
+                            Analytics
+                        </div>
+                        <i>This section is private and will not be displayed publicly on your profile</i>
+                        <br />
+                        <br />
+                        <div id="postcounter">Could not load post counter.</div>
                     </div>
                     <br>
                 </div>

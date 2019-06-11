@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Notifications & Alerts - Aurora</title>
+    <title>Notifications & Sounds - Aurora</title>
     <link rel="apple-touch-icon" href="assets/web.png">
     <meta name="apple-mobile-web-app-title" content="Aurora">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -49,7 +49,7 @@
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
             <a class="navbar-brand" onclick="goBack()">
                 <img src="assets/aurora_nav.png" height="35" alt="Aurora logo">
-                Back | Notifications & Alerts
+                Back | Notifications & Sounds
                 <script>
                     function goBack() {
                         window.history.back();
@@ -74,35 +74,21 @@
                 <br>
                 <div class="container">
                     <div id="loggedout">
-                        Coming Soon
+                        To change your notification settings, please <a href="login.html">login</a>.
                     </div>
                     <div id="loggedin" style="display:none">
                         <div id="settopic">
-                            Coming Soon
+                            Notifications
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="notiflist">
+                            <label class="custom-control-label" for="notiflist">Default indeterminate</label>
                         </div>
                         <br>
-                        <div class="row">
-                            <a href="account-password-change.html" class="col-md-6 mt-md-0 mt-3 setting">
-                                <br>
-                                Change Password
-                                <div id="setdesc">
-                                    Change your STiBaRC login password.
-                                </div>
-                                <hr />
-                            </a>
-                            <a href="account-password-change.html" class="col-md-6 mt-md-0 mt-3 setting">
-                                <br>
-                                Request Account Deletion<br>
-                                <div id="setdesc">
-                                    Request to have your STiBaRC account deleted.
-                                </div>
-                                <hr />
-                            </a>
-                        </div>
                         <br>
                         <br>
                         <div id="settopic">
-                            Privacy
+                            Sounds
                         </div>
                         <div class="row">
                             <a href="privacy-policy.html" class="col-md-6 mt-md-0 mt-3 setting">

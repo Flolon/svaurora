@@ -24,7 +24,7 @@ function getStuff(id) {
     document.getElementById("rank").innerHTML = "Rank: ".concat(rank);
     document.getElementById("name").innerHTML = "Real name: ".concat(name.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"));
     if (email != "Not shown" && email != "Not set") {
-        document.getElementById("email").innerHTML = "Email: ".concat("<a href=\"mailto:" + email + "\">" + email.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + "</a>");
+        document.getElementById("email").innerHTML = "Email: ".concat("<a class=\"settingurl\" href=\"mailto:" + email + "\">" + email.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + "</a>");
     } else {
         document.getElementById("email").innerHTML = "Email: ".concat(email.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"));
     }
