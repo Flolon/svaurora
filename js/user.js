@@ -55,11 +55,19 @@ function getStuff(id) {
     } else {
         document.getElementById("followers").innerText = tmp.followers.length + " Followers";
     }
+	document.getElementById("follower").innerHTML = "";
+	for (var i in tmp.followers) {
+		document.getElementById("follower").innerHTML = document.getElementById("follower").innerHTML + '<div class=" card animated slideInUp"><br/><div class="container"><a href="user.html?id='+tmp.followers[i]+'">'+tmp.followers[i]+'</a></div><br/></div><br/>';
+	}
     if (tmp.following.length == 1) {
         document.getElementById("following").innerText = tmp.following.length + " Following";
     } else {
         document.getElementById("following").innerText = tmp.following.length + " Followings";
     }
+	document.getElementById("fo").innerHTML = "";
+	for (var i in tmp.following) {
+		document.getElementById("fo").innerHTML = document.getElementById("fo").innerHTML + '<div class=" card animated slideInUp"><br/><div class="container"><a href="user.html?id='+tmp.following[i]+'">'+tmp.following[i]+'</a></div><br/></div><br/>';
+	}
     if (localStorage.username != undefined && localStorage.sess != undefined) {
         if (tmp.followers.indexOf(localStorage.username) != -1) {
             document.getElementById("follow").innerText = "Following";
