@@ -57,7 +57,7 @@ function getStuff(id) {
     }
 	document.getElementById("followerstotal").innerHTML = "";
 	for (var i in tmp.followers) {
-		document.getElementById("followerstotal").innerHTML = document.getElementById("followerstotal").innerHTML + '<a href="user.html?id='+tmp.followers[i]+'">'+tmp.followers[i]+'</a><br/>';
+		document.getElementById("followerstotal").innerHTML = document.getElementById("followerstotal").innerHTML + '<a href="user.html?id='+tmp.followers[i]+'">'+tmp.followers[i]+'</a><br/><br/>';
 	}
     if (tmp.following.length == 1) {
         document.getElementById("following").innerText = tmp.following.length + " Following";
@@ -66,7 +66,7 @@ function getStuff(id) {
     }
 	document.getElementById("followingtotal").innerHTML = "";
 	for (var i in tmp.following) {
-		document.getElementById("followingtotal").innerHTML = document.getElementById("followingtotal").innerHTML + '<a href="user.html?id='+tmp.following[i]+'">'+tmp.following[i]+'</a><br/>';
+		document.getElementById("followingtotal").innerHTML = document.getElementById("followingtotal").innerHTML + '<a href="user.html?id='+tmp.following[i]+'">'+tmp.following[i]+'</a><br/><br/>';
 	}
     if (localStorage.username != undefined && localStorage.sess != undefined) {
         if (tmp.followers.indexOf(localStorage.username) != -1) {
