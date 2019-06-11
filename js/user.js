@@ -66,7 +66,7 @@ function getStuff(id) {
     }
 	document.getElementById("fo").innerHTML = "";
 	for (var i in tmp.following) {
-		document.getElementById("fo").innerHTML = document.getElementById("fo").innerHTML + + '<div class=" card animated slideInUp"><br/><div class="container"><a href="user.html?id='+tmp.following[i]+'">'+tmp.following[i]+'</a></div><br/></div><br/>';
+		document.getElementById("fo").innerHTML = document.getElementById("fo").innerHTML + '<div class=" card animated slideInUp"><br/><div class="container"><a href="user.html?id='+tmp.following[i]+'">'+tmp.following[i]+'</a></div><br/></div><br/>';
 	}
     if (localStorage.username != undefined && localStorage.sess != undefined) {
         if (tmp.followers.indexOf(localStorage.username) != -1) {
