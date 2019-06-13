@@ -7,6 +7,4 @@ window.onload = function () {
         document.getElementById("loggedout").style.display = "none";
         document.getElementById("loggedin").style.display = "";
     }
-    document.getElementById("load").style.display = "none";
-    document.getElementById("thepage").style.display = "";
 }

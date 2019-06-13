@@ -15,7 +15,7 @@ function toLink(item) {
         var i = item.indexOf(':');
         var splits = [item.slice(0, i), item.slice(i + 1)];
         if (splits[1].length > 60) { splits[1] = splits[1].substring(0, 60).concat("..."); }
-        document.getElementById("posts").innerHTML = document.getElementById("posts").innerHTML.concat('<div class="card"><br><div class="container"><a href="post.html?id=').concat(splits[0]).concat('">').concat(splits[1].replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")).concat("</a></div><br></div><br>");
+        document.getElementById("posts").innerHTML = document.getElementById("posts").innerHTML.concat('<div class="card"><br><div class="container"><a class="posttopic" href="post.html?id=').concat(splits[0]).concat('">').concat(splits[1].replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")).concat("</a></div><br></div><br>");
     } catch (err) {
         console.log("Whoops");
     }
@@ -26,12 +26,21 @@ function getPosts(id) {
     tmp.open("GET", "https://api.stibarc.gq/getuserposts.sjs?id=" + id, false);
     tmp.send(null);
     tmp = tmp.responseText.split("\n");
-    for (i = tmp.length - 2; i >= 0; i--) {
-        toLink(tmp[i]);
+    if (localStorage.postorder == "true") {
+        for (i = tmp.length - 2; i >= 0; i--) {
+            toLink(tmp[i]);
+        }
+    } else {
+        for (i = 0; i < tmp.length - 1; i++) {
+            toLink(tmp[i]);
+        }
     }
 }
 
 function getStuff(id) {
+    if (localStorage.postorder == undefined) {
+        localStorage.postorder = "true";
+    }
     var thing = new XMLHttpRequest();
     thing.open("GET", "https://api.stibarc.gq/v3/getuser.sjs?id=" + id, false);
     thing.send(null);
@@ -57,7 +66,7 @@ function getStuff(id) {
     }
 	document.getElementById("follower").innerHTML = "";
 	for (var i in tmp.followers) {
-		document.getElementById("follower").innerHTML = document.getElementById("follower").innerHTML + '<div class=" card animated slideInUp"><br/><div class="container"><a href="user.html?id='+tmp.followers[i]+'">'+tmp.followers[i]+'</a></div><br/></div><br/>';
+        document.getElementById("follower").innerHTML = document.getElementById("follower").innerHTML + '<div class=" card animated slideInUp"><br/><div class="container"><a class="posttopic" href="user.html?id='+tmp.followers[i]+'">'+tmp.followers[i]+'</a></div><br/></div><br/>';
 	}
     if (tmp.following.length == 1) {
         document.getElementById("following").innerText = tmp.following.length + " Following";
@@ -66,7 +75,7 @@ function getStuff(id) {
     }
 	document.getElementById("fo").innerHTML = "";
 	for (var i in tmp.following) {
-		document.getElementById("fo").innerHTML = document.getElementById("fo").innerHTML + '<div class=" card animated slideInUp"><br/><div class="container"><a href="user.html?id='+tmp.following[i]+'">'+tmp.following[i]+'</a></div><br/></div><br/>';
+		document.getElementById("fo").innerHTML = document.getElementById("fo").innerHTML + '<div class=" card animated slideInUp"><br/><div class="container"><a class="posttopic" href="user.html?id='+tmp.following[i]+'">'+tmp.following[i]+'</a></div><br/></div><br/>';
 	}
     if (localStorage.username != undefined && localStorage.sess != undefined) {
         if (tmp.followers.indexOf(localStorage.username) != -1) {

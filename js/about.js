@@ -65,6 +65,8 @@ window.onload = function () {
             mobile = 1;
         }
 
+    } else {
+        browser = 'Unable to Detect'
     }
 
     if (!version) {
@@ -97,7 +99,7 @@ window.onload = function () {
     } else if (!os && /Windows/.test(ua)) {
         os = 'Windows';
     } else {
-        os = 'Unable to detect';
+        os = 'Unable to Detect';
     }
 
     window.ui = {

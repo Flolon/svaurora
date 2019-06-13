@@ -1,5 +1,26 @@
 loadTheme();
 
+function loadTheme() {
+    try {
+        var theme = localStorage.getItem('theme');
+        if (theme != undefined) {
+            if (theme == "custom") {
+                if (localStorage.getItem('customtheme').trim() != "") {
+                    document.getElementById('themer').href = localStorage.getItem('customtheme');
+                } else {
+                    document.getElementById('themer').href = 'css/themes/dark.css';
+                }
+            } else {
+                document.getElementById('themer').href = 'css/themes/' + theme + ".css";
+            }
+        } else {
+            document.getElementById('themer').href = 'css/themes/dark.css';
+        }
+    } catch (err) {
+        console.error(err);
+    }
+}
+
 function getAllUrlParams(url) {
     var queryString = url ? url.split('?')[1] : window.location.search.slice(1);
     var obj = {};
@@ -51,27 +72,6 @@ var checkVerified = function (poster) {
     var stuff = thing.responseText.split("\n")[0];
     if (stuff == "true") {
         document.getElementById("verified").style.display = "";
-    }
-}
-
-function loadTheme() {
-    try {
-        var theme = localStorage.getItem('theme');
-        if (theme != undefined) {
-            if (theme == "custom") {
-                if (localStorage.getItem('customtheme').trim() != "") {
-                    document.getElementById('themer').href = localStorage.getItem('customtheme');
-                } else {
-                    document.getElementById('themer').href = 'css/themes/dark.css';
-                }
-            } else {
-                document.getElementById('themer').href = 'css/themes/' + theme + ".css";
-            }
-        } else {
-            document.getElementById('themer').href = 'css/themes/dark.css';
-        }
-    } catch (err) {
-        console.error(err);
     }
 }
 

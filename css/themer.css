@@ -20,7 +20,7 @@ nav {
     color: var(--btnhover)
 }
 
-footer {
+.aurorafooter {
     color: var(--footer-textcolor);
     background-color: var(--footer-backing);
 }
@@ -132,3 +132,12 @@ input {
         transform: rotate(360deg);
     }
 }
+
+.posttopic {
+    color: var(--textcolor);
+}
+
+    .posttopic:hover {
+        color: var(--seticon);
+        text-decoration: underline;
+    }

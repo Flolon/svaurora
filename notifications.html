@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Notifications & Sounds - Aurora</title>
+    <title>Notifications & Alerts - Aurora</title>
     <link rel="apple-touch-icon" href="assets/web.png">
     <meta name="apple-mobile-web-app-title" content="Aurora">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -39,8 +39,10 @@
     <div id="load">
         <br>
         <div class="container" id="centerback">
+            <br />
             <center>
-                <img src="load.gif" width="75" height="75"><br>
+                <div class="loader"></div>
+                <br />
                 NOW LOADING
             </center>
         </div>
@@ -49,7 +51,7 @@
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
             <a class="navbar-brand" onclick="goBack()">
                 <img src="assets/aurora_nav.png" height="35" alt="Aurora logo">
-                Back | Notifications & Sounds
+                Back | Notifications & Alerts
                 <script>
                     function goBack() {
                         window.history.back();
@@ -58,13 +60,12 @@
 
             </a>
         </nav>
-
         <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="js/popper.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/mdb.min.js"></script>
         <script src="js/global.js"></script>
-        <script src="js/privacy.js"></script>
+        <script src="js/notifset.js"></script>
         <br>
         <br>
         <br>
@@ -80,22 +81,35 @@
                         <div id="settopic">
                             Notifications
                         </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="notiflist">
-                            <label class="custom-control-label" for="notiflist">Default indeterminate</label>
+                        <br />
+                        <i>NOTE: Notifications for Aurora only work on desktop and select Android browsers. New Post Notifications are currently fetched only on the Feed.</i>
+                        <div id="auroranotifs">
+                            <br />
+                            <b>Currently, to enable or disable notifications for Aurora, please go to your browser settings and select <i>"https://svaurora.gq/"</i> in the "Notifcations" permission tab.</b>
+                            <div id="hides">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="notiftoggle">
+                                    <label class="custom-control-label" for="notiftoggle">New Post Notifications</label>
+                                </div>
+                                <button href="javascript:;" id="testnotif" type="button" class="btn on-back waves-effect waves-light">Notification Test</button>
+                            </div>
                         </div>
-                        <br>
-                        <br>
-                        <br>
+                        <br />
                         <div id="settopic">
-                            Sounds
+                            Alerts
                         </div>
-                        <div class="row">
-                            <a href="privacy-policy.html" class="col-md-6 mt-md-0 mt-3 setting">
-                                <br>
-                                STiBaRC Privacy Policy
-                                <hr />
-                            </a>
+                        <br />
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="auroraatoggle" checked disabled>
+                            <label class="custom-control-label" for="auroraatoggle">Aurora Alerts</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="browseratoggle">
+                            <label class="custom-control-label" for="browseratoggle">Recommended Browser</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="updateatoggle">
+                            <label class="custom-control-label" for="updateatoggle">Updates</label>
                         </div>
                     </div>
                     <br>

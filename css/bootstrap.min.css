@@ -3202,7 +3202,7 @@ a.btn.disabled, fieldset:disabled a.btn {
 
     .custom-control-input:checked ~ .custom-control-label::before {
         color: #fff;
-        background-color: #007bff
+        background-color: var(--topiccolor)
     }
 
     .custom-control-input:focus ~ .custom-control-label::before {
@@ -3246,7 +3246,7 @@ a.btn.disabled, fieldset:disabled a.btn {
     }
 
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before, .custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::before {
-    background-color: #007bff
+    background-color: var(--topiccolor)
 }
 
 .custom-control-label::after {
@@ -3272,7 +3272,7 @@ a.btn.disabled, fieldset:disabled a.btn {
 }
 
 .custom-checkbox .custom-control-input:disabled:checked ~ .custom-control-label::before, .custom-checkbox .custom-control-input:disabled:indeterminate ~ .custom-control-label::before {
-    background-color: rgba(0,123,255,.5)
+    background-color: var(--topiccolor)
 }
 
 .custom-radio .custom-control-label::before {

@@ -31,6 +31,7 @@
     <link href="css/mdb.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/themer.css">
     <link rel="stylesheet" href="css/settings.css">
+    <link rel="stylesheet" href="css/ani.css">
     <link rel="icon" type="image/png" href="assets/fav.png">
 </head>
 
@@ -51,7 +52,7 @@
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
             <a class="navbar-brand waves-effect waves-light" onclick="goBack()">
                 <img src="assets/aurora_nav.png" height="35" alt="Aurora logo">
-                Back | Themes
+                Back | Display & Themes
                 <script>
                     function goBack() {
                         window.history.back();
@@ -79,17 +80,32 @@
                         Display
                     </div>
                     <br />
-                    e
-                    <br />
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="pfptoggle">
+                        <label class="custom-control-label" for="pfptoggle">Profile Pictures on Posts</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="polltoggle">
+                        <label class="custom-control-label" for="polltoggle">Show Up-votes & Down-votes</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="commentstoggle">
+                        <label class="custom-control-label" for="commentstoggle">Recent Posts on Profile First</label>
+                    </div>
                     <br />
                     <div id="settopic">
                         Themes
                     </div>
                     <br>
                     <select class="browser-default custom-select" id="themechng">
-                        <option value="light">Light</option>
                         <option value="dark">Dark</option>
+                        <option value="exdark">Dark AMOLED</option>
+                        <option value="light">Light</option>
+                        <option value="exlight">Extreme Light</option>
                         <option value="stibarc">STiBaRC</option>
+                        <option value="red">BaSTPC Classic Red</option>
+                        <option value="blue">BaSTPC Classic Blue</option>
+                        <option value="nblue">BaSTPC Classic New Blue</option>
                         <option value="sverso">Studio Verso</option>
                         <option value="custom">Custom Theme</option>
                     </select><br><br />

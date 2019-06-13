@@ -1,5 +1,12 @@
 function checkNotifs() {
-	var perms = window.localStorage.getItem("notifs");
+    var perms = window.localStorage.getItem("notifs");
+    var notiflisten = window.localStorage.notifli;
+    if (notiflisten == undefined) {
+        notiflisten = false; localStorage.notifli = "false"
+        perms == "denied"
+    } else if (notiflisten == true) {
+        perms == "granted"
+    }
 	if (perms == "granted") {
 		var xmlHttp = new XMLHttpRequest();
 		xmlHttp.open("get", "https://api.stibarc.gq/getnotifs.sjs", false);
