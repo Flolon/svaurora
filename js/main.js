@@ -114,7 +114,7 @@ function getUpdateLog() {
     xhr.onload = function (e) {
         if (xhr.responseText != "\n") {
             var tmp = JSON.parse(xhr.responseText);
-            document.getElementsByTagName("body")[0].innerHTML = '<div class="container-fluid text-center text-md-left"><br><div class="card"><br><div class="container>' + tmp['image'] + '<h2>' + tmp['title'] + '</h2>' + tmp['content'] + '</div><br></div></div>' + document.getElementsByTagName("body")[0].innerHTML;
+            document.getElementsByTagName("body")[0].innerHTML = '<div class="container-fluid text-center text-md-left"><br><div class="card"><br><div class="container">' + tmp['image'] + '<br><h2>' + tmp['title'] + '</h2>' + tmp['content'] + '</div><br></div></div>' + document.getElementsByTagName("body")[0].innerHTML;
         }
     }
 }
