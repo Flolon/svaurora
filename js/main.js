@@ -114,9 +114,22 @@ function getUpdateLog() {
     xhr.onload = function (e) {
         if (xhr.responseText != "\n") {
             var tmp = JSON.parse(xhr.responseText);
-            document.getElementById("update").innerHTML = '<br><div class="card"><br><div class="container">' + tmp['image'] + '<br><h2>' + tmp['title'] + '</h2>' + tmp['content'] + '</div><br></div>';
+            document.getElementById("update").innerHTML = '<br><div class="card"><br><div class="container">' + tmp['image'] + '<br><h2>' + tmp['title'] + '</h2>' + tmp['content'] + "<h2>" + tmp['title2'] + "</h2>" + tmp['additional'] + '</div><br></div>';
         }
     }
+    document.getElementById("exitlogs").onclick = function (evt) {
+        exitLog()
+    }
+}
+
+function exitLog() {
+    document.getElementById("logup").style.display = "none";
+    document.getElementById("thepage").style.display = "";
+    window.scrollTo(0, 0);
+    var currentAurora = localStorage.auroraversion;
+    var lastAurora = localStorage.lastauroraversion;
+    localStorage.lastauroraversion = lastAurora;
+    localStorage.newupdate = "false";
 }
 
 window.onload = function () {
