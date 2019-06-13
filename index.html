@@ -50,178 +50,211 @@
 </head>
 
 <body>
-    <div id="update" style="display:none">
-
-        </div>
-        <div id="load">
-            <br>
-            <div class="container" id="centerback">
-                <br />
-                <center>
-                    <div class="loader"></div>
-                    <br />
-                    NOW LOADING
-                </center>
-            </div>
-        </div>
-        <div id="thepage" style="display:none">
-            <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
-                <a class="navbar-brand" href="index.html">
-                    <img src="assets/aurora_nav.png" height="35" alt="Aurora logo">
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="basicExampleNav">
-                    <ul class="navbar-nav mr-auto" id="loggedout">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="index.html">
-                                Home
-                                <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="login.html">Log In</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="settings.html">Settings</a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav mr-auto" id="loggedin" style="display:none">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="index.html">
-                                Home
-                                <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="newpost.html">New Post</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="messenger.html">Messenger</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                               aria-expanded="false"><img id="navpfp" src="load.gif" style="width:25px;height:25px;border-radius:50%;" /></a>
-                            <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="settings.html">Settings</a>
-                                <a class="dropdown-item" href="logout.html">Sign Out</a>
-                            </div>
-                        </li>
-                    </ul>
-                    <form action="search.html?q=" autocomplete="off" method="get" class="form-inline">
-                        <div class="md-form my-0">
-                            <input class="form-control mr-sm-2" type="text" placeholder="Search Posts" aria-label="Search" name="q">
-                        </div>
-                    </form>
-                </div>
-            </nav>
-            <br>
-            <br>
-            <br>
-            <div id="feedupload">
-                <div class="container-fluid text-center text-md-left" style="display:none">
-                    <br>
-                    <div class="card waves-effect waves-light" onclick="window.location.reload();">
-                        <br>
-                        <div class="container ">
-                            The feed has new posts! Click / tap here to refresh.
-                        </div>
-                        <br />
-                    </div>
-                </div>
-            </div>
-            <div id="welcomeintro">
-                <div class="container-fluid text-center text-md-left">
-                    <br>
-                    <div class="card">
-                        <br>
-                        <div class="container">
-                            <div id="loggedout-">
-                                <img src="assets/aurora_nav.png" id="weblogo" alt="Aurora logo" style="width:100px;height:100px;border-radius:50%;" /> Welcome to Aurora
-                            </div>
-                            <div id="loggedin-" style="display:none">
-                                <img id="pfp" src="load.gif" style="width:100px;height:100px;border-radius:50%;" /><br />
-                                <h10 id="user"></h10>
-                                <br />
-                                <ul class="nav nav-tabs" id="myTabAttr" role="tablist">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" id="feed-tab-attr" data-toggle="tab" href="#feed" role="tab" aria-controls="feed"
-                                           aria-selected="true">Main Feed</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="following-tab-attr" data-toggle="tab" href="#following" role="tab" aria-controls="following"
-                                           aria-selected="true">Following</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <br>
-                        </div>
-                    </div>
-                    <br>
-                </div>
-            </div>
-            <div class="tab-content">
-                <div class="tab-pane active" id="feed" role="tabpanel" aria-labelledby="feed-tab-attr">
-                    <div class="animated slideInUp" id="list">
-                        Aurora could not load the feed from the STiBaRC servers. Check your Internet connection on your device and the STiBaRC server status <a href="https://status.stibarc.gq/">here</a>.
-                    </div>
-                    <br>
-                    <div class="container">
-                        <div id="loadmorecontainer">
-                            <button href="javascript:;" id="loadmore" type="button" class="btn on-back waves-effect waves-light">View Older Posts</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane" id="following" role="tabpanel" aria-labelledby="following-tab-attr">
-                    <div class="animated slideInUp" id="followlist">
-                        Aurora could not load your following feed from the STiBaRC servers. Check your Internet connection on your device and the STiBaRC server status <a href="https://status.stibarc.gq/">here</a>.
-                    </div>
-                    <div class="container">
-                        <div id="followloadmorecontainer">
-                            <button href="javascript:;" id="followloadmore" type="button" class="btn on-back waves-effect waves-light">View Older Posts</button>
-                        </div>
-                    </div>
-                </div>
+    <div id="logup" style="display:none">
+        <div class="container-fluid text-center text-md-left">
+            <div id="update">
             </div>
             <br />
-            <footer class="page-footer font-small aurorafooter">
-                <br>
-                <div class="container-fluid text-left">
-                    <a href="index.html">
-                        <img src="assets/aurora_wordmark.png" alt="Aurora" height="50">
-                    </a>
-                </div>
-                <div class="col-md-12 text-left py-5">
-                    <a class="fb-ic" href="https://www.facebook.com/StuVerso/" target="_blank">
-                        <i class="fa fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-                    </a>
-                    <a class="tw-ic" href="https://twitter.com/SVerso_/" target="_blank">
-                        <i class="fa fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-                    </a>
-                    <a class="ins-ic" href="https://www.instagram.com/sverso_official/" target="_blank">
-                        <i class="fa fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-                    </a>
-                </div>
-                <div class="footer-copyright">
-                    <div class="col-md-12 text-left py-2">
-                        <img src="assets/v_logo.png" alt="Aurora" width="75" height="75">
-                        <br />
-                        <div class="container text-left">
-                            &copy; 2019 Studio Verso
-                        </div>
+            <center><button href="javascript:;" id="exitlogs" type="button" class="btn on-back waves-effect waves-light">Exit</button></center>
+        </div>
+        <br />
+        <footer class="page-footer font-small aurorafooter">
+            <br>
+            <div class="container-fluid text-left">
+                <a href="index.html">
+                    <img src="assets/aurora_wordmark.png" alt="Aurora" height="50">
+                </a>
+            </div>
+            <div class="col-md-12 text-left py-5">
+                <a class="fb-ic" href="https://www.facebook.com/StuVerso/" target="_blank">
+                    <i class="fa fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                </a>
+                <a class="tw-ic" href="https://twitter.com/SVerso_/" target="_blank">
+                    <i class="fa fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                </a>
+                <a class="ins-ic" href="https://www.instagram.com/sverso_official/" target="_blank">
+                    <i class="fa fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                </a>
+            </div>
+            <div class="footer-copyright">
+                <div class="col-md-12 text-left py-2">
+                    <img src="assets/v_logo.png" alt="Aurora" width="75" height="75">
+                    <br />
+                    <div class="container text-left">
+                        &copy; 2019 Studio Verso
                     </div>
                 </div>
-            </footer>
+            </div>
+        </footer>
+    </div>
+    <div id="load">
+        <br>
+        <div class="container" id="centerback">
+            <br />
+            <center>
+                <div class="loader"></div>
+                <br />
+                NOW LOADING
+            </center>
         </div>
-        <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-        <script type="text/javascript" src="js/popper.min.js"></script>
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/mdb.min.js"></script>
-        <script src="js/global.js"></script>
-        <script src="js/notifs.js"></script>
-        <script src="js/main.js"></script>
+    </div>
+    <div id="thepage" style="display:none">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/aurora_nav.png" height="35" alt="Aurora logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="basicExampleNav">
+                <ul class="navbar-nav mr-auto" id="loggedout">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">
+                            Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Log In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="settings.html">Settings</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav mr-auto" id="loggedin" style="display:none">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">
+                            Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="newpost.html">New Post</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="messenger.html">Messenger</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false"><img id="navpfp" src="load.gif" style="width:25px;height:25px;border-radius:50%;" /></a>
+                        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="settings.html">Settings</a>
+                            <a class="dropdown-item" href="logout.html">Sign Out</a>
+                        </div>
+                    </li>
+                </ul>
+                <form action="search.html?q=" autocomplete="off" method="get" class="form-inline">
+                    <div class="md-form my-0">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search Posts" aria-label="Search" name="q">
+                    </div>
+                </form>
+            </div>
+        </nav>
+        <br>
+        <br>
+        <br>
+        <div id="feedupload">
+            <div class="container-fluid text-center text-md-left" style="display:none">
+                <br>
+                <div class="card waves-effect waves-light" onclick="window.location.reload();">
+                    <br>
+                    <div class="container ">
+                        The feed has new posts! Click / tap here to refresh.
+                    </div>
+                    <br />
+                </div>
+            </div>
+        </div>
+        <div id="welcomeintro">
+            <div class="container-fluid text-center text-md-left">
+                <br>
+                <div class="card">
+                    <br>
+                    <div class="container">
+                        <div id="loggedout-">
+                            <img src="assets/aurora_nav.png" id="weblogo" alt="Aurora logo" style="width:100px;height:100px;border-radius:50%;" /> Welcome to Aurora
+                        </div>
+                        <div id="loggedin-" style="display:none">
+                            <img id="pfp" src="load.gif" style="width:100px;height:100px;border-radius:50%;" /><br />
+                            <h10 id="user"></h10>
+                            <br />
+                            <ul class="nav nav-tabs" id="myTabAttr" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="feed-tab-attr" data-toggle="tab" href="#feed" role="tab" aria-controls="feed"
+                                       aria-selected="true">Main Feed</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="following-tab-attr" data-toggle="tab" href="#following" role="tab" aria-controls="following"
+                                       aria-selected="true">Following</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+        <div class="tab-content">
+            <div class="tab-pane active" id="feed" role="tabpanel" aria-labelledby="feed-tab-attr">
+                <div class="animated slideInUp" id="list">
+                    Aurora could not load the feed from the STiBaRC servers. Check your Internet connection on your device and the STiBaRC server status <a href="https://status.stibarc.gq/">here</a>.
+                </div>
+                <br>
+                <div class="container">
+                    <div id="loadmorecontainer">
+                        <button href="javascript:;" id="loadmore" type="button" class="btn on-back waves-effect waves-light">View Older Posts</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="following" role="tabpanel" aria-labelledby="following-tab-attr">
+                <div class="animated slideInUp" id="followlist">
+                    Aurora could not load your following feed from the STiBaRC servers. Check your Internet connection on your device and the STiBaRC server status <a href="https://status.stibarc.gq/">here</a>.
+                </div>
+                <div class="container">
+                    <div id="followloadmorecontainer">
+                        <button href="javascript:;" id="followloadmore" type="button" class="btn on-back waves-effect waves-light">View Older Posts</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <footer class="page-footer font-small aurorafooter">
+            <br>
+            <div class="container-fluid text-left">
+                <a href="index.html">
+                    <img src="assets/aurora_wordmark.png" alt="Aurora" height="50">
+                </a>
+            </div>
+            <div class="col-md-12 text-left py-5">
+                <a class="fb-ic" href="https://www.facebook.com/StuVerso/" target="_blank">
+                    <i class="fa fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                </a>
+                <a class="tw-ic" href="https://twitter.com/SVerso_/" target="_blank">
+                    <i class="fa fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                </a>
+                <a class="ins-ic" href="https://www.instagram.com/sverso_official/" target="_blank">
+                    <i class="fa fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                </a>
+            </div>
+            <div class="footer-copyright">
+                <div class="col-md-12 text-left py-2">
+                    <img src="assets/v_logo.png" alt="Aurora" width="75" height="75">
+                    <br />
+                    <div class="container text-left">
+                        &copy; 2019 Studio Verso
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <script src="js/global.js"></script>
+    <script src="js/notifs.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

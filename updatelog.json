@@ -1,8 +1,9 @@
 {
   "version": "1.7.1",
-  "builddate" :  "12 June 2019",
-  "title": "WHAT's NEW?",
-  "content": "In this latest version of Aurora, we've added tons of new featured you are sure to enjoy!",
-  "image": "IMG HERE",
-  "additional":  "HERE"
+  "builddate": "12 June 2019",
+  "title": "WHAT'S NEW?",
+  "content": "In this update of Aurora, we've added tons of new features you are sure to enjoy!<ul><li>Aurora now uses V3 of the STiBaRC API to load user profile pages!</li><li>You can now follow users! The Feed now allows you to either view the main Feed or view your Following Feed.</li><li>New customization settings in Themes & Display! You can now hide user profile pictures on posts and comments, hide post polls and so much more!</li><li>Settings has some new sections - Messenger and Notifcations & Alerts</li><li>And of course...bug fixes!</li></ul>",
+  "image": "<img id=\"image\" src=\"https://svaurora.gq/assets/aurora_sverso_banner.png\">",
+  "title2": "OH AND...",
+  "additional": "Special thanks to @herronjo for the help with adding the new features from STiBaRC V3 API. Aurora would have WAY more issues if not for herronjo's assistance."
 }

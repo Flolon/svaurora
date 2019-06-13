@@ -114,7 +114,7 @@ function getUpdateLog() {
     xhr.onload = function (e) {
         if (xhr.responseText != "\n") {
             var tmp = JSON.parse(xhr.responseText);
-            document.getElementsByTagName("body")[0].innerHTML = '<div class="container-fluid text-center text-md-left"><br><div class="card"><br><div class="container">' + tmp['image'] + '<br><h2>' + tmp['title'] + '</h2>' + tmp['content'] + '</div><br></div></div>' + document.getElementsByTagName("body")[0].innerHTML;
+            document.getElementById("update").innerHTML = '<br><div class="card"><br><div class="container">' + tmp['image'] + '<br><h2>' + tmp['title'] + '</h2>' + tmp['content'] + '</div><br></div>';
         }
     }
 }
@@ -137,76 +137,76 @@ window.onload = function () {
     if (currentAurora != lastAurora && localStorage.newupdate == "true") {
         getUpdateLog();
         document.getElementById("load").style.display = "none";
-        document.getElementById("update").style.display = "";
+        document.getElementById("logup").style.display = "";
     }
     if (currentAurora == lastAurora || localStorage.newupdate == "false") {
         document.getElementById("load").style.display = "none";
         document.getElementById("thepage").style.display = "";
-        var offline = false;
-        var user = window.localStorage.getItem("username");
-        var pfp = ("GET", "https://api.stibarc.gq/v2/getuserpfp.sjs?id=" + user, false);
-        var sess = window.localStorage.getItem("sess");
-        if (sess != undefined && sess != null && sess != "") {
-            checkSess();
-            document.getElementById("loggedout").style.display = "none";
-            document.getElementById("loggedin").style.display = "";
-            document.getElementById("loggedout-").style.display = "none";
-            document.getElementById("loggedin-").style.display = "";
-        }
-        var xmlHttp = new XMLHttpRequest();
-        xmlHttp.open("GET", "https://api.stibarc.gq/v2/getposts.sjs", false);
-        try {
-            xmlHttp.send(null);
-        } catch (err) {
-            offline = true;
-        }
-        document.getElementById("user").innerHTML = "What's new today, ".concat(user) + "?";
-        document.getElementById("loadmorecontainer").style.display = "";
-        if (sess != undefined && sess != null && sess != "") {
-            var xhr = new XMLHttpRequest();
-            xhr.open("get", "https://api.stibarc.gq/v3/getfollowposts.sjs?sess=" + sess, false);
-            xhr.send(null);
-            if (xhr.responseText != "No posts\n") {
-                var followtmp = JSON.parse(xhr.responseText);
-                document.getElementById("followlist").innerHTML = "";
-                var tmpposts = [];
-                for (var key in followtmp) {
-                    tmpposts.push(key);
-                }
-                for (var i = tmpposts.length - 1; i >= 0; i--) {
-                    toFollowLink(tmpposts[i], followtmp[tmpposts[i]]);
-                }
-                document.getElementById("followloadmorecontainer").style.display = "";
-            } else {
-                document.getElementById("followlist").innerHTML = '<div class="container-fluid text-center text-md-left"><div class="card"><br><div class="container">' + "It looks like you aren't following anyone, or no one has posted anything yet.</div><br></div></div>";
-                document.getElementById("followloadmorecontainer").style.display = "none";
-            }
-        }
-        if (!offline) {
-            getSVAnnounce();
-            if (window.localStorage.getItem("username") == "" || window.localStorage.getItem("username") == undefined) {
-                if (sess != undefined && sess != null && sess != "") {
-                    getUsername();
-                }
-            }
-            var tmp = JSON.parse(xmlHttp.responseText);
-            document.getElementById("list").innerHTML = "";
-            for (var i = tmp['totalposts']; i > tmp['totalposts'] - 20; i--) {
-                toLink(i, tmp[i]);
-            }
-            document.getElementById("loadmorecontainer").style.display = "";
-            var thing = new XMLHttpRequest();
-            var id = window.localStorage.getItem("username");
-            thing.open("GET", "https://api.stibarc.gq/v3/getuser.sjs?id=" + id, false);
-            thing.send(null);
-            var tmp = JSON.parse(thing.responseText);
-            var pfp = tmp['pfp'];
-            var navpfp = tmp['pfp'];
-            document.getElementById("pfp").src = pfp + ' ';
-            document.getElementById("navpfp").src = navpfp + ' ';
-        } else {
-            document.getElementById("list").innerHTML = "Aurora could not connect to the STiBaRC services. Check to see if you're connected and also check the server status.";
-        }
-        startNotifs();
     }
+    var offline = false;
+    var user = window.localStorage.getItem("username");
+    var pfp = ("GET", "https://api.stibarc.gq/v2/getuserpfp.sjs?id=" + user, false);
+    var sess = window.localStorage.getItem("sess");
+    if (sess != undefined && sess != null && sess != "") {
+        checkSess();
+        document.getElementById("loggedout").style.display = "none";
+        document.getElementById("loggedin").style.display = "";
+        document.getElementById("loggedout-").style.display = "none";
+        document.getElementById("loggedin-").style.display = "";
+    }
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET", "https://api.stibarc.gq/v2/getposts.sjs", false);
+    try {
+        xmlHttp.send(null);
+    } catch (err) {
+        offline = true;
+    }
+    document.getElementById("user").innerHTML = "What's new today, ".concat(user) + "?";
+    document.getElementById("loadmorecontainer").style.display = "";
+    if (sess != undefined && sess != null && sess != "") {
+        var xhr = new XMLHttpRequest();
+        xhr.open("get", "https://api.stibarc.gq/v3/getfollowposts.sjs?sess=" + sess, false);
+        xhr.send(null);
+        if (xhr.responseText != "No posts\n") {
+            var followtmp = JSON.parse(xhr.responseText);
+            document.getElementById("followlist").innerHTML = "";
+            var tmpposts = [];
+            for (var key in followtmp) {
+                tmpposts.push(key);
+            }
+            for (var i = tmpposts.length - 1; i >= 0; i--) {
+                toFollowLink(tmpposts[i], followtmp[tmpposts[i]]);
+            }
+            document.getElementById("followloadmorecontainer").style.display = "";
+        } else {
+            document.getElementById("followlist").innerHTML = '<div class="container-fluid text-center text-md-left"><div class="card"><br><div class="container">' + "It looks like you aren't following anyone, or no one has posted anything yet.</div><br></div></div>";
+            document.getElementById("followloadmorecontainer").style.display = "none";
+        }
+    }
+    if (!offline) {
+        getSVAnnounce();
+        if (window.localStorage.getItem("username") == "" || window.localStorage.getItem("username") == undefined) {
+            if (sess != undefined && sess != null && sess != "") {
+                getUsername();
+            }
+        }
+        var tmp = JSON.parse(xmlHttp.responseText);
+        document.getElementById("list").innerHTML = "";
+        for (var i = tmp['totalposts']; i > tmp['totalposts'] - 20; i--) {
+            toLink(i, tmp[i]);
+        }
+        document.getElementById("loadmorecontainer").style.display = "";
+        var thing = new XMLHttpRequest();
+        var id = window.localStorage.getItem("username");
+        thing.open("GET", "https://api.stibarc.gq/v3/getuser.sjs?id=" + id, false);
+        thing.send(null);
+        var tmp = JSON.parse(thing.responseText);
+        var pfp = tmp['pfp'];
+        var navpfp = tmp['pfp'];
+        document.getElementById("pfp").src = pfp + ' ';
+        document.getElementById("navpfp").src = navpfp + ' ';
+    } else {
+        document.getElementById("list").innerHTML = "Aurora could not connect to the STiBaRC services. Check to see if you're connected and also check the server status.";
+    }
+    startNotifs();
 }
