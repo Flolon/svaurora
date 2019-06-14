@@ -7,6 +7,8 @@ window.onload = function () {
     var user = window.localStorage.getItem("username");
     if (user == "Anon") {
         document.getElementById("managedact").style.display = "";
+    } else {
+        document.getElementById("managedset").style.display = "";
     }
     if (sess != undefined && sess != null && sess != "") {
         document.getElementById("loggedout").style.display = "none";

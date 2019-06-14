@@ -152,6 +152,12 @@ window.onload = function () {
     if (localStorage.newupdate == undefined) {
         localStorage.newupdate = "true";
     }
+    if (localStorage.pfpstyles == undefined) {
+        localStorage.pfpstyles = "true";
+    }
+    if (localStorage.pollsystem == undefined) {
+        localStorage.pollsystem = "true";
+    }
     var currentAurora = localStorage.auroraversion;
     var lastAurora = localStorage.lastauroraversion;
     if (currentAurora == undefined || currentAurora == "undefined" || currentAurora == "1.7.0.2") {
@@ -164,13 +170,16 @@ window.onload = function () {
         localStorage.newupdate = "true";
     }
     if (currentAurora != lastAurora && localStorage.anewupdate == "true") {
-        if (localStorage.newupdate == "true") {
+        if (localStorage.newupdate == "true" && sess != undefined && sess != null && sess != "") {
             getUpdateLog();
             document.getElementById("load").style.display = "none";
             document.getElementById("logup").style.display = "";
             console.log(lastAurora);
             console.log(currentAurora);
-        } 
+        } else {
+            document.getElementById("load").style.display = "none";
+            document.getElementById("thepage").style.display = "";
+        }
     }
     if (currentAurora == lastAurora || localStorage.newupdate == "false") {
         document.getElementById("load").style.display = "none";
@@ -186,6 +195,15 @@ window.onload = function () {
         document.getElementById("loggedin").style.display = "";
         document.getElementById("loggedout-").style.display = "none";
         document.getElementById("loggedin-").style.display = "";
+        var thing = new XMLHttpRequest();
+        var id = window.localStorage.getItem("username");
+        thing.open("GET", "https://api.stibarc.gq/v3/getuser.sjs?id=" + id, false);
+        thing.send(null);
+        var tmp = JSON.parse(thing.responseText);
+        var pfp = tmp['pfp'];
+        var navpfp = tmp['pfp'];
+        document.getElementById("pfp").src = pfp + ' ';
+        document.getElementById("navpfp").src = navpfp + ' ';
     }
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", "https://api.stibarc.gq/v2/getposts.sjs", false);
@@ -229,15 +247,6 @@ window.onload = function () {
             toLink(i, tmp[i]);
         }
         document.getElementById("loadmorecontainer").style.display = "";
-        var thing = new XMLHttpRequest();
-        var id = window.localStorage.getItem("username");
-        thing.open("GET", "https://api.stibarc.gq/v3/getuser.sjs?id=" + id, false);
-        thing.send(null);
-        var tmp = JSON.parse(thing.responseText);
-        var pfp = tmp['pfp'];
-        var navpfp = tmp['pfp'];
-        document.getElementById("pfp").src = pfp + ' ';
-        document.getElementById("navpfp").src = navpfp + ' ';
     } else {
         document.getElementById("list").innerHTML = "Aurora could not connect to the STiBaRC services. Check to see if you're connected and also check the server status.";
     }
