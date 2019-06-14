@@ -1,5 +1,5 @@
 function resetAurora() {
-    localStorage.clear;
+    localStorage.clear();
     window.location.href = "index.html";
 }
 
