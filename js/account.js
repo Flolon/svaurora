@@ -9,6 +9,11 @@ window.onload = function () {
         document.getElementById("loggedout").style.display = "none";
         document.getElementById("loggedin").style.display = "";
     }
+    if (id != "Anon") {
+        document.getElementById("edits").style.display = "";
+    } else {
+        document.getElementById("managedpo").style.display = "";
+    }
     var thing = new XMLHttpRequest();
     thing.open("GET", "https://api.stibarc.gq/v3/getuser.sjs?id=" + id, false);
     thing.send(null);

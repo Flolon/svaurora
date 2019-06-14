@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Reset - Aurora</title>
+    <link rel="apple-touch-icon" href="assets/web.png">
+    <meta name="apple-mobile-web-app-title" content="Aurora">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <script type="text/javascript">
+        if (("standalone" in window.navigator) && window.navigator.standalone) {
+            var noddy, remotes = false;
+            document.addEventListener('click', function (event) {
+                noddy = event.target;
+                while (noddy.nodeName !== "A" && noddy.nodeName !== "HTML") {
+                    noddy = noddy.parentNode;
+                }
+                if ('href' in noddy && noddy.href.indexOf('http') !== -1 && (noddy.href.indexOf(document.location.host) !== -1 || remotes)) {
+                    event.preventDefault();
+                    document.location.href = noddy.href;
+                }
+            }, false);
+        }
+    </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/themes/dark.css" id="themer">
+    <link rel="stylesheet" href="css/themer.css">
+    <link rel="stylesheet" href="css/settings.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/fav.png">
+</head>
+<body>
+    <div id="load">
+        <br>
+        <div class="container" id="centerback">
+            <br />
+            <center>
+                <div class="loader"></div>
+                <br />
+                NOW LOADING
+            </center>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div id="thepage" style="display:none">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
+            <a class="navbar-brand waves-effect waves-light" onclick="goBack()">
+                <img src="assets/aurora_nav.png" height="35" alt="Aurora logo">
+                Back | Reset
+                <script>
+                    function goBack() {
+                        window.history.back();
+                    }
+                </script>
+            </a>
+        </nav>
+        <div class="container-fluid text-center text-md-left">
+            <div class="card">
+                <br />
+                <div class="container">
+                    <div id="loggedin" style="display:none">
+                        <div id="managedact" style="display:none">
+                            <i class="material-icons">domain</i><br />Some settings are managed by your administrator. <a class="settingurl" href="managed-settings.html">Learn More</a>.
+                            <br />
+                            <br />
+                        </div>
+                    </div>
+                    <div id="loggedout">
+                        <img src="assets/aurora_nav.png" style="width:100px;height:100px;border-radius:50%;" />
+                        <h2>User</h2>
+                    </div>
+                    <div id="settopic">
+                        Reset Aurora
+                    </div>
+                    <br />
+                    Resetting Aurora will erase the localStorage, which stores your personal Aurora settings and your login status. This action <b>CANNOT BE UNDONE</b>.
+                    <br />
+                    <br />
+                    By clicking / tapping the <b>"RESET"</b> button, you acknowledge the following will be erased from the localStorage:
+                    <ul>
+                        <li>Your login status</li>
+                        <li>Your personal Aurora settings which includes:</li>
+                        <ul>
+                            <li>The set theme</li>
+                            <li>Post order on profile pages</li>
+                            <li>Alerts</li>
+                            <li>Notifcations</li>
+                        </ul>
+                        <li>Aurora's update detection</li>
+                    </ul>
+                    <div id="loggedin2" style="display:none">
+                        In addition, the following account will be logged out:
+                        <br />
+                        <img id="pfp" src="assets/aurora_nav.png" style="width:40px;height:40px;border-radius:50%;" />
+                        <h9 id="nameuser">User</h9>
+                        <br />
+                        <br />
+                        Your STiBaRC account and any information stored in the STiBaRC servers will not be affected from the localStorage being erased.
+                        <br />
+                        <br />
+                    </div>
+                    Once the localStorage is erased, you will be returned to the Feed.
+                    <br />
+                    <button href="javascript:;" id="resetau" type="button" class="btn on-back waves-effect waves-light">Reset</button>
+                </div>
+                <br />
+            </div>
+        </div>
+        <br>
+    </div>
+    <script src="js/global.js"></script>
+    <script src="js/reseta.js"></script>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+</body>
+</html>

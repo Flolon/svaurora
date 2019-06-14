@@ -119,6 +119,20 @@ function getUpdateLog() {
     }
     document.getElementById("exitlogs").onclick = function (evt) {
         exitLog()
+        var currentAurora;
+        var lastAurora;
+        currentAurora = localStorage.auroraversion;
+        lastAurora = localStorage.lastauroraversion;
+        if (currentAurora == undefined || currentAurora == "undefined" || currentAurora == "1.7.0.2") {
+            currentAurora = "1.7.1";
+        }
+        if (lastAurora == undefined || lastAurora == "undefined" || lastAurora == "1.7.0.1") {
+            lastAurora = "1.7.0.2";
+        }
+        lastAurora = currentAurora;
+        localStorage.lastauroraversion = lastAurora;
+        console.log(localStorage.lastauroraversion)
+
     }
 }
 
@@ -126,31 +140,37 @@ function exitLog() {
     document.getElementById("logup").style.display = "none";
     document.getElementById("thepage").style.display = "";
     window.scrollTo(0, 0);
-    var currentAurora = localStorage.auroraversion;
-    var lastAurora = localStorage.lastauroraversion;
-    localStorage.lastauroraversion = lastAurora;
-    localStorage.newupdate = "false";
 }
 
 window.onload = function () {
     if (localStorage.pollsystem == undefined) {
         localStorage.pollsystem = "true";
     }
+    if (localStorage.anewupdate == undefined) {
+        localStorage.anewupdate = "true";
+    }
     if (localStorage.newupdate == undefined) {
         localStorage.newupdate = "true";
     }
     var currentAurora = localStorage.auroraversion;
     var lastAurora = localStorage.lastauroraversion;
-    if (currentAurora == undefined || currentAurora == "1.7.0.2") {
+    if (currentAurora == undefined || currentAurora == "undefined" || currentAurora == "1.7.0.2") {
         currentAurora = "1.7.1";
     }
-    if (lastAurora == undefined || lastAurora == "1.7.0.1") {
+    if (lastAurora == undefined || lastAurora == "undefined" || lastAurora == "1.7.0.1") {
         lastAurora = "1.7.0.2";
     }
-    if (currentAurora != lastAurora && localStorage.newupdate == "true") {
-        getUpdateLog();
-        document.getElementById("load").style.display = "none";
-        document.getElementById("logup").style.display = "";
+    if (lastAurora != currentAurora) {
+        localStorage.newupdate = "true";
+    }
+    if (currentAurora != lastAurora && localStorage.anewupdate == "true") {
+        if (localStorage.newupdate == "true") {
+            getUpdateLog();
+            document.getElementById("load").style.display = "none";
+            document.getElementById("logup").style.display = "";
+            console.log(lastAurora);
+            console.log(currentAurora);
+        } 
     }
     if (currentAurora == lastAurora || localStorage.newupdate == "false") {
         document.getElementById("load").style.display = "none";

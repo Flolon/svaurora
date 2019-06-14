@@ -28,13 +28,13 @@ window.onload = function () {
     document.getElementById("browseratoggle").onchange = function () {
         localStorage.browserb = document.getElementById("browseratoggle").checked;
     }
-    var auroraup = localStorage.newupdate;
+    var auroraup = localStorage.anewupdate;
     if (auroraup == undefined) {
-        auroraup = true; localStorage.newupdate = "true";
+        auroraup = true; localStorage.anewupdate = "true";
     }
     if (auroraup == "true") { auroraup = true; } else { auroraup = false; }
-    document.getElementById("updateatoggle").checked = recb;
+    document.getElementById("updateatoggle").checked = auroraup;
     document.getElementById("updateatoggle").onchange = function () {
-        localStorage.newupdate = document.getElementById("updateatoggle").checked;
+        localStorage.anewupdate = document.getElementById("updateatoggle").checked;
     }
 }

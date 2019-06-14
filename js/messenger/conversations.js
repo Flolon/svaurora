@@ -54,14 +54,19 @@ window.onload = function () {
     var user = window.localStorage.getItem("username");
     document.getElementById("load").style.display = "none";
     document.getElementById("thepage").style.display = "";
-    var sess = window.localStorage.getItem("sess");
-    if (sess != undefined && sess != null && sess != "") {
-        checkSess();
-        getChats();
-        document.getElementById("loggedout").style.display = "none";
-        document.getElementById("loggedin").style.display = "";
+    if (user != "Anon") {
+        var sess = window.localStorage.getItem("sess");
+        if (sess != undefined && sess != null && sess != "") {
+            checkSess();
+            getChats();
+            document.getElementById("loggedout").style.display = "none";
+            document.getElementById("loggedin").style.display = "";
+            document.getElementById("loggedout-").style.display = "none";
+            document.getElementById("loggedin-").style.display = "";
+        }
+    } else {
         document.getElementById("loggedout-").style.display = "none";
-        document.getElementById("loggedin-").style.display = "";
+        document.getElementById("managedact").style.display = "";
     }
     var thing = new XMLHttpRequest();
     var id = window.localStorage.getItem("username");

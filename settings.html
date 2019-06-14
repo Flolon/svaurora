@@ -26,6 +26,7 @@
         }
     </script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/themes/dark.css" id="themer">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/mdb.min.css" rel="stylesheet">
@@ -33,8 +34,6 @@
     <link rel="stylesheet" href="css/settings.css">
     <link rel="icon" type="image/png" href="assets/fav.png">
 </head>
-
-
 <body>
     <div id="load">
         <br>
@@ -54,7 +53,6 @@
                 Back
             </a>
         </nav>
-
         <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="js/popper.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -72,10 +70,14 @@
                     <div id="loggedin" style="display:none">
                         <img id="pfp" src="assets/aurora_nav.png" style="width:100px;height:100px;border-radius:50%;" />
                         <h2 id="theusername">User</h2>
+                        <div id="managedact" style="display:none">
+                            <i class="material-icons">domain</i><br />Some settings are managed by your administrator. <a class="settingurl" href="managed-settings.html">Learn More</a>.
+                        </div>
                     </div>
                     <div id="loggedout">
                         <img src="assets/aurora_nav.png" style="width:100px;height:100px;border-radius:50%;" />
                         <h2>User</h2>
+                        <i class="material-icons">domain</i><br />Some settings are managed. <a class="settingurl" href="managed-settings.html">Learn More</a>.
                     </div>
                     <center>
                         <h2>SETTINGS</h2>
@@ -91,7 +93,7 @@
                         Personal
                     </div>
                     <br>
-                    <div class="row">
+                    <div id="accountsec" class="row" style="display:none">
                         <a href="account.html" class="col-md-6 mt-md-0 mt-3 setting waves-effect waves-light">
                             <br>
                             <img class="seticons" src="assets/account.png" style="width:30px;height:30px;"> My Account
@@ -109,13 +111,13 @@
                             <img class="seticons" src="assets/display.png" style="width:30px;height:30px;"> Display & Themes
                             <hr />
                         </a>
-                        <a href="messenger-settings.html" class="col-md-6 mt-md-0 mt-3 setting waves-effect waves-light">
+                        <a id="msg" href="messenger-settings.html" class="col-md-6 mt-md-0 mt-3 setting waves-effect waves-light" style="display:none">
                             <br>
                             <img class="seticons" src="assets/messenger.png" style="width:30px;height:30px;"> Messenger
                             <hr />
                         </a>
                     </div>
-                    <div class="row">
+                    <div id="notifs" class="row" style="display:none">
                         <a href="notifications.html" class="col-md-6 mt-md-0 mt-3 setting waves-effect waves-light">
                             <br>
                             <img class="seticons" src="assets/notif.png" style="width:30px;height:30px;"> Notifications & Alerts

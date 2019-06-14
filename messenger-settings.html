@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Security & Privacy - Aurora</title>
+    <title>Messenger Settings - Aurora</title>
     <link rel="apple-touch-icon" href="assets/web.png">
     <meta name="apple-mobile-web-app-title" content="Aurora">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -25,7 +25,6 @@
             }, false);
         }
     </script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/mdb.min.css" rel="stylesheet">
@@ -46,16 +45,17 @@
             </center>
         </div>
     </div>
-    <div id="thepage" style="display:none">
+    <div id="thepage">
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
             <a class="navbar-brand waves-effect waves-light" onclick="goBack()">
                 <img src="assets/aurora_nav.png" height="35" alt="Aurora logo">
-                Back | Security & Privacy
+                Back | Messenger
                 <script>
                     function goBack() {
                         window.history.back();
                     }
                 </script>
+
             </a>
         </nav>
         <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
@@ -63,7 +63,7 @@
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/mdb.min.js"></script>
         <script src="js/global.js"></script>
-        <script src="js/privacy.js"></script>
+        <script src="js/mset.js"></script>
         <br>
         <br>
         <br>
@@ -73,60 +73,20 @@
                 <br>
                 <div class="container">
                     <div id="loggedout">
-                        To edit your security settings, you must be logged in.
+                        Aurora Messenger settings can only be changed if you are <a href="login.html">logged in</a>.
                     </div>
                     <div id="loggedin" style="display:none">
                         <div id="settopic">
-                            Security
+                            Coming Soon
                         </div>
-                        <br>
-                        <div class="row" id="managedset" style="display:none">
-                            <a href="account-password-change.html" class="col-md-6 mt-md-0 mt-3 setting waves-effect waves-light">
-                                <br>
-                                Change Password
-                                <div id="setdesc">
-                                    Change your STiBaRC login password.
-                                </div>
-                                <hr />
-                            </a>
-                            <a href="mailto:herronjo110@gmail.com?subject=STiBaRC%20Account%20Lock%20Request" class="col-md-6 mt-md-0 mt-3 setting waves-effect waves-light">
-                                <br>
-                                Request Account Freeze<br>
-                                <div id="setdesc">
-                                    Request to have your STiBaRC account frozen (or locked).
-                                </div>
-                                <hr />
-                            </a>
-                        </div>
-                        <div id="managedact" style="display:none">
-                            <i class="material-icons">domain</i> This option has been disabled by your administrator.
-                        </div>
-                        <br>
-                        <div id="settopic">
-                            Privacy
-                        </div>
-                        <br>
-                        <div class="row">
-                            <a href="privacy-policy.html" class="col-md-6 mt-md-0 mt-3 setting waves-effect waves-light">
-                                <br>
-                                STiBaRC Privacy Policy
-                                <hr />
-                            </a>
-                        </div>
+                        Aurora Messenger settings are coming soon!
+                        <br /> 
                     </div>
-                    <br>
-                </div>
-            </div>
-            <br />
-            <div class="card" id="loggedintip" style="display:none">
-                <br />
-                <div class="container">
-                    Looking to change what is displayed on your STiBaRC profile? <a class="settingurl" href="account.html">Check here</a>.
                 </div>
                 <br />
             </div>
         </div>
+        <br>
     </div>
-    <br>
 </body>
 </html>

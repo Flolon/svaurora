@@ -24,7 +24,8 @@
                 }
             }, false);
         }
-</script>
+    </script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/mdb.min.css" rel="stylesheet">
@@ -55,7 +56,6 @@
                         window.history.back();
                     }
                 </script>
-
             </a>
         </nav>
         <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
@@ -112,12 +112,15 @@
                             Profile Options
                         </div>
                         <br>
-                        <div class="row">
+                        <div class="row" id="edits" style="display:none">
                             <a href="editprofile.html" class="col-md-6 mt-md-0 mt-3 setting waves-effect waves-light">
                                 <br>
                                 Edit Profile
                                 <hr />
                             </a>
+                        </div>
+                        <div id="managedpo" style="display:none">
+                            <i class="material-icons">domain</i> This option has been disabled by your administrator.
                         </div>
                         <br />
                         <div id="settopic">
