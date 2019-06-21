@@ -82,7 +82,7 @@ function getStuff(id) {
             document.getElementById("follow").innerText = "Following";
             document.getElementById("follow").onclick = function (e) {
                 var confirmUn = confirm("Are you sure you want to unfollow " + id + "? You will no longer be able to see their posts on your following feed.");
-                if (confirumUn == true) {
+                if (confirmUn == true) {
                     var xhrf = new XMLHttpRequest();
                     xhrf.open("POST", "https://api.stibarc.gq/v3/unfollow.sjs", false);
                     xhrf.send("sess=" + localStorage.sess + "&id=" + encodeURIComponent(id));
