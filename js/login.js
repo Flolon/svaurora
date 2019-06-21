@@ -33,7 +33,13 @@ window.onload = function () {
         document.getElementById("loggedout").style.display = "none";
         document.getElementById("loggedin").style.display = "";
     }
-    document.getElementById("message").innerHTML = 'Not '.concat(user) + '? <a href="logout.html">Sign out</a>.';
+    var thing = new XMLHttpRequest();
+    thing.open("GET", "https://api.stibarc.gq/v3/getuser.sjs?id=" + user, false);
+    thing.send(null);
+    var tmp = JSON.parse(thing.responseText);
+    var pfp = tmp['pfp'];
+    document.getElementById("pfp").src = pfp;
+    document.getElementById("message").innerHTML = ' Not '.concat(user) + '? <a href="logout.html">Sign out</a>.';
     document.getElementById("login").onclick = function (evt) {
         login();
     }
