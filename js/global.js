@@ -75,7 +75,7 @@ var checkVerified = function (poster) {
     }
 }
 
-function login() {
+function loginWithS() {
     var loginpopup = window.open("https://stibarc.gq/login/", "", "menubar=no,location=no,resizable=no,scrollbars=yes,status=yes,height=360,width=500");
     window.addEventListener("message", function (evt) {
         if (evt.data != "Cancelled") {

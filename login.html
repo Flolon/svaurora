@@ -60,14 +60,17 @@
 
                 </a>
             </nav>
-
             <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
             <script type="text/javascript" src="js/popper.min.js"></script>
             <script type="text/javascript" src="js/bootstrap.min.js"></script>
             <script type="text/javascript" src="js/mdb.min.js"></script>
-            <br>
-            <br>
-            <br>
+            <br />
+            <br />
+            <div class="auroralanding text-center">
+                <div class="landingtext">
+                    <h2>LOG IN</h2>
+                </div>
+            </div>
             <div class="container-fluid text-center text-md-left">
                 <br>
                 <div class="card">
@@ -75,10 +78,21 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-6 mt-md-0 mt-3">
-                                <h2><b>LOGIN</b></h2>
                                 <h5>Log in to Aurora using your STiBaRC account</h5>
-                                <button onclick="login()" type="button" class="btn waves-effect waves-light">Login</button><br>
-                                Aurora connects to the STiBaRC services; by using it, you agree to STiBaRC's <a href="https://stibarc.gq/privacy.html" target="_blank">Privacy Policy</a> and the <a href="https://stibarc.gq/tos.html" target="_blank">Terms of Service</a>.<br>
+                                <button onclick="loginWithS()" type="button" class="btn waves-effect waves-light">Login with STiBaRC</button><br>
+                                <div id="badnamepass" style="display: none; color:red">Invalid username or password!</div>
+                                <div id="blank" style="display: none; color:red">Username and / or password cannot be blank!</div>
+                                <div class="md-form">
+                                    <input type="text" id="username" class="form-control" autocomplete="on">
+                                    <label for="username">Username</label>
+                                </div>
+                                <div class="md-form">
+                                    <input type="password" id="password" class="form-control">
+                                    <label for="password">Password</label>
+                                </div>
+                                <button type="button" id="login" class="btn waves-effect waves-light">Login</button>
+                                <br>Don't have a STiBaRC account? <a href="https://stibarc.gq/register.html" target="_blank">Register!</a><br />
+                                Aurora connects to the STiBaRC services; by using it, you agree to STiBaRC's <a href="https://stibarc.gq/privacy.html" target="_blank">Privacy Policy</a> and the <a href="https://stibarc.gq/tos.html" target="_blank">Terms of Service</a>.<br />
                             </div>
                             <div class="col-md-3 mb-md-0 mb-3">
                                 <img src="assets/login.png" id="loginlogo" alt="Aurora and JimBo" />
@@ -126,9 +140,11 @@
                 <br>
             </div>
         </div>
+        <br />
     </div>
+    <br />
     <script src="js/global.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/thelog.js"></script>
+    <script src="js/login.js"></script>
 </body>
 </html>

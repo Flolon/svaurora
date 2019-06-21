@@ -141,3 +141,16 @@ input {
         color: var(--seticon);
         text-decoration: underline;
     }
+
+.auroralanding {
+    background: linear-gradient(297deg, var(--topiccolor), var(--touchlink));
+    padding-bottom: 75px;
+    padding-top: 75px;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+}
+
+.landingtext {
+    color: var(--footer-textcolor);
+}
