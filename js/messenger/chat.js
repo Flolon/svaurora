@@ -147,7 +147,7 @@ var toBoxMore = function (oof, i) {
                 } else if (type == "audio") {
                     oof.message = '<audio controls><source src="' + oof.message + '"></audio>';
                 } else {
-                    oof.message = '<div style="display: inline-block; width: fit-content; padding: 8px 18.5px; border: 1px solid var(--button-backing); border-radius: 18.5px; background-color: var(backing); vertical-align: top; max-width: 100%;"><a href="' + oof.message + '" target="_blank"><h4><i>View attachment</h4></i></b></a>To view this file, you must download it to your device. If you cannot view the file, open it in a new tab.</div>';
+                    oof.message = '<div style="display: inline-block; width: fit-content; padding: 8px 18.5px; border: 1px solid var(--button-backing); border-radius: 18.5px; background-color: var(--backing); vertical-align: top; max-width: 100%;"><a href="' + oof.message + '" target="_blank"><h4><i>View attachment</h4></i></b></a>To view this file, you must download it to your device. If you cannot view the file, open it in a new tab.</div>';
                 }
             }
         } catch (err) {
@@ -158,8 +158,8 @@ var toBoxMore = function (oof, i) {
             div.innerHTML = '<div style="margin:16px; text-align:left;"><br><div style="display: inline-block; width: fit-content; padding: 8px 18.5px; border-radius: 18.5px; background-color: var(--backing); vertical-align: top; max-width: 100%;">' + oof['message'].replace(/\n/g, "</div><br/>");
             document.getElementById("chatstuffs").innerHTML = '<br/><div style="margin:16px; text-align:left;"><div class="chatbox" name="' + (i) + '"><br/><div style="display: inline-block; width: fit-content; padding: 8px 18.5px; border-radius: 18.5px; background-color: var(--backing); vertical-align: top; max-width: 100%;">' + oof['message'].replace(/\n/g, "<br/>") + '</div></div></div>' + document.getElementById("chatstuffs").innerHTML;
         } else {
-            div.innerHTML = '<div style="margin:16px; text-align:left;"><div style="display: inline-block; width: fit-content; padding: 8px 18.5px; border-radius: 18.5px; background-color: var(--backing); vertical-align: top; max-width: 100%;">' + oof['message'].replace(/\n/g, "</div><br/>");
-            document.getElementById("chatstuffs").innerHTML = '<br/><div style="margin:16px; text-align:right;"><div class="chatbox" name="' + (i) + oof['sender'] + '</a><br/><div style="display: inline-block; width: fit-content; padding: 8px 18.5px; border-radius: 18.5px; background-color: var(--topiccolor); vertical-align: top; max-width: 100%;">' + oof['message'].replace(/\n/g, "<br/>") + '</div></div></div>' + document.getElementById("chatstuffs").innerHTML;
+            div.innerHTML = '<div style="margin:16px; text-align:right;"><div style="display: inline-block; width: fit-content; padding: 8px 18.5px; border-radius: 18.5px; background-color: var(--topiccolor); vertical-align: top; max-width: 100%;">' + oof['message'].replace(/\n/g, "</div><br/>");
+            document.getElementById("chatstuffs").innerHTML = '<br/><div style="margin:16px; text-align:right;"><div class="chatbox" name="' + (i) + oof['sender'] + '"</a><br/><div style="display: inline-block; width: fit-content; padding: 8px 18.5px; border-radius: 18.5px; background-color: var(--topiccolor); vertical-align: top; max-width: 100%;">' + oof['message'].replace(/\n/g, "<br/>") + '</div></div></div>' + document.getElementById("chatstuffs").innerHTML;
         }
     } catch (err) { console.log(err); }
 }
@@ -228,6 +228,10 @@ var sendtext = function (sess, username, id) {
 }
 
 window.onload = function () {
+    var auroramu = window.localStorage.getItem("username");
+    if (auroramu == "Anon") {
+        window.location.href = "messenger.html";
+    }
     first = true;
     var id = getAllUrlParams().id;
     var sess = window.localStorage.getItem("sess");
@@ -237,6 +241,9 @@ window.onload = function () {
     chathttp.onload = function (e) {
         var tmp = JSON.parse(chathttp.responseText);
         var username = tmp[id]['user'];
+        if (username == "Anon") {
+            window.history.back();
+        }
         document.title = username + " - Aurora Messenger";
         document.getElementById("user").innerHTML = username;
         document.getElementById("chatsett").innerHTML = '<a href="quick-view.html?id=' + username + '" class="waves-effect waves-light"><i class="quick material-icons green-">settings</i></a>';

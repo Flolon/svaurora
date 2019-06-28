@@ -34,19 +34,30 @@
 }
 
 var go = function (user) {
-    var sess = window.localStorage.getItem("sess");
-    var html = new XMLHttpRequest();
-    html.open("POST", "https://messenger.stibarc.gq/api/newchat.sjs", false);
-    html.send("sess=" + sess + "&user=" + user);
-    var tmp = html.responseText.split("\n");
-    if (tmp[0] != "bad") {
-        location.href = "chat.html?id=" + tmp[0];
+    var auroramu1 = window.localStorage.getItem("username");
+    if (user == auroramu1) {
+        document.getElementById("userer").style.display = "";
+        document.getElementById("none").style.display = "none";
     } else {
-        document.getElementById("none").style.display = "";
+        var sess = window.localStorage.getItem("sess");
+        var html = new XMLHttpRequest();
+        html.open("POST", "https://messenger.stibarc.gq/api/newchat.sjs", false);
+        html.send("sess=" + sess + "&user=" + user);
+        var tmp = html.responseText.split("\n");
+        if (tmp[0] != "bad") {
+            location.href = "chat.html?id=" + tmp[0];
+        } else {
+            document.getElementById("none").style.display = "";
+            document.getElementById("userer").style.display = "none";
+        }
     }
 }
 
 window.onload = function () {
+    var auroramu = window.localStorage.getItem("username");
+    if (auroramu == "Anon") {
+        window.location.href = "messenger.html";
+    }
     var id = getAllUrlParams().id;
     if (id != undefined && id != "") {
         go(id);

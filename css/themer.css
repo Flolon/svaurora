@@ -154,3 +154,7 @@ input {
 .landingtext {
     color: var(--footer-textcolor);
 }
+
+.auroril {
+    color: var(--morein);
+}

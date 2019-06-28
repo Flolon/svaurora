@@ -41,6 +41,7 @@
         }
     </script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/mdb.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/themes/dark.css" id="themer">
@@ -166,60 +167,94 @@
                 </div>
             </div>
         </div>
-        <div id="welcomeintro">
-            <div class="container-fluid text-center text-md-left">
-                <br>
-                <div class="card">
+        <div id="agp" class="container-fluid text-center text-md-left" style="display:none">
+            <div class="card agpa">
+                <br />
+                <div class="container">
+                    <div class="text-center">
+                        <i href="javascript:;" id="exita1" class="material-icons waves-effect waves-light">
+                            clear
+                        </i>
+                        <br />
+                        <img src="assets/web.png" class="icoa" />
+                        <br />
+                        <br />
+                        <h2>Aurora for Android</h2>
+                    </div>
+                    <hr />
+                    Did you know Aurora is the only third party STiBaRC client with a mobile app? Download the Aurora app for easy access on the go!<br />
+                    <a href='https://play.google.com/store/apps/details?id=com.sverso.borealis&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' id="gpb" /></a>
+                    <br />
+                    <i style="font-size: 70%">
+                        Google Play and the Google Play logo are trademarks of Google LLC.
+                        <br />
+                        The Aurora app is only compatible with devices running Android Lollipop 5.0 and up. Studio Verso will give 30 day notice should the service be discontinued for older platforms.
+                    </i>
+                </div>
+                <br />
+            </div>
+        </div>
+        <div id="aurorafeed">
+            <div id="welcomeintro">
+                <div class="container-fluid text-center text-md-left">
+                    <br>
+                    <div class="card">
+                        <br>
+                        <div class="container">
+                            <div id="loggedout-">
+                                <img src="assets/aurora_nav.png" id="weblogo" alt="Aurora logo" style="width:100px;height:100px;border-radius:50%;" /> Welcome to Aurora
+                            </div>
+                            <div id="loggedin-" style="display:none">
+                                <img id="pfp" src="load.gif" style="width:100px;height:100px;border-radius:50%;" /><br />
+                                <h10 id="user"></h10>
+                                <br />
+                                <ul class="nav nav-tabs" id="myTabAttr" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="feed-tab-attr" data-toggle="tab" href="#feed" role="tab" aria-controls="feed"
+                                           aria-selected="true">Main Feed</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="following-tab-attr" data-toggle="tab" href="#following" role="tab" aria-controls="following"
+                                           aria-selected="true">Following</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+            <a href="newpost.html" class="btn waves-effect waves-light ammp" id="ammpr">
+                <i class="material-icons">
+                    add
+                </i>
+            </a>
+            <div class="tab-content">
+                <div class="tab-pane active" id="feed" role="tabpanel" aria-labelledby="feed-tab-attr">
+                    <div class="animated slideInUp" id="list">
+                        Aurora could not load the feed from the STiBaRC servers. Check your Internet connection on your device and the STiBaRC server status <a href="https://status.stibarc.gq/">here</a>.
+                    </div>
                     <br>
                     <div class="container">
-                        <div id="loggedout-">
-                            <img src="assets/aurora_nav.png" id="weblogo" alt="Aurora logo" style="width:100px;height:100px;border-radius:50%;" /> Welcome to Aurora
+                        <div id="loadmorecontainer">
+                            <button href="javascript:;" id="loadmore" type="button" class="btn on-back waves-effect waves-light">View Older Posts</button>
                         </div>
-                        <div id="loggedin-" style="display:none">
-                            <img id="pfp" src="load.gif" style="width:100px;height:100px;border-radius:50%;" /><br />
-                            <h10 id="user"></h10>
-                            <br />
-                            <ul class="nav nav-tabs" id="myTabAttr" role="tablist">
-                                <li class="nav-item">
-                                    <a class="nav-link active" id="feed-tab-attr" data-toggle="tab" href="#feed" role="tab" aria-controls="feed"
-                                       aria-selected="true">Main Feed</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="following-tab-attr" data-toggle="tab" href="#following" role="tab" aria-controls="following"
-                                       aria-selected="true">Following</a>
-                                </li>
-                            </ul>
+                    </div>
+                </div>
+                <div class="tab-pane" id="following" role="tabpanel" aria-labelledby="following-tab-attr">
+                    <div class="animated slideInUp" id="followlist">
+                        Aurora could not load your following feed from the STiBaRC servers. Check your Internet connection on your device and the STiBaRC server status <a href="https://status.stibarc.gq/">here</a>.
+                    </div>
+                    <div class="container">
+                        <div id="followloadmorecontainer">
+                            <button href="javascript:;" id="followloadmore" type="button" class="btn on-back waves-effect waves-light">View Older Posts</button>
                         </div>
-                        <br>
                     </div>
                 </div>
-                <br>
             </div>
+            <br />
         </div>
-        <div class="tab-content">
-            <div class="tab-pane active" id="feed" role="tabpanel" aria-labelledby="feed-tab-attr">
-                <div class="animated slideInUp" id="list">
-                    Aurora could not load the feed from the STiBaRC servers. Check your Internet connection on your device and the STiBaRC server status <a href="https://status.stibarc.gq/">here</a>.
-                </div>
-                <br>
-                <div class="container">
-                    <div id="loadmorecontainer">
-                        <button href="javascript:;" id="loadmore" type="button" class="btn on-back waves-effect waves-light">View Older Posts</button>
-                    </div>
-                </div>
-            </div>
-            <div class="tab-pane" id="following" role="tabpanel" aria-labelledby="following-tab-attr">
-                <div class="animated slideInUp" id="followlist">
-                    Aurora could not load your following feed from the STiBaRC servers. Check your Internet connection on your device and the STiBaRC server status <a href="https://status.stibarc.gq/">here</a>.
-                </div>
-                <div class="container">
-                    <div id="followloadmorecontainer">
-                        <button href="javascript:;" id="followloadmore" type="button" class="btn on-back waves-effect waves-light">View Older Posts</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br />
         <footer class="page-footer font-small aurorafooter">
             <br>
             <div class="container-fluid text-left">

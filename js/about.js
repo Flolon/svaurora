@@ -1,12 +1,8 @@
 //Credit to Ben Brooks Scholz for browser detection JS code.
 window.onload = function () {
-    var offline = false;
-    var sess = window.localStorage.getItem("sess");
-    if (sess != undefined && sess != null && sess != "") {
-        var versionnum = "1.7.1.1_STUDIO-VERSO-201906201647";
+        var versionnum = "1.7.2_STUDIO-VERSO-201906271947";
         document.getElementById("version").innerHTML = 'Web Version: '.concat(versionnum);
-    }
-    var browser,
+        var browser,
         version,
         mobile,
         os,

@@ -24,16 +24,17 @@ var getChats = function() {
 	var xmlHttp = new XMLHttpRequest();
 	xmlHttp.open("POST", "https://messenger.stibarc.gq/api/v2/getuserchats.sjs", true);
     xmlHttp.send("sess=" + sess);
+    var auroramus = window.localStorage.getItem("username");
 	xmlHttp.onload = function(e) {
 		var tmp = JSON.parse(xmlHttp.responseText);
 		for (key in tmp) {
 			var div = document.createElement('div');
             div.className = 'conversations';
-            div.innerHTML = '<a href="chat.html?id=' + key + '" id="messages">' + tmp[key]['user'] + "</a>:";
+            div.innerHTML = '<a href="chat.html?id=' + key + '" id="messages">' + tmp[key]['user'] + "</a>";
             if (tmp[key]['lastmessage'] == undefined) { tmp[key]['lastmessage'] = { sender: tmp[key]['user'], message: " You haven't sent a message to this user yet!" } }
             if (tmp[key]['lastmessage']['message'].length > 50) { tmp[key]['lastmessage']['message'] = tmp[key]['lastmessage']['message'].substring(0, 50).concat("..."); }
-            if (tmp[key]['lastmessage']['message'].startsWith("[Encrypted] ")) { tmp[key]['lastmessage'] = { sender: tmp[key]['user'], message: " <b style=\"color:green;\"><i>[Encrypted Message.]</i></b>" } }
-            div.innerHTML = div.innerHTML.concat("<br/><i>" + tmp[key]['lastmessage']['sender'] + ": " + tmp[key]['lastmessage']['message'] + "</i>");
+            if (tmp[key]['lastmessage']['message'].startsWith("[Encrypted] ")) { tmp[key]['lastmessage'] = { sender: tmp[key]['user'], message: "[Encrypted Message]" } }
+            div.innerHTML = div.innerHTML.concat('<br/><div class="auroril">' + tmp[key]['lastmessage']['message'] + '</div>');
             document.getElementById("recentcon").appendChild(div);
             document.getElementById("recentcon").innerHTML = document.getElementById("recentcon").innerHTML.concat("<hr>");
 		}

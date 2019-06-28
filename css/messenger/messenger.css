@@ -42,6 +42,7 @@
 
 .material-icons.green- {
     color: var(--btnhover);
+    text-align: center;
 }
 
 #image-3 {
@@ -56,4 +57,50 @@
 
 .quick {
     text-align: right;
+}
+
+.amecir {
+    border-radius: 50%;
+    padding-right: 18px;
+    padding-left: 18px;
+}
+
+@media only screen and (max-width: 670px) {
+    .amecir {
+        width: 50px;
+        height: 50px;
+        padding: 2px;
+    }
+
+    #abvco {
+        display:none;
+    }
+}
+
+.amecir2 {
+    border-radius: 50%;
+    padding-right: 18px;
+    padding-left: 18px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+
+.ammp {
+    width: 70px;
+    height: 70px;
+    padding-right: 18px;
+    padding-left: 18px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 1030;
+}
+
+@media only screen and (min-width: 670px) {
+    #ammpr {
+        display: none;
+    }
 }
