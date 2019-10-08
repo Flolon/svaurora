@@ -7,7 +7,7 @@ function login() {
         var xmlHttp = new XMLHttpRequest();
         //var appid = window.localStorage.getItem("appID");
         //if (appid == "" || appid == null || appid == undefined) appid = "none";
-        xmlHttp.open("POST", "https://api.stibarc.gq/createsess.sjs", false);
+        xmlHttp.open("POST", "https://api.stibarc.com/createsess.sjs", false);
         xmlHttp.send("username=" + username + "&password=" + password);
         sess = xmlHttp.responseText;
         if (sess != "Invalid username or password\n") {
@@ -33,7 +33,7 @@ window.onload = function () {
         document.getElementById("loggedout").style.display = "none";
         document.getElementById("loggedin").style.display = "";
         var thing = new XMLHttpRequest();
-        thing.open("GET", "https://api.stibarc.gq/v3/getuser.sjs?id=" + user, false);
+        thing.open("GET", "https://api.stibarc.com/v3/getuser.sjs?id=" + user, false);
         thing.send(null);
         var tmp = JSON.parse(thing.responseText);
         var pfp = tmp['pfp'];

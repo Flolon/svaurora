@@ -19,11 +19,11 @@ window.onload = function () {
     if (id != "Anon") {
         if (sess != undefined && sess != "") {
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", "https://api.stibarc.gq/userinfo.sjs", true);
+            xhr.open("POST", "https://api.stibarc.com/userinfo.sjs", true);
             xhr.send("sess=" + sess);
             xhr.onload = function (e) {
                 var thing = new XMLHttpRequest();
-                thing.open("GET", "https://api.stibarc.gq/v2/getuser.sjs?id=" + id, false);
+                thing.open("GET", "https://api.stibarc.com/v2/getuser.sjs?id=" + id, false);
                 thing.send(null);
                 var tmp2 = JSON.parse(thing.responseText);
                 var tmp = JSON.parse(xhr.responseText);
@@ -48,7 +48,7 @@ window.onload = function () {
             document.getElementById("thepage").style.display = "none";
             var sess = window.localStorage.getItem("sess");
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", "https://api.stibarc.gq/updateprofile.sjs", true);
+            xhr.open("POST", "https://api.stibarc.com/updateprofile.sjs", true);
             var showemail = document.getElementById("showemail").checked;
             if (showemail == false) { showemail = ""; }
             var showname = document.getElementById("showname").checked;

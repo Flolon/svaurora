@@ -21,7 +21,7 @@ function search() {
     //var q = document.getElementById("q").value;
     if (q != "") {
         var xmlHttp = new XMLHttpRequest();
-        xmlHttp.open("post", "https://api.stibarc.gq/postsearch.sjs", false);
+        xmlHttp.open("post", "https://api.stibarc.com/postsearch.sjs", false);
         xmlHttp.send("q=" + encodeURIComponent(q));
         if (xmlHttp.responseText.split("\n")[0] != "No results" && xmlHttp.responseText != "") {
             var tmp = xmlHttp.responseText.split("\n");
@@ -55,7 +55,7 @@ window.onload = function () {
     document.title = q + " | Search - Aurora";
     var thing = new XMLHttpRequest();
     var name = window.localStorage.getItem("username");
-    thing.open("GET", "https://api.stibarc.gq/v2/getuser.sjs?id=" + name, false);
+    thing.open("GET", "https://api.stibarc.com/v2/getuser.sjs?id=" + name, false);
     thing.send(null);
     var tmp = JSON.parse(thing.responseText);
     var navpfp = tmp['pfp'];

@@ -16,7 +16,7 @@ window.onload = function () {
         }
         var thing = new XMLHttpRequest();
         var id = window.localStorage.getItem("username");
-        thing.open("GET", "https://api.stibarc.gq/v2/getuser.sjs?id=" + id, false);
+        thing.open("GET", "https://api.stibarc.com/v2/getuser.sjs?id=" + id, false);
         thing.send(null);
         var tmp = JSON.parse(thing.responseText);
         var pfp = tmp['pfp'];

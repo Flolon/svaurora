@@ -24,7 +24,7 @@ function post() {
             var n = new Date().getTime() + 15000;
             window.localStorage.setItem("canpostagain", n);
             var thing = new XMLHttpRequest();
-            thing.open("POST", "https://api.stibarc.gq/postpost.sjs", false);
+            thing.open("POST", "https://api.stibarc.com/postpost.sjs", false);
             thing.send("sess=" + sess + "&title=" + encodeURIComponent(title) + "&image=" + attachedfile + "&content=" + encodeURIComponent(content).replace(/%0A/g, "%0D%0A"));
             location.href = "post.html?id=" + thing.responseText;
             document.getElementById("content").value = "";
@@ -43,14 +43,14 @@ function post() {
 
 function uploadPart(file,part,callback) {
 	var xmlHttp = new XMLHttpRequest();
-	xmlHttp.open("POST", "https://api.stibarc.gq/uploadparts.sjs", false);
+	xmlHttp.open("POST", "https://api.stibarc.com/uploadparts.sjs", false);
 	xmlHttp.send("cont=true&file="+file+"&content=" + encodeURIComponent(part));
 	try {
 		if (xmlHttp.responseText.split("\n")[0] == "GOOD") {
 			callback("Good");
 		} else {
 			var xmlHttp = new XMLHttpRequest();
-			xmlHttp.open("POST", "https://api.stibarc.gq/uploadparts.sjs", false);
+			xmlHttp.open("POST", "https://api.stibarc.com/uploadparts.sjs", false);
 			xmlHttp.send("cont=true&file="+file+"&content=" + encodeURIComponent(part));
 			try {
 				if (xmlHttp.responseText.split("\n")[0] == "GOOD") {
@@ -81,7 +81,7 @@ function readFile(evt) {
 			if (contents.length <= 98000) {
 				console.log("Good");
 				var xmlHttp = new XMLHttpRequest();
-				xmlHttp.open("POST", "https://api.stibarc.gq/uploadparts.sjs", false);
+				xmlHttp.open("POST", "https://api.stibarc.com/uploadparts.sjs", false);
 				xmlHttp.send("content=" + encodeURIComponent(contents));
 				document.getElementById("imageprogress").setAttribute("max",1);
 				document.getElementById("imageprogress").setAttribute("value",1);
@@ -92,7 +92,7 @@ function readFile(evt) {
 			} else {
 				var bad = false;
 				var xmlHttp = new XMLHttpRequest();
-				xmlHttp.open("POST", "https://api.stibarc.gq/uploadparts.sjs", false);
+				xmlHttp.open("POST", "https://api.stibarc.com/uploadparts.sjs", false);
 				var stuff = contents.match(/.{1,98000}/g);
 				var totalParts = stuff.length;
 				document.getElementById("imageprogress").setAttribute("max",totalParts);
@@ -102,7 +102,7 @@ function readFile(evt) {
 					bad = false;
 				} else {
 					var xmlHttp = new XMLHttpRequest();
-					xmlHttp.open("POST", "https://api.stibarc.gq/uploadparts.sjs", false);
+					xmlHttp.open("POST", "https://api.stibarc.com/uploadparts.sjs", false);
 					xmlHttp.send("content=" + encodeURIComponent(stuff[0]));
 					var file = xmlHttp.responseText.split("\n")[0];
 					if (xmlHttp.responseText.split("\n")[0] == "GOOD") {

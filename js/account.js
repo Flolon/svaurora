@@ -15,7 +15,7 @@ window.onload = function () {
         document.getElementById("managedpo").style.display = "";
     }
     var thing = new XMLHttpRequest();
-    thing.open("GET", "https://api.stibarc.gq/v3/getuser.sjs?id=" + id, false);
+    thing.open("GET", "https://api.stibarc.com/v3/getuser.sjs?id=" + id, false);
     thing.send(null);
     var tmp = JSON.parse(thing.responseText);
     var rank = tmp['rank'];

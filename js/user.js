@@ -1,6 +1,6 @@
 /*var toLink = function (item) {
 	var thing = new XMLHttpRequest();
-	thing.open("GET", "https://api.stibarc.gq/gettitle.sjs?id=" + item, false);
+	thing.open("GET", "https://api.stibarc.com/gettitle.sjs?id=" + item, false);
 	thing.send(null);
 	var title = thing.responseText;
 	try {
@@ -23,7 +23,7 @@ function toLink(item) {
 
 function getPosts(id) {
     var tmp = new XMLHttpRequest();
-    tmp.open("GET", "https://api.stibarc.gq/getuserposts.sjs?id=" + id, false);
+    tmp.open("GET", "https://api.stibarc.com/getuserposts.sjs?id=" + id, false);
     tmp.send(null);
     tmp = tmp.responseText.split("\n");
     if (localStorage.postorder == "true") {
@@ -42,7 +42,7 @@ function getStuff(id) {
         localStorage.postorder = "true";
     }
     var thing = new XMLHttpRequest();
-    thing.open("GET", "https://api.stibarc.gq/v3/getuser.sjs?id=" + id, false);
+    thing.open("GET", "https://api.stibarc.com/v3/getuser.sjs?id=" + id, false);
     thing.send(null);
     var tmp = JSON.parse(thing.responseText);
     var rank = tmp['rank'];
@@ -84,7 +84,7 @@ function getStuff(id) {
                 var confirmUn = confirm("Are you sure you want to unfollow " + id + "? You will no longer be able to see their posts on your following feed.");
                 if (confirmUn == true) {
                     var xhrf = new XMLHttpRequest();
-                    xhrf.open("POST", "https://api.stibarc.gq/v3/unfollow.sjs", false);
+                    xhrf.open("POST", "https://api.stibarc.com/v3/unfollow.sjs", false);
                     xhrf.send("sess=" + localStorage.sess + "&id=" + encodeURIComponent(id));
                     location.reload();
                 }
@@ -94,7 +94,7 @@ function getStuff(id) {
             document.getElementById("follow").onclick = function (e) {
                 if (usern != id) {
                     var xhrf = new XMLHttpRequest();
-                    xhrf.open("POST", "https://api.stibarc.gq/v3/follow.sjs", false);
+                    xhrf.open("POST", "https://api.stibarc.com/v3/follow.sjs", false);
                     xhrf.send("sess=" + localStorage.sess + "&id=" + encodeURIComponent(id));
                     location.reload();
                 } else {
@@ -141,7 +141,7 @@ window.onload = function () {
     if (sess != undefined && sess != "" && sess != null) {
         var thing = new XMLHttpRequest();
         var name = window.localStorage.getItem("username");
-        thing.open("GET", "https://api.stibarc.gq/v3/getuser.sjs?id=" + name, false);
+        thing.open("GET", "https://api.stibarc.com/v3/getuser.sjs?id=" + name, false);
         thing.send(null);
         var tmp = JSON.parse(thing.responseText);
         var navpfp = tmp['pfp'];

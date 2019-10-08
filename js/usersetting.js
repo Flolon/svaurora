@@ -1,6 +1,6 @@
 /*var toLink = function (item) {
 	var thing = new XMLHttpRequest();
-	thing.open("GET", "https://api.stibarc.gq/gettitle.sjs?id=" + item, false);
+	thing.open("GET", "https://api.stibarc.com/gettitle.sjs?id=" + item, false);
 	thing.send(null);
 	var title = thing.responseText;
 	try {
@@ -22,7 +22,7 @@ function toLink(item) {
 
 function getPosts(id) {
     var tmp = new XMLHttpRequest();
-    tmp.open("GET", "https://api.stibarc.gq/getuserposts.sjs?id=" + id, false);
+    tmp.open("GET", "https://api.stibarc.com/getuserposts.sjs?id=" + id, false);
     tmp.send(null);
     tmp = tmp.responseText.split("\n");
     for (i = tmp.length - 2; i >= 0; i--) {
@@ -32,7 +32,7 @@ function getPosts(id) {
 
 function getStuff(id) {
     var thing = new XMLHttpRequest();
-    thing.open("GET", "https://api.stibarc.gq/v2/getuser.sjs?id=" + id, false);
+    thing.open("GET", "https://api.stibarc.com/v2/getuser.sjs?id=" + id, false);
     thing.send(null);
     var tmp = JSON.parse(thing.responseText);
     var rank = tmp['rank'];
@@ -80,7 +80,7 @@ window.onload = function () {
     if (sess != undefined && sess != "" && sess != null) {
         var thing = new XMLHttpRequest();
         var name = window.localStorage.getItem("username");
-        thing.open("GET", "https://api.stibarc.gq/v2/getuser.sjs?id=" + name, false);
+        thing.open("GET", "https://api.stibarc.com/v2/getuser.sjs?id=" + name, false);
         thing.send(null);
         var tmp = JSON.parse(thing.responseText);
         var navpfp = tmp['pfp'];

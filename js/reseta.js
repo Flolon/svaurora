@@ -2,7 +2,7 @@ function resetAurora() {
     window.localStorage.clear()
     var sess = window.localStorage.getItem("sess");
     var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open("GET", "https://api.stibarc.gq/logout.sjs?sess=" + sess, false);
+    xmlHttp.open("GET", "https://api.stibarc.com/logout.sjs?sess=" + sess, false);
     xmlHttp.send(null);
     window.localStorage.removeItem("sess");
     window.localStorage.removeItem("username");
@@ -26,7 +26,7 @@ window.onload = function () {
         }
         var thing = new XMLHttpRequest();
         var id = window.localStorage.getItem("username");
-        thing.open("GET", "https://api.stibarc.gq/v3/getuser.sjs?id=" + id, false);
+        thing.open("GET", "https://api.stibarc.com/v3/getuser.sjs?id=" + id, false);
         thing.send(null);
         var tmp = JSON.parse(thing.responseText);
         var pfp = tmp['pfp'];

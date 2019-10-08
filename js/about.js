@@ -1,6 +1,6 @@
 //Credit to Ben Brooks Scholz for browser detection JS code.
 window.onload = function () {
-        var versionnum = "1.9.0_STUDIO-VERSO-201909142150";
+        var versionnum = "1.10.0_STUDIO-VERSO-201910080935";
         document.getElementById("version").innerHTML = 'Web Version: '.concat(versionnum);
         var browser,
         version,

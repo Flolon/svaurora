@@ -9,7 +9,7 @@ function checkNotifs() {
     }
 	if (perms == "granted") {
 		var xmlHttp = new XMLHttpRequest();
-		xmlHttp.open("get", "https://api.stibarc.gq/getnotifs.sjs", false);
+		xmlHttp.open("get", "https://api.stibarc.com/getnotifs.sjs", false);
 		xmlHttp.send();
 		var tmp = xmlHttp.responseText.split("\n");
 		var lastID = window.localStorage.getItem("lastNotifID");
@@ -38,7 +38,7 @@ function checkNotifsUser(user) {
 	var perms = window.localStorage.getItem("notifs");
 	if (perms == "granted") {
 		var xmlHttp = new XMLHttpRequest();
-		xmlHttp.open("post", "https://api.stibarc.gq/getusernotifs.sjs", true);
+		xmlHttp.open("post", "https://api.stibarc.com/getusernotifs.sjs", true);
 		xmlHttp.send("id="+user);
 		if (xmlHttp.responseText.split("\n")[0] != "None") {
 			var tmp = xmlHttp.responseText.split("\n");

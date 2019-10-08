@@ -67,7 +67,7 @@ function toJSON(cookie) {
 
 var checkVerified = function (poster) {
     var thing = new XMLHttpRequest();
-    thing.open("GET", "https://api.stibarc.gq/checkverify.sjs?id=" + poster, false);
+    thing.open("GET", "https://api.stibarc.com/checkverify.sjs?id=" + poster, false);
     thing.send(null);
     var stuff = thing.responseText.split("\n")[0];
     if (stuff == "true") {
@@ -76,7 +76,7 @@ var checkVerified = function (poster) {
 }
 
 function loginWithS() {
-    var loginpopup = window.open("https://stibarc.gq/login/", "", "menubar=no,location=no,resizable=no,scrollbars=yes,status=yes,height=360,width=500");
+    var loginpopup = window.open("https://stibarc.com/login/", "", "menubar=no,location=no,resizable=no,scrollbars=yes,status=yes,height=360,width=500");
     window.addEventListener("message", function (evt) {
         if (evt.data != "Cancelled") {
             localStorage.sess = evt.data;

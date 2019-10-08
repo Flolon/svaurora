@@ -1,6 +1,6 @@
 /*var toLink = function (item) {
 	var thing = new XMLHttpRequest();
-	thing.open("GET", "https://api.stibarc.gq/gettitle.sjs?id=" + item, false);
+	thing.open("GET", "https://api.stibarc.com/gettitle.sjs?id=" + item, false);
 	thing.send(null);
 	var title = thing.responseText;
 	try {
@@ -12,7 +12,7 @@
 
 function getStuff(id) {
     var thing = new XMLHttpRequest();
-    thing.open("GET", "https://api.stibarc.gq/v2/getuser.sjs?id=" + id, false);
+    thing.open("GET", "https://api.stibarc.com/v2/getuser.sjs?id=" + id, false);
     thing.send(null);
     var tmp = JSON.parse(thing.responseText);
     var rank = tmp['rank'];
