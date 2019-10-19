@@ -38,6 +38,7 @@
         --btnhover: white;
         --morein: #bdbdbd;
     }
+}
 
 @media (prefers-color-scheme: dark) {
     :root {
