@@ -1,5 +1,3 @@
-loadTheme();
-
 function loadTheme() {
     try {
         var theme = localStorage.getItem('theme');
