@@ -38,6 +38,7 @@
         --btnhover: white;
         --morein: #5c5c5c;
     }
+}
 
 @media (prefers-color-scheme: dark) {
     :root {
