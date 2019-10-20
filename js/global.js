@@ -91,7 +91,6 @@ function loginWithS() {
 
 function checkTh() {
     var themeserv = localStorage.themesystem
-    console.log(themeserv)
     if (themeserv == "false") {
         loadTheme();
     }
