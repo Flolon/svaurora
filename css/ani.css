@@ -3,6 +3,8 @@ body {
 }
 
 .card {
+    padding-top: 25px;
+    padding-bottom: 25px;
     transition: all 0.2s;
 }
 

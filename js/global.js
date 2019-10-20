@@ -1,3 +1,5 @@
+checkTh();
+
 function loadTheme() {
     try {
         var theme = localStorage.getItem('theme');
@@ -85,4 +87,12 @@ function loginWithS() {
             loginpopup.close();
         }
     });
+}
+
+function checkTh() {
+    var themeserv = localStorage.themesystem
+    console.log(themeserv)
+    if (themeserv == "false") {
+        loadTheme();
+    }
 }

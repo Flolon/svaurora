@@ -3,9 +3,9 @@
         if (item['title'].length > 60) { item['title'] = item['title'].substring(0, 60).concat("..."); }
         if (item['deleted']) { item['title'] = "Post Removed By Admin" }
         if (localStorage.pollsystem == "true") {
-            document.getElementById("list").innerHTML = document.getElementById("list").innerHTML.concat('<div class="container-fluid text-center text-md-left"><div class="card"><br><div class="container"><a class="posttopic" href="post.html?id=').concat(id).concat('"><b>').concat(item['title'].replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")).concat('</b></a><br/>Posted by <b><a class="posttopic" href="user.html?id=').concat(item['poster']).concat('">').concat(item['poster']).concat('</a></b><br/><img src="assets/up.png" height="18" alt="Up Votes"> ' + item['upvotes'] + ' <img src="assets/down.png" height="18" alt="Down Votes"> ' + item['downvotes'] + "</div><br></div></div><br>");
+            document.getElementById("list").innerHTML = document.getElementById("list").innerHTML.concat('<div class="container-fluid text-center text-md-left"><div class="card"><div class="container"><a class="posttopic" href="post.html?id=').concat(id).concat('"><b>').concat(item['title'].replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")).concat('</b></a><br/>Posted by <b><a class="posttopic" href="user.html?id=').concat(item['poster']).concat('">').concat(item['poster']).concat('</a></b><br/><img src="assets/up.png" height="18" alt="Up Votes"> ' + item['upvotes'] + ' <img src="assets/down.png" height="18" alt="Down Votes"> ' + item['downvotes'] + "</div></div></div><br>");
         } else {
-            document.getElementById("list").innerHTML = document.getElementById("list").innerHTML.concat('<div class="container-fluid text-center text-md-left"><div class="card"><br><div class="container"><a class="posttopic" href="post.html?id=').concat(id).concat('"><b>').concat(item['title'].replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")).concat('</b></a><br/>Posted by <b><a class="posttopic" href="user.html?id=').concat(item['poster']).concat('">').concat(item['poster']).concat('</a><b><br/></div><br></div></div><br>');
+            document.getElementById("list").innerHTML = document.getElementById("list").innerHTML.concat('<div class="container-fluid text-center text-md-left"><div class="card"><div class="container"><a class="posttopic" href="post.html?id=').concat(id).concat('"><b>').concat(item['title'].replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")).concat('</b></a><br/>Posted by <b><a class="posttopic" href="user.html?id=').concat(item['poster']).concat('">').concat(item['poster']).concat('</a><b></div></div></div><br>');
         }
         lastid = id;
     } catch (err) {
@@ -18,9 +18,9 @@ function toFollowLink(id, item) {
         if (item['title'].length > 60) { item['title'] = item['title'].substring(0, 60).concat("..."); }
         if (item['deleted']) { item['title'] = "Post Removed By Admin" }
         if (localStorage.pollsystem == "true") {
-            document.getElementById("followlist").innerHTML = document.getElementById("followlist").innerHTML.concat('<div class="container-fluid text-center text-md-left"><div class="card"><br><div class="container"><a class="posttopic" href="post.html?id=').concat(id).concat('"><b>').concat(item['title'].replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")).concat('</b></a><br/>Posted by <b><a class="posttopic" href="user.html?id=').concat(item['poster']).concat('">').concat(item['poster']).concat('</a></b><br/><img src="assets/up.png" height="18" alt="Up Votes"> ' + item['upvotes'] + ' <img src="assets/down.png" height="18" alt="Down Votes"> ' + item['downvotes'] + "</div><br></div></div><br>");
+            document.getElementById("followlist").innerHTML = document.getElementById("followlist").innerHTML.concat('<div class="container-fluid text-center text-md-left"><div class="card"><div class="container"><a class="posttopic" href="post.html?id=').concat(id).concat('"><b>').concat(item['title'].replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")).concat('</b></a><br/>Posted by <b><a class="posttopic" href="user.html?id=').concat(item['poster']).concat('">').concat(item['poster']).concat('</a></b><br/><img src="assets/up.png" height="18" alt="Up Votes"> ' + item['upvotes'] + ' <img src="assets/down.png" height="18" alt="Down Votes"> ' + item['downvotes'] + "</div></div></div><br>");
         } else {
-            document.getElementById("followlist").innerHTML = document.getElementById("followlist").innerHTML.concat('<div class="container-fluid text-center text-md-left"><div class="card"><br><div class="container"><a class="posttopic" href="post.html?id=').concat(id).concat('"><b>').concat(item['title'].replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")).concat('</b></a><br/><b>Posted by <a class="posttopic" href="user.html?id=').concat(item['poster']).concat('">').concat(item['poster']).concat('</a></b><br/></div><br></div></div><br>');
+            document.getElementById("followlist").innerHTML = document.getElementById("followlist").innerHTML.concat('<div class="container-fluid text-center text-md-left"><div class="card"><div class="container"><a class="posttopic" href="post.html?id=').concat(id).concat('"><b>').concat(item['title'].replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")).concat('</b></a><br/><b>Posted by <a class="posttopic" href="user.html?id=').concat(item['poster']).concat('">').concat(item['poster']).concat('</a></b></div></div></div><br>');
         }
         lastfollowid = id;
     } catch (err) {
@@ -85,17 +85,16 @@ function loadMoreFollow() {
 }
 
 function getSVAnnounce() {
-    var announce = false;
-    if (announce == true) {
-        var sess = window.localStorage.getItem("sess");
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", "https://raw.githubusercontent.com/VersoCre/svaurora/master/announce.json", true);
-        xhr.send(null);
-        xhr.onload = function (e) {
-            if (xhr.responseText != "\n") {
-                var tmp = JSON.parse(xhr.responseText);
-                document.getElementsByTagName("body")[0].innerHTML = '<br><br><br><div id="announce" style="text-align:center;background-color:#0083ff;word-wrap:break-word;padding:15px;color:white"><h2>' + tmp['title'] + '</h2>' + tmp['content'] + '</div>' + document.getElementsByTagName("body")[0].innerHTML;
-            }
+    var sess = window.localStorage.getItem("sess");
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "https://raw.githubusercontent.com/VersoCre/svaurora/master/announce.json", true);
+    xhr.send(null);
+    xhr.onload = function (e) {
+        if (xhr.responseText != "\n") {
+            var tmp = JSON.parse(xhr.responseText);
+            var svanf = tmp['notice']
+            console.log(svanf)
+            document.getElementsByTagName("body")[0].innerHTML = '<br><br><br><div id="announce" style="text-align:center;background-color:#0083ff;word-wrap:break-word;padding:15px;color:white"><h2>' + tmp['title'] + '</h2>' + tmp['content'] + '</div>' + document.getElementsByTagName("body")[0].innerHTML;
         }
     }
     document.getElementById("loadmore").onclick = function (evt) {
@@ -157,6 +156,9 @@ function exitLog() {
 window.onload = function () {
     if (localStorage.pollsystem == undefined) {
         localStorage.pollsystem = "true";
+    }
+    if (localStorage.themesystem == undefined) {
+        localStorage.themesystem = "true";
     }
     if (localStorage.anewupdate == undefined) {
         localStorage.anewupdate = "true";
@@ -263,7 +265,7 @@ window.onload = function () {
         }
         document.getElementById("loadmorecontainer").style.display = "";
     } else {
-        document.getElementById("list").innerHTML = "Aurora could not connect to the STiBaRC services. Check to see if you're connected and also check the server status.";
+        document.getElementById("list").innerHTML = 'Aurora could not connect to the Aurora could not load the feed from the STiBaRC servers. Check your Internet connection on your device and the STiBaRC server status <a href="https://status.stibarc.com/">here</a>.STiBaRC services. Check to see if you are connected and also check the server status.';
     }
     startNotifs();
     //Credit to Ben Brooks Scholz for browser detection JS code.

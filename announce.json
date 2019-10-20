@@ -1,4 +1,5 @@
 {
-  "title": "IMPORTANT NOTICE",
-  "content": "The Aurora app for Android OS will no longer support version 4.4.4 and less. <a href=\"post.html?id=2674\">Learn More</a>"
+  "notice": "T",
+  "title": "Test ANNOUNCEMENT",
+  "content": "This is just a test announcement.<a href=\"post.html?id=2674\">Learn More</a>."
 }

@@ -97,9 +97,11 @@
                         Themes
                     </div>
                     <br />
-                    Aurora automatically follows your system theme. Check your system settings to change the theme.
+                    <div id="autotheme">
+                        Aurora automatically follows your system theme. Check your system settings to change the theme.
+                    </div>
                     <select class="browser-default custom-select" id="themechng" style="display: none">
-                        <option value="dark">Dark</option>
+                        <option value="dark2">Dark</option>
                         <option value="exdark">Dark AMOLED</option>
                         <option value="light">Light</option>
                         <option value="exlight">Extreme Light</option>
@@ -112,6 +114,16 @@
                     </select><br><br />
                     <input id="themecust" type="text" placeholder="Enter URL" style="display:none">
                     <br>
+                    <div id="settopic">
+                        Advanced
+                    </div>
+                    <br />
+                    <div class="custom-control custom-checkbox" id="chng">
+                        <input type="checkbox" class="custom-control-input" id="themetoggle">
+                        <label class="custom-control-label" for="themetoggle">Follow System Theme</label>
+                    </div>
+                    <br>
+                    <small>Refresh page to see changes in "Advanced" section</small>
                 </div>
                 <br>
             </div>
