@@ -93,7 +93,7 @@ function getSVAnnounce() {
         if (xhr.responseText != "\n") {
             var tmp = JSON.parse(xhr.responseText);
             var svanf = tmp['notice']
-            if (svanf == "T") {
+            if (svanf = "T") {
                 document.getElementsByTagName("body")[0].innerHTML = '<br><br><br><div id="announce" style="text-align:center;background-color:#0083ff;word-wrap:break-word;padding:15px;color:white"><h2>' + tmp['title'] + '</h2>' + tmp['content'] + '</div>' + document.getElementsByTagName("body")[0].innerHTML;
             }
         }
@@ -138,8 +138,6 @@ window.onload = function () {
     var user = window.localStorage.getItem("username");
     var pfp = ("GET", "https://api.stibarc.com/v2/getuserpfp.sjs?id=" + user, false);
     var sess = window.localStorage.getItem("sess");
-    document.getElementById("load").style.display = "none";
-    document.getElementById("thepage").style.display = "";
     if (sess != undefined && sess != null && sess != "") {
         checkSess();
         document.getElementById("loggedout").style.display = "none";
@@ -185,6 +183,8 @@ window.onload = function () {
             document.getElementById("followloadmorecontainer").style.display = "none";
         }
     }
+    document.getElementById("load").style.display = "none";
+    document.getElementById("thepage").style.display = "";
     if (!offline) {
         getSVAnnounce();
         if (window.localStorage.getItem("username") == "" || window.localStorage.getItem("username") == undefined) {
