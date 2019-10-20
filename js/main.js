@@ -117,42 +117,6 @@ function exitA() {
     console.log(localStorage.mbn)
 }
 
-function getUpdateLog() {
-    var sess = window.localStorage.getItem("sess");
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", "https://raw.githubusercontent.com/VersoCre/svaurora/master/updatelog.json", true);
-    xhr.send(null);
-    xhr.onload = function (e) {
-        if (xhr.responseText != "\n") {
-            var tmp = JSON.parse(xhr.responseText);
-            document.getElementById("update").innerHTML = '<br><div class="card"><br><div class="container">' + tmp['image'] + '<br><h2>' + tmp['title'] + '</h2>' + tmp['content'] + "<h2>" + tmp['title2'] + "</h2>" + tmp['additional'] + '</div><br></div>';
-        }
-    }
-    document.getElementById("exitlogs").onclick = function (evt) {
-        exitLog()
-        var currentAurora;
-        var lastAurora;
-        currentAurora = localStorage.auroraversion;
-        lastAurora = localStorage.lastauroraversion;
-        if (currentAurora == undefined || currentAurora == "undefined" || currentAurora == "1.7.0.2") {
-            currentAurora = "1.7.1";
-        }
-        if (lastAurora == undefined || lastAurora == "undefined" || lastAurora == "1.7.0.1") {
-            lastAurora = "1.7.0.2";
-        }
-        lastAurora = currentAurora;
-        localStorage.lastauroraversion = lastAurora;
-        console.log(localStorage.lastauroraversion)
-
-    }
-}
-
-function exitLog() {
-    document.getElementById("logup").style.display = "none";
-    document.getElementById("thepage").style.display = "";
-    window.scrollTo(0, 0);
-}
-
 window.onload = function () {
     if (localStorage.pollsystem == undefined) {
         localStorage.pollsystem = "true";
@@ -160,44 +124,11 @@ window.onload = function () {
     if (localStorage.themesystem == undefined) {
         localStorage.themesystem = "true";
     }
-    if (localStorage.anewupdate == undefined) {
-        localStorage.anewupdate = "true";
-    }
-    if (localStorage.newupdate == undefined) {
-        localStorage.newupdate = "true";
-    }
     if (localStorage.pfpstyles == undefined) {
         localStorage.pfpstyles = "true";
     }
     if (localStorage.pollsystem == undefined) {
         localStorage.pollsystem = "true";
-    }
-    var currentAurora = localStorage.auroraversion;
-    var lastAurora = localStorage.lastauroraversion;
-    if (currentAurora == undefined || currentAurora == "undefined" || currentAurora == "1.7.0.2") {
-        currentAurora = "1.7.1";
-    }
-    if (lastAurora == undefined || lastAurora == "undefined" || lastAurora == "1.7.0.1") {
-        lastAurora = "1.7.0.2";
-    }
-    if (lastAurora != currentAurora) {
-        localStorage.newupdate = "true";
-    }
-    if (currentAurora != lastAurora && localStorage.anewupdate == "true") {
-        if (localStorage.newupdate == "true" && sess != undefined && sess != null && sess != "") {
-            getUpdateLog();
-            document.getElementById("load").style.display = "none";
-            document.getElementById("logup").style.display = "";
-            console.log(lastAurora);
-            console.log(currentAurora);
-        } else {
-            document.getElementById("load").style.display = "none";
-            document.getElementById("thepage").style.display = "";
-        }
-    }
-    if (currentAurora == lastAurora || localStorage.newupdate == "false") {
-        document.getElementById("load").style.display = "none";
-        document.getElementById("thepage").style.display = "";
     }
     if (localStorage.mbn == undefined) {
         localStorage.mbn = "true";
@@ -357,4 +288,6 @@ window.onload = function () {
             document.getElementById("agp").style.left = "0";
         }, 1000);
     }
+    document.getElementById("load").style.display = "none";
+    document.getElementById("thepage").style.display = "";
 }

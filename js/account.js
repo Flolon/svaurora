@@ -1,6 +1,4 @@
 window.onload = function () {
-    document.getElementById("load").style.display = "none";
-    document.getElementById("thepage").style.display = "";
     var id = window.localStorage.getItem("username");
     var offline = false;
     var sess = window.localStorage.getItem("sess");
@@ -60,4 +58,6 @@ window.onload = function () {
         document.getElementById("prebio").style.display = "none";
     }
     setTimeout(function () {checkVerified(id); }, 10);
+    document.getElementById("load").style.display = "none";
+    document.getElementById("thepage").style.display = "";
 }
