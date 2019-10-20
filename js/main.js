@@ -200,6 +200,8 @@ window.onload = function () {
         document.getElementById("list").innerHTML = 'Aurora could not connect to the Aurora could not load the feed from the STiBaRC servers. Check your Internet connection on your device and the STiBaRC server status <a href="https://status.stibarc.com/">here</a>.STiBaRC services. Check to see if you are connected and also check the server status.';
     }
     startNotifs();
+    document.getElementById("load").style.display = "none";
+    document.getElementById("thepage").style.display = "";
     //Credit to Ben Brooks Scholz for browser detection JS code.
     var browser,
         version,
@@ -289,6 +291,4 @@ window.onload = function () {
             document.getElementById("agp").style.left = "0";
         }, 1000);
     }
-    document.getElementById("load").style.display = "none";
-    document.getElementById("thepage").style.display = "";
 }

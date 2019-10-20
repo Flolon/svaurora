@@ -1,5 +1,5 @@
 {
-  "notice": "T",
+  "notice": "F",
   "title": "Test ANNOUNCEMENT",
-  "content": "This is just a test announcement.<a href=\"post.html?id=2674\">Learn More</a>."
+  "content": "This is just a test announcement. <a href=\"post.html?id=2674\">Learn More</a>."
 }
