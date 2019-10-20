@@ -93,7 +93,7 @@ function getSVAnnounce() {
         if (xhr.responseText != "\n") {
             var tmp = JSON.parse(xhr.responseText);
             var svanf = tmp['notice']
-            if (svanf = "T") {
+            if (svanf == "T") {
                 document.getElementsByTagName("body")[0].innerHTML = '<br><br><br><div id="announce" style="text-align:center;background-color:#0083ff;word-wrap:break-word;padding:15px;color:white"><h2>' + tmp['title'] + '</h2>' + tmp['content'] + '</div>' + document.getElementsByTagName("body")[0].innerHTML;
             }
         }
