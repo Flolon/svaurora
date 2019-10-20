@@ -138,6 +138,8 @@ window.onload = function () {
     var user = window.localStorage.getItem("username");
     var pfp = ("GET", "https://api.stibarc.com/v2/getuserpfp.sjs?id=" + user, false);
     var sess = window.localStorage.getItem("sess");
+    document.getElementById("load").style.display = "none";
+    document.getElementById("thepage").style.display = "";
     if (sess != undefined && sess != null && sess != "") {
         checkSess();
         document.getElementById("loggedout").style.display = "none";
@@ -200,8 +202,6 @@ window.onload = function () {
         document.getElementById("list").innerHTML = 'Aurora could not connect to the Aurora could not load the feed from the STiBaRC servers. Check your Internet connection on your device and the STiBaRC server status <a href="https://status.stibarc.com/">here</a>.STiBaRC services. Check to see if you are connected and also check the server status.';
     }
     startNotifs();
-    document.getElementById("load").style.display = "none";
-    document.getElementById("thepage").style.display = "";
     //Credit to Ben Brooks Scholz for browser detection JS code.
     var browser,
         version,
